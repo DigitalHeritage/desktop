@@ -45,7 +45,8 @@
 
     <div class="container edit" v-if="active=='modify'" style="padding:35px 0;">
       <div v-for="(property, key) in artwork" style="padding-bottom:6px;" v-bind:key="key" v-bind:title="property">
-        <template><strong>{{key}}</strong><br/><input v-model="artwork[key]" /></template>
+        <template v-if="key !== 'Description'" ><strong>{{key}}</strong><br/><input v-model="artwork[key]" /></template>
+        <template v-else><strong>{{key}}</strong><br/><textarea v-model="artwork[key]"></textarea></template>
       </div>
     </div>
 
@@ -62,7 +63,11 @@ import Artworks from '../../public/artworks-guardian.json';
 // @ is an alias to /src
 export default {
   name: "Home",
-  components: {
+  props: { 
+    id: {
+      type: String,
+      required: false,
+    },
   },
   data:function() {
     return {
@@ -91,9 +96,11 @@ export default {
   methods: {
     showNext() {
       if(this.current<(Artworks.length - 1)) this.current++;
+      this.artwork=Artworks[this.current];
     },
     showPrev() {
       if(this.current>0) this.current--;
+      this.artwork=Artworks[this.current];
     },
     activateJson() {
       this.active='json';
@@ -103,7 +110,10 @@ export default {
       this.artwork=JSON.parse(this.json);
     },
   },
-  created() { 
+  created() {
+    if(this.id !== undefined) {
+      this.current=parseInt(this.id);
+    }
     this.artwork=Artworks[this.current];
   }
 };
@@ -122,9 +132,13 @@ export default {
   font-family: monospace;
   font-size:14px;
 }
-.edit input {
+.edit input,
+.edit textarea {
   width:100%;
   font-family: monospace;
   font-size:14px;
+}
+.edit textarea {
+  height:80px;
 }
 </style>
