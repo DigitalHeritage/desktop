@@ -18,8 +18,10 @@
     <div class="container">
     <div id="navbarSecondary" class="navbar-menu navbar-secondary">
       <div class="navbar-start">
-          <a class="navbar-item" :class="{ 'is-active' : active=='browse' }" @click="active = 'browse'">Browse the collection</a>
-          <a class="navbar-item" :class="{ 'is-active' : active=='edit' }" @click="active= 'edit'">Edit collection</a>
+          <a class="navbar-item" :class="{ 'is-active' : active=='browse' }" @click="active = 'browse'">Browse</a>
+          <a class="navbar-item" :class="{ 'is-active' : active=='edit' }" @click="active= 'edit'">Edit</a>
+          <a class="navbar-item" :class="{ 'is-active' : active=='downloadJson' }" @click="downloadJson">Download</a>
+          <a class="navbar-item" :class="{ 'is-active' : active=='importUrl' }" @click="active = 'importUrl'">Import URL</a>
       </div>
       <div class="navbar-end">
       </div>
@@ -62,6 +64,10 @@
       <template v-else><strong>{{key}}</strong><br/><textarea v-model="artwork[key]"></textarea></template>
     </div>
   </div>
+
+  <div class="container importURL" v-if="active=='importUrl'" style="padding:35px 0;">
+    Import from URL
+  </div>
 </div>
 
 
@@ -69,6 +75,14 @@
 
 <script>
 import Artworks from '../../public/artworks-guardian.json';
+
+function downloadTextFile(text, name) {
+  const a = document.createElement('a');
+  const type = name.split(".").pop();
+  a.href = URL.createObjectURL( new Blob([text], { type:`text/${type === "txt" ? "plain" : type}` }) );
+  a.download = name;
+  a.click();
+}
 
 // @ is an alias to /src
 export default {
@@ -85,6 +99,10 @@ export default {
   computed: {
   },
   methods: {
+    downloadJson() {
+      let filename = (this.metadata.filename ? this.metadata.filename : "collection.json")
+      downloadTextFile(JSON.stringify({_metadata: this.metadata, data: this.artworks}), filename);
+    }
   },
   created() { 
     this.artworks=Artworks.data;
