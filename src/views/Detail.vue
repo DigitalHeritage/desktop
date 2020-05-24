@@ -95,12 +95,12 @@ export default {
   },
   methods: {
     showNext() {
-      if(this.current<(Artworks.length - 1)) this.current++;
-      this.artwork=Artworks[this.current];
+      if(this.current<(Artworks.data.length - 1)) this.current++;
+      this.artwork=Artworks.data[this.current];
     },
     showPrev() {
       if(this.current>0) this.current--;
-      this.artwork=Artworks[this.current];
+      this.artwork=Artworks.data[this.current];
     },
     activateJson() {
       this.active='json';
@@ -114,7 +114,7 @@ export default {
     if(this.id !== undefined) {
       this.current=parseInt(this.id);
     }
-    this.artwork=Artworks[this.current];
+    this.artwork=Artworks.data[this.current];
   }
 };
 </script>
