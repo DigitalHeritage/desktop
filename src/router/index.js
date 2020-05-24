@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Collections from "../views/Collections";
 import Collection from "../views/Collection";
 import Detail from "../views/Detail";
@@ -10,8 +9,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Collections",
+    component: Collections
   },
   {
     path: "/about",
@@ -23,13 +22,13 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/collections",
-    name: "Collections",
-    component: Collections
-  },
-  {
     path: "/collection",
     name: "Collection",
+    component: Collection
+  },
+  {
+    path: "/collection/:id",
+    name: "CollectionId",
     component: Collection
   },
   {
