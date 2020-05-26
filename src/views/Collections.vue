@@ -18,8 +18,8 @@
       <div class="container">
       <div id="navbarSecondary" class="navbar-menu navbar-secondary">
         <div class="navbar-start">
-          <router-link class="navbar-item is-active" to="/collection">Browse collections</router-link>
-          <router-link class="navbar-item" to="/detail">Add a collection</router-link>
+          <router-link class="navbar-item is-active" to="/collection"><i class="material-icons">library_books</i> Browse collections</router-link>
+          <a class="navbar-item" @click="addNewCollection"><i class="material-icons">library_add</i>Add a collection</a>
         </div>
         <div class="navbar-end">
         </div>
@@ -28,23 +28,25 @@
       </nav>
     </section>
 
-    <div class="collections-list container" v-for="(collection, key) of collections" v-bind:key="key" v-bind:title="collection">
-      <router-link to="/collection/0">
+    <div class="collections-list container">
+      <div v-for="(collection, key) of collections" v-bind:key="key">
+      <router-link :to="{ path: '/collection/'+ key}">
       <div class="card is-one-third">
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">{{collection.metadata.Title}}</p>
-              <p class="subtitle is-6">{{collection.metadata.Subtitle}}</p>
+              <p class="title is-4">{{collection._metadata.Title}}</p>
+              <p class="subtitle is-6">{{collection._metadata.Subtitle}}</p>
             </div>
           </div>
 
           <div class="content">
-            <i>{{collection.metadata.Description.substring(0,114)}}...</i>
+            <i>{{collection._metadata.Description.substring(0,114)}}...</i>
           </div>
         </div>
       </div>
       </router-link>
+      </div>
     </div> 
   </div>
 </template>
@@ -56,13 +58,22 @@ export default {
   name: "Collections",
   data: function() {
     return { 
-      collections : [
-        {
-          data: Artworks._metadata, 
-          metadata: Artworks._metadata
-        }  
-      ]
-      
+      collections : Artworks
+    }
+  },
+  methods: {
+    addNewCollection() {
+      let target = "/collection/" + this.collections.length;
+      let template = {
+          "_metadata": {
+            "Title":"My collection " + this.collections.length,
+            "Subtitle": "How would I call it ?",
+            "Description": "",
+            "filename":""
+          }, "_data":[{}]
+      };
+      this.collections.push(template);
+      this.$router.push(target);
     }
   }
 };
