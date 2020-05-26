@@ -19,12 +19,13 @@
       <div id="navbarSecondary" class="navbar-menu navbar-secondary">
         <div class="navbar-start">
           <a class="navbar-item" @click="showPrev"><i class="material-icons">keyboard_arrow_left</i></a>
-          <a class="navbar-item" @click="active='detail'" :class="{ 'is-active' : active=='detail' }"><i class="material-icons">desktop_mac</i> Affichage détaillé</a>
-          <a class="navbar-item" @click="active='modify'" :class="{ 'is-active' : active=='modify' }" ><i class="material-icons">create</i> Modifier</a> 
-          <a class="navbar-item" @click="activateJson" :class="{ 'is-active' : active=='json' }" to="/collection"><i class="material-icons">reorder</i> Modifier JSON</a> 
-          <a class="navbar-item" to="/detail"><i class="material-icons">photo_library</i> Images associées</a> 
+          <a class="navbar-item" @click="active='detail'" :class="{ 'is-active' : active=='detail' }"><i class="material-icons">desktop_mac</i> View</a>
+          <a class="navbar-item" @click="active='modify'" :class="{ 'is-active' : active=='modify' }" ><i class="material-icons">create</i> Edit</a>
+          <a class="navbar-item" @click="activateJson" :class="{ 'is-active' : active=='json' }" to="/collection"><i class="material-icons">reorder</i> Edit JSON</a>
+          <a class="navbar-item" to="/detail"><i class="material-icons">photo_library</i> Images</a>
         </div>
         <div class="navbar-end">
+          <a class="navbar-item" @click="deleteArtwork"><i class="material-icons">delete</i> Delete</a>
           <a class="navbar-item" @click="showNext"><i class="material-icons">keyboard_arrow_right</i></a>
         </div>
       </div>
@@ -45,8 +46,8 @@
 
     <div class="container edit" v-if="active=='modify'" style="padding:35px 0;">
       <div v-for="(property, key) in artwork" style="padding-bottom:6px;" v-bind:key="key" v-bind:title="property">
-        <template v-if="key !== 'Description'" ><strong>{{key}}</strong><br/><input v-model="artwork[key]" /></template>
-        <template v-else><strong>{{key}}</strong><br/><textarea v-model="artwork[key]"></textarea></template>
+        <template v-if="key !== 'Description'" ><strong>{{key}}</strong><br/><input v-model="artwork[key]" class="input" :placeholder="key"/></template>
+        <template v-else><strong>{{key}}</strong><br/><textarea v-model="artwork[key]" class="textarea" :placeholder="key"></textarea></template>
       </div>
     </div>
 
@@ -74,7 +75,8 @@ export default {
       current: 0,
       active: "detail",
       json: "",
-      artwork: {}
+      artwork: {},
+      collectionId: 0
     }
   },
   computed: {
@@ -95,12 +97,12 @@ export default {
   },
   methods: {
     showNext() {
-      if(this.current<(Artworks.data.length - 1)) this.current++;
-      this.artwork=Artworks.data[this.current];
+      if(this.current<(Artworks[0].data.length - 1)) this.current++;
+      this.artwork=Artworks[0].data[this.current];
     },
     showPrev() {
       if(this.current>0) this.current--;
-      this.artwork=Artworks.data[this.current];
+      this.artwork=Artworks[0].data[this.current];
     },
     activateJson() {
       this.active='json';
@@ -109,12 +111,16 @@ export default {
     updateArtworkFromJson() {
       this.artwork=JSON.parse(this.json);
     },
+    deleteArtwork() {
+      Artworks[this.collectionId].data.splice(this.current, 1);
+      this.$router.push("/collection/"+this.collectionId);
+    }
   },
   created() {
     if(this.id !== undefined) {
       this.current=parseInt(this.id);
     }
-    this.artwork=Artworks.data[this.current];
+    this.artwork=Artworks[this.collectionId].data[this.current];
   }
 };
 </script>
@@ -135,8 +141,6 @@ export default {
 .edit input,
 .edit textarea {
   width:100%;
-  font-family: monospace;
-  font-size:14px;
 }
 .edit textarea {
   height:80px;
