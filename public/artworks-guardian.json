@@ -7,6 +7,11 @@
   },
   "data": [
     {
+      "_metadata": {
+        "Title": "Mona Lisa",
+        "Date": "1503",
+        "Geo": [48.864824, 2.33459]
+      },
       "Title": "Mona Lisa",
       "Date": "ca 1503",
       "Location": "The Louvre, Paris",
@@ -16,6 +21,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-mona-lisa.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "Girl with a Pearl Earring",
+        "Date": "1665",
+        "Geo": [52.0704978, 4.3006999]
+      },
       "Title": "Girl with a Pearl Earring",
       "Date": "ca 1665",
       "Location": "The Mauritshuis, The Hague",
@@ -25,6 +35,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-Pearl-Earring.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "Blotter",
+        "Date": "1993",
+        "Geo": [53.41,-2.9796]
+      },
       "Title": "Blotter",
       "Date": "1993",
       "Location": "Walker Art Gallery, Liverpool",
@@ -34,6 +49,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Birth of Venus",
+        "Date": "1485-1486",
+        "Geo": [43.7686, 11.2552]
+      },
       "Title": "The Birth of Venus",
       "Date": "1485-1486",
       "Location": "Uffizi Gallery, Florence",
@@ -43,6 +63,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-the-birth-of-venus-Botticelli.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "Sistine Chapel ceiling",
+        "Date": "1508",
+        "Geo": [41.902916, 12.453389]
+      },
       "Title": "Sistine Chapel ceiling",
       "Date": "1508",
       "Location": "Vatican City",
@@ -52,6 +77,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-sistine-chapel-ceiling-1512.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Kiss",
+        "Date": "1907-1908",
+        "Geo": [48.188165914, 16.374665168]
+      },
       "Title": "The Kiss",
       "Date": "1907-1908",
       "Location": "the Österreichische Galerie Belvedere, Vienna",
@@ -61,6 +91,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Kiss-Gustav-Klimt.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "Impression, Sunrise",
+        "Date": "1872",
+        "Geo": [48.8658153456673, 2.30194434277337]
+      },
       "Title": "Impression, Sunrise",
       "Date": "1872",
       "Location": "The Musée Marmottan Monet, Paris",
@@ -70,6 +105,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-impression-sunrise-monet.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Great Wave",
+        "Date": "1829-1832",
+        "Geo": [51.520172119, -0.126564994]
+      },
       "Title": "The Great Wave",
       "Date": "1829-1832",
       "Location": "The British Museum, London",
@@ -79,6 +119,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Great-Wave-Hokusai.png?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Starry Night",
+        "Date": "1889",
+        "Geo": [40.761433, -73.977622]
+      },
       "Title": "The Starry Night",
       "Date": "1889",
       "Location": "The Museum of Modern Art, New York",
@@ -88,6 +133,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-the-Starry-Night-Vincent-van-Gogh.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Night Watch",
+        "Date": "1642",
+        "Geo": [52.360001, 4.885278]
+      },
       "Title": "The Night Watch",
       "Date": "1642",
       "Location": "Rijksmuseum, Amsterdam",
@@ -97,6 +147,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Rembrandt-The-Night-Watch.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "The Raft of the Medusa",
+        "Date": "1818-1819",
+        "Geo": [48.864824, 2.334595]
+      },
       "Title": "The Raft of the Medusa",
       "Date": "1818-1819",
       "Location": "The Louvre, Paris",
@@ -106,6 +161,11 @@
       "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Raft-of-the-Medusa-Gericault.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
     },
     {
+      "_metadata": {
+        "Title": "I Could Feel You",
+        "Date": "2014",
+        "Geo": [51.4910, -0.1270]
+      },
       "Title": "I Could Feel You",
       "Date": "2014",
       "Location": "Tate Britain, London",
