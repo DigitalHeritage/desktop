@@ -37,3 +37,20 @@ $input-shadow: none;
     color: #0b0875 !important;
     border-radius: 8px 8px 0 0;
 }
+.zoomable {
+    cursor: zoom-in;
+}
+
+#fullscreenimage {
+    z-index:200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:black;
+    cursor: zoom-out;
+}
