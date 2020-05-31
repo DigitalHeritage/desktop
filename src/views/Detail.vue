@@ -1,14 +1,17 @@
 <template>
   <div class="home">
+    <div :style="{backgroundImage:'url('+artwork.Image+')', display: (zoom ? 'block' : 'none') }" v-focus @click="zoom = false" @keyup.esc="zoom = false" id="fullscreenimage"></div>
     <section class="hero is-primary" :style="{backgroundImage:'url('+artwork.Image+')'}">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
+            <router-link :to="'/collection/' + collectionId"><span class="tag is-primary is-pulled-right">{{ collectionName }}</span></router-link>
             {{ artwork.Title }}
           </h1>
           <h2 class="subtitle">
             {{ artwork.Author }}
           </h2>
+          <p></p>
         </div>
       </div>
     <nav
@@ -22,7 +25,7 @@
           <a class="navbar-item" @click="active='detail'" :class="{ 'is-active' : active=='detail' }"><i class="material-icons">desktop_mac</i> View</a>
           <a class="navbar-item" @click="active='modify'" :class="{ 'is-active' : active=='modify' }" ><i class="material-icons">create</i> Edit</a>
           <a class="navbar-item" @click="activateJson" :class="{ 'is-active' : active=='json' }" to="/collection"><i class="material-icons">reorder</i> Edit JSON</a>
-          <a class="navbar-item" to="/detail"><i class="material-icons">photo_library</i> Images</a>
+          <a class="navbar-item" @click="active='images'"><i class="material-icons">photo_library</i> Images</a>
         </div>
         <div class="navbar-end">
           <a class="navbar-item" @click="deleteArtwork"><i class="material-icons">delete</i> Delete</a>
@@ -35,7 +38,7 @@
         
     <div class="container" v-if="active=='detail'" style="padding:35px 0;">
       <div class="columns is-desktop">
-        <div class="column is-one-third"><img :src="image" /></div>
+        <div class="column is-one-third"><img :src="image" @click="zoom = true" class="zoomable"/></div>
         <div class="column">
           <div v-for="(property, key) in record" style="padding-bottom:6px;" v-bind:key="key" v-bind:title="property">
             <template v-if="property"><strong>{{key}}</strong> {{property}}</template>
@@ -55,6 +58,33 @@
       <textarea v-model="json" placeholder="ajoutez plusieurs lignes"></textarea>
       <button class="button is-success" @click="updateArtworkFromJson">Actualiser</button>
     </div>
+
+    <div class="container" v-if="active=='images'" style="padding:35px 0;">
+      <div class="columns is-desktop">
+        <div class="column is-one-third"><img :src="image" @click="zoom = true" class="zoomable"/></div>
+        <div class="column is-one-third">
+          <h2>Remplacer l'image</h2>
+          <img :src="previewimage" class="uploading-image" />
+          <button v-if="previewimage" class="button is-success" @click="updateImage">Utiliser cette image</button>&nbsp;
+          <button v-if="previewimage" class="button is-warning" @click="previewimage = null">Annuler</button>
+
+          <div class="file is-boxed" v-if="!previewimage" >
+            <label class="file-label">
+              <input type="file" accept="image/jpeg" class="file-input" @change=uploadImage />
+              <span class="file-cta">
+                <span class="material-icons">
+                add_a_photo
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -76,7 +106,9 @@ export default {
       active: "detail",
       json: "",
       artwork: {},
-      collectionId: 0
+      collectionId: 0,
+      previewimage: null,
+      zoom: false
     }
   },
   computed: {
@@ -89,20 +121,25 @@ export default {
     record: function() {
       let result=Object.assign({}, this.artwork);
       delete result.Image;
+      delete result._metadata;
       return result;
     },
     image: function() {
       return this.artwork.Image;
+    },
+    collectionName() {
+      return Artworks[this.collectionId]._metadata.Title;
     }
+
   },
   methods: {
     showNext() {
-      if(this.current<(Artworks[0].data.length - 1)) this.current++;
-      this.artwork=Artworks[0].data[this.current];
+      if(this.current<(Artworks[this.collectionId].data.length - 1)) this.current++;
+      this.artwork=Artworks[this.collectionId].data[this.current];
     },
     showPrev() {
       if(this.current>0) this.current--;
-      this.artwork=Artworks[0].data[this.current];
+      this.artwork=Artworks[this.collectionId].data[this.current];
     },
     activateJson() {
       this.active='json';
@@ -114,6 +151,22 @@ export default {
     deleteArtwork() {
       Artworks[this.collectionId].data.splice(this.current, 1);
       this.$router.push("/collection/"+this.collectionId);
+    },
+    uploadImage(e){
+      const image = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = e => {
+        this.previewimage = e.target.result;
+        console.log(this.previewimage);
+      };
+    },
+    updateImage(){
+      this.artwork.Image = this.previewimage;
+      this.previewimage = null;
+    },
+    zoomImage() {
+
     }
   },
   created() {
