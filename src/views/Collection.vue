@@ -19,13 +19,13 @@
     <div id="navbarSecondary" class="navbar-menu navbar-secondary">
       <div class="navbar-start">
         <a class="navbar-item" :class="{ 'is-active' : active=='browse' }" @click="active = 'browse'"><i class="material-icons">view_module</i> Browse</a>
-          <a class="navbar-item" :class="{ 'is-active' : active=='edit' }" @click="active= 'edit'"><i class="material-icons">create</i> Edit</a>
-          <a class="navbar-item" :class="{ 'is-active' : active=='downloadJson' }" @click="downloadJson"><i class="material-icons">save</i> Download</a>
-          <a class="navbar-item" :class="{ 'is-active' : active=='loadURL' }" @click="active = 'loadURL'"><i class="material-icons">link</i> Load from URL</a>
-        <a class="navbar-item" :class="{ 'is-active' : active=='loadFile' }" @click="active = 'loadFile'"><i class="material-icons">insert_drive_file</i> Load file</a>
+        <a class="navbar-item" :class="{ 'is-active' : active=='timeline' }" @click="active = 'timeline'"><i class="material-icons">straighten</i> Timeline</a>
+        <a class="navbar-item" :class="{ 'is-active' : active=='map' }" @click="active = 'map'"><i class="material-icons">room</i> Map</a>
+        <a class="navbar-item" :class="{ 'is-active' : active=='edit' }" @click="active= 'edit'"><i class="material-icons">create</i> Edit</a>
+        <a class="navbar-item" :class="{ 'is-active' : active=='addAnItem' }" @click="addAnItem"><i class="material-icons">note_add</i> Add an item</a>
+        <a class="navbar-item" :class="{ 'is-active' : active=='options' }" @click="active = 'options'"><i class="material-icons">settings</i> Options</a>
       </div>
       <div class="navbar-end">
-        <a class="navbar-item" @click="deleteCollection"><i class="material-icons">delete</i> Delete </a>
       </div>
     </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="media-left">
           <figure class="image is-48x48">
             <router-link :to="'/detail/' + index">
-              <img :src="artwork.Image" :alt="artwork.Title">
+              <img v-if="artwork.Image" :src="artwork.Image" :alt="artwork.Title">
             </router-link >
           </figure>
         </div>
@@ -103,6 +103,72 @@
     <button style="margin-top:12px" class="button is-primary" @click.prevent="loadFile">Load file</button>
   </div>
 
+  <div class="container options" v-if="active=='options'" style="padding:35px 0;">
+    <div class="columns">
+      <div class="column is-one-quarter-desktop is-half-mobile">
+        <a class="button is-primary" @click="downloadJson"><i class="material-icons">save</i> Download</a>
+      </div>
+      <div class="column is-three-quarters-desktop is-half-mobile">
+        Download the collection as a single JSON file
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-one-quarter-desktop is-half-mobile">
+        <a class="button is-info" @click="active = 'loadFile'"><i class="material-icons">insert_drive_file</i> Load file</a>
+      </div>
+      <div class="column is-three-quarters-desktop is-half-mobile">
+        Replace this collection by a JSON file
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-one-quarter-desktop is-half-mobile">
+        <a class="button is-info" @click="active = 'loadURL'"><i class="material-icons">link</i> Load from URL</a>
+      </div>
+      <div class="column is-three-quarters-desktop is-half-mobile">
+        Replace this collection by an online JSON
+      </div>
+    </div>
+    <hr/>
+    <div class="columns">
+      <div class="column is-one-quarter-desktop is-half-mobile">
+        <a class="button is-danger" @click="deleteCollection"><i class="material-icons">delete</i> Delete this collection</a>
+      </div>
+      <div class="column is-three-quarters-desktop is-half-mobile">
+
+      </div>
+    </div>
+
+  </div>
+
+  <div  v-if="active=='map'">
+    <l-map
+            style="height: 700px; width: 100%"
+            :zoom="zoom"
+            :center="center"
+            @update:zoom="mapZoomUpdated"
+            @update:center="mapCenterUpdated"
+            @update:bounds="mapBoundsUpdated"
+    >
+      <l-tile-layer :url="url"></l-tile-layer>
+      <l-marker v-for="(marker) of markers" :lat-lng="marker.geo" :key="marker">
+        <l-popup>
+          <div @click="markerClick(marker.id)" style="cursor:pointer">
+            <table style="border:none;">
+              <tr><td style="padding-right:6px;"><img :src="marker.image" style="width:40px;height:auto;"/></td><td>{{ marker.name }}</td></tr>
+            </table>
+          </div>
+          <div class="is-clearfix"></div>
+        </l-popup>
+      </l-marker>
+    </l-map>
+  </div>
+
+  <div  v-if="active=='timeline'">
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <div id='timeline-embed' style="width: 100%; height: 600px"></div>
+
+  </div>
+
 </div>
 
 
@@ -110,6 +176,10 @@
 
 <script>
 import Artworks from '../../public/artworks-guardian.json';
+import L from "leaflet";
+import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet';
+//import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 function downloadTextFile(text, name) {
   const a = document.createElement('a');
@@ -123,6 +193,10 @@ function downloadTextFile(text, name) {
 export default {
   name: "Collection",
   components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+    LPopup
   },
   data:function() {
     return {
@@ -133,7 +207,12 @@ export default {
       result: "",
       fileSelectedMessage: "No file selected",
       json: "",
-      collectionId: 0
+      collectionId: 0,
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      zoom: 3,
+      center: [47.413220, -1.219482],
+      bounds: null,
+      markers: []
     }
   },
   computed: {
@@ -183,12 +262,50 @@ export default {
     deleteCollection() {
       Artworks.splice(this.collectionId, 1);
       this.$router.push("/");
+    },
+    addAnItem() {
+      let lastnum = this.artworks.length-1;
+      // Cloning the last item into an object
+      let item = Object.assign({}, this.artworks[lastnum]);
+      // Removing the property values
+      for (var prop in item) {
+        item[prop] = "";
+      }
+      item["Title"]="New item";
+      console.log(item);
+      this.artworks.push(item);
+      this.active = 'browse';
+    },
+    mapZoomUpdated (zoom) {
+      this.zoom = zoom;
+    },
+    mapCenterUpdated (center) {
+      this.center = center;
+    },
+    mapBoundsUpdated (bounds) {
+      this.bounds = bounds;
+    },
+    markerClick(id) {
+      this.$router.push("/detail/" + id);
     }
   },
   created() {
     this.collectionId=(this.$route.params.id ? this.$route.params.id : 0);
     this.artworks=Artworks[this.collectionId].data;
     this.metadata=Artworks[this.collectionId]._metadata;
+    for (let i = 0; i < this.artworks.length; i++) {
+      // Geo is inside _metada.Geo
+      // TODO : group by same Geo, for Paris Louvre
+      this.markers.push(
+        {
+          geo: L.latLng(this.artworks[i]._metadata.Geo[0], this.artworks[i]._metadata.Geo[1]),
+          name: this.artworks[i]._metadata.Title,
+          id: i,
+          image: this.artworks[i].Image
+        }
+      );
+    }
+
   }
 };
 </script>
@@ -219,5 +336,4 @@ export default {
   vertical-align: middle;
   display:inline;
 }
-
 </style>
