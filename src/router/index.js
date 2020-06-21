@@ -41,6 +41,12 @@ const routes = [
     name: "DetailId",
     component: Detail,
     props: true
+  },
+  {
+    path: "/detail/:coll/:id",
+    name: "DetailCollId",
+    component: Detail,
+    props: true
   }
 ];
 
