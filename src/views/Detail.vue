@@ -35,7 +35,7 @@
       </div>
       </nav>
     </section>
-        
+
     <div class="container" v-if="active=='detail'" style="padding:35px 0;">
       <div class="columns is-desktop">
         <div class="column is-one-third"><img :src="image" @click="zoom = true" class="zoomable"/></div>
@@ -89,12 +89,16 @@
 </template>
 
 <script>
-import Artworks from '../../public/artworks-guardian.json';
+import Collections from '../../public/collections.json';
 
 // @ is an alias to /src
 export default {
   name: "Home",
-  props: { 
+  props: {
+    coll: {
+      type: Number,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
@@ -128,18 +132,18 @@ export default {
       return this.artwork.Image;
     },
     collectionName() {
-      return Artworks[this.collectionId]._metadata.Title;
+      return Collections[this.collectionId]._metadata.Title;
     }
 
   },
   methods: {
     showNext() {
-      if(this.current<(Artworks[this.collectionId].data.length - 1)) this.current++;
-      this.artwork=Artworks[this.collectionId].data[this.current];
+      if(this.current<(Collections[this.collectionId].data.length - 1)) this.current++;
+      this.artwork=Collections[this.collectionId].data[this.current];
     },
     showPrev() {
       if(this.current>0) this.current--;
-      this.artwork=Artworks[this.collectionId].data[this.current];
+      this.artwork=Collections[this.collectionId].data[this.current];
     },
     activateJson() {
       this.active='json';
@@ -149,7 +153,7 @@ export default {
       this.artwork=JSON.parse(this.json);
     },
     deleteArtwork() {
-      Artworks[this.collectionId].data.splice(this.current, 1);
+      Collections[this.collectionId].data.splice(this.current, 1);
       this.$router.push("/collection/"+this.collectionId);
     },
     uploadImage(e){
@@ -173,7 +177,10 @@ export default {
     if(this.id !== undefined) {
       this.current=parseInt(this.id);
     }
-    this.artwork=Artworks[this.collectionId].data[this.current];
+    if(this.coll !== undefined) {
+      this.collectionId=parseInt(this.coll);
+    }
+    this.artwork=Collections[this.collectionId].data[this.current];
   }
 };
 </script>
