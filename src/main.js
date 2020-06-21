@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 require('./assets/digitalheritage.scss');
 require('../node_modules/material-design-icons/iconfont/material-icons.css');
-import Artworks from '../public/artworks-guardian.json';
+import Collections from '../public/collections.json';
 import { Icon } from 'leaflet';
 
 delete Icon.Default.prototype._getIconUrl;
@@ -18,7 +18,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   data: {
-    artworks: Artworks
+    artworks: Collections
   },
   render: h => h(App)
 }).$mount("#app");
