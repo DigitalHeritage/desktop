@@ -4,14 +4,18 @@
       "Title":"30 artworks to see before you die",
       "Subtitle":"Charlotte Cripps chooses 30 masterpieces to visit in public galleries all over the world",
       "Description": "What makes a great painting? Is it one that makes you wonder how on earth the artist reproduced a scene so precisely in paint? Or ones that capture emotion in a single brushstroke? Or simply something utterly beautiful? Art lovers can amble around Paris’s the Louvre, New York’s Moma, Madrid’s Prado, Florence’s Uffizi Gallery and London’s Tate Gallery – even Venice’s Sistine Chapel, looking at walls (and ceilings) full of art. But there is something altogether different about going to see one particular artwork – a masterpiece – and examining what makes it special, marvelling at the colours they used, the symbolism in the painting, the art movement their work spearheaded, and even the mystery of the sitter.",
-      "filename":"artworks-guardian.json"
+      "filename":"artworks-guardian.json",
+      "_title": "",
+      "_image": ""
     },
     "data": [
       {
         "_metadata": {
           "Title": "Mona Lisa",
+          "Subtitle": "Leonardo da Vinci",
           "Date": "1503",
-          "Geo": [48.864824, 2.33459]
+          "Geo": [48.864824, 2.33459],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-mona-lisa.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "Mona Lisa",
         "Date": "ca 1503",
@@ -24,8 +28,10 @@
       {
         "_metadata": {
           "Title": "Girl with a Pearl Earring",
+          "Subtitle": "Johannes Vermeer",
           "Date": "1665",
-          "Geo": [52.0704978, 4.3006999]
+          "Geo": [52.0704978, 4.3006999],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-Pearl-Earring.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "Girl with a Pearl Earring",
         "Date": "ca 1665",
@@ -38,8 +44,10 @@
       {
         "_metadata": {
           "Title": "Blotter",
+          "Subtitle": "Leonardo da Vinci",
           "Date": "1993",
-          "Geo": [53.41,-2.9796]
+          "Geo": [53.41,-2.9796],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "Blotter",
         "Date": "1993",
@@ -52,8 +60,10 @@
       {
         "_metadata": {
           "Title": "The Birth of Venus",
+          "Subtitle": "Sandro Botticelli",
           "Date": "1485-1486",
-          "Geo": [43.7686, 11.2552]
+          "Geo": [43.7686, 11.2552],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Birth of Venus",
         "Date": "1485-1486",
@@ -61,13 +71,15 @@
         "Author": "Sandro Botticelli",
         "Description": "The Renaissance painting is the highlight of the Uffizi in Florence for good reason – it's a triumphant celebration of female beauty. Venus, with her long flowing hair, has been blown by the gentle breeze onto the shore of Cyprus and balances on a giant scallop shell. A young woman, thought to be Hora of spring or one of the graces, holds out a cloak covered in flowers.",
         "Credits": "",
-        "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-the-birth-of-venus-Botticelli.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
         "_metadata": {
           "Title": "Sistine Chapel ceiling",
+          "Subtitle": "Michelangelo",
           "Date": "1508",
-          "Geo": [41.902916, 12.453389]
+          "Geo": [41.902916, 12.453389],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-sistine-chapel-ceiling-1512.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "Sistine Chapel ceiling",
         "Date": "1508",
@@ -81,7 +93,8 @@
         "_metadata": {
           "Title": "The Kiss",
           "Date": "1907-1908",
-          "Geo": [48.188165914, 16.374665168]
+          "Geo": [48.188165914, 16.374665168],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Kiss-Gustav-Klimt.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Kiss",
         "Date": "1907-1908",
@@ -95,7 +108,8 @@
         "_metadata": {
           "Title": "Impression, Sunrise",
           "Date": "1872",
-          "Geo": [48.8658153456673, 2.30194434277337]
+          "Geo": [48.8658153456673, 2.30194434277337],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-impression-sunrise-monet.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "Impression, Sunrise",
         "Date": "1872",
@@ -109,7 +123,8 @@
         "_metadata": {
           "Title": "The Great Wave",
           "Date": "1829-1832",
-          "Geo": [51.520172119, -0.126564994]
+          "Geo": [51.520172119, -0.126564994],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Great-Wave-Hokusai.png?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Great Wave",
         "Date": "1829-1832",
@@ -123,7 +138,8 @@
         "_metadata": {
           "Title": "The Starry Night",
           "Date": "1889",
-          "Geo": [40.761433, -73.977622]
+          "Geo": [40.761433, -73.977622],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-the-Starry-Night-Vincent-van-Gogh.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Starry Night",
         "Date": "1889",
@@ -137,7 +153,8 @@
         "_metadata": {
           "Title": "The Night Watch",
           "Date": "1642",
-          "Geo": [52.360001, 4.885278]
+          "Geo": [52.360001, 4.885278],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Rembrandt-The-Night-Watch.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Night Watch",
         "Date": "1642",
@@ -151,7 +168,8 @@
         "_metadata": {
           "Title": "The Raft of the Medusa",
           "Date": "1818-1819",
-          "Geo": [48.864824, 2.334595]
+          "Geo": [48.864824, 2.334595],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Raft-of-the-Medusa-Gericault.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "The Raft of the Medusa",
         "Date": "1818-1819",
@@ -165,7 +183,8 @@
         "_metadata": {
           "Title": "I Could Feel You",
           "Date": "2014",
-          "Geo": [51.4910, -0.1270]
+          "Geo": [51.4910, -0.1270],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/tracey-emin-i-could-feel-you-.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
         },
         "Title": "I Could Feel You",
         "Date": "2014",
@@ -176,6 +195,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/tracey-emin-i-could-feel-you-.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Mt St Victoire",
+          "Date": "1895",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Mt-St-Victoire-Cezanne.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Mt St Victoire",
         "Date": "ca 1895",
         "Location": "Princeton University Art Museum, New Jersey",
@@ -185,6 +210,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Mt-St-Victoire-Cezanne.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Les Demoiselles d'Avignon",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Les-Demoiselles-dAvignon.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Les Demoiselles d'Avignon",
         "Date": "1907",
         "Location": "Museum of Modern Art, New York",
@@ -194,6 +225,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Les-Demoiselles-dAvignon.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "The Bride Stripped Bare by Her Bachelors, Even",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Bride-Stripped-Bare-by-Her-Bachelors.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "The Bride Stripped Bare by Her Bachelors, Even",
         "Date": "1915-1923",
         "Location": "Philadelphia Museum of Art, Philadelphia",
@@ -203,6 +240,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Bride-Stripped-Bare-by-Her-Bachelors.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Campbell's Soup Cans",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Campbells-Soup-Cans.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Campbell's Soup Cans",
         "Date": "1962",
         "Location": "Museum of Modern Art, New York",
@@ -212,6 +255,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Campbells-Soup-Cans.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "The Garden of Earthy Delights",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Garden-of-Earthy-Delights.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "The Garden of Earthy Delights",
         "Date": "1503-1515",
         "Location": "Museo del Prado, Madrid",
@@ -221,6 +270,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Garden-of-Earthy-Delights.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Flag",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Flag-Jasper-Johns.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Flag",
         "Date": "1954-1955",
         "Location": "Museum of Modern Art, New York",
@@ -230,6 +285,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Flag-Jasper-Johns.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Anthraquinone-1-Diazonium Chloride",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/damien-hirst-anthraquinone-1-diazonium-chloride-1994.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Anthraquinone-1-Diazonium Chloride",
         "Date": "1994",
         "Location": "Tate Liverpool",
@@ -239,6 +300,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/damien-hirst-anthraquinone-1-diazonium-chloride-1994.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "The Persistence of Memory",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Persistence-of-Memory.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "The Persistence of Memory",
         "Date": "1931",
         "Location": "Museum of Modern Art, New York",
@@ -248,6 +315,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Persistence-of-Memory.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Girl with a White Dog",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-White-Dog.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Girl with a White Dog",
         "Date": "1951",
         "Location": "Tate, London",
@@ -257,6 +330,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-White-Dog.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "The Scream",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Scream.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "The Scream",
         "Date": "1893",
         "Location": "The National Museum, Oslo",
@@ -266,6 +345,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Scream.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "The Nightmare",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Nightmare.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "The Nightmare",
         "Date": "1781",
         "Location": "Detroit Institute of Art, Michigan",
@@ -275,6 +360,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Nightmare.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Nataraja",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/bridget-riley-nataraja-1993.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Nataraja",
         "Date": "1993",
         "Location": "Tate Modern, London",
@@ -284,6 +375,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/bridget-riley-nataraja-1993.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Autumn Rhythm (Number 30)",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/18/pollock.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Autumn Rhythm (Number 30)",
         "Date": "1950",
         "Location": "Metropolitan Museum of Art, New York",
@@ -293,6 +390,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/18/pollock.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Le Déjeuner sur l’herbe",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Le-Dejeuner-sur-lherbe.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Le Déjeuner sur l’herbe",
         "Date": "1862",
         "Location": "Musée d’Orsay, Paris",
@@ -302,6 +405,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Le-Dejeuner-sur-lherbe.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Self-Portrait with Thorn Necklace and Hummingbird",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Frida-Kahlo-Self-Portrait.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Self-Portrait with Thorn Necklace and Hummingbird",
         "Date": "1940",
         "Location": "Harry Ransom Center, University of Texas, Austin",
@@ -311,6 +420,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Frida-Kahlo-Self-Portrait.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Las Meninas",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/01/16/las-meninas-by-diego-velazquez.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Las Meninas",
         "Date": "1656",
         "Location": "Museo Nacional del Prado, Madrid, Spain",
@@ -320,6 +435,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/01/16/las-meninas-by-diego-velazquez.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Conversation",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/top-artworks-the-Conversation.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Conversation",
         "Date": "1908-1912",
         "Location": "State Hermitage Museum, St Petersburg",
@@ -329,6 +450,12 @@
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/top-artworks-the-Conversation.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
       },
       {
+        "_metadata": {
+          "Title": "Ophelia",
+          "Date": "",
+          "Geo": [0, 0],
+          "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/12/21/11/death-of-ophelia.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+        },
         "Title": "Ophelia",
         "Date": "1851-1852",
         "Location": "Tate Britain, London",
@@ -340,6 +467,14 @@
     ]
   },
   {
+    "_metadata": {
+      "Title":"Musée des Augustins",
+      "Subtitle":"",
+      "Description": "",
+      "filename":"augustins.json",
+      "_title":"fields.designation",
+      "_image":"fields.image.filename"
+    },
     "data": [
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "77f60ec93dce4b8ce4202946517e783a1915559f", "fields": {"donateur_vendeur": "MARQUESTE, Mme Vve Laurent Honr\u00e9  particulier", "designation_3": "esquisse", "designation": "Femme assise", "matiere": "terre cuite", "technique": "modelage", "num_inventaire": "RA 1047 T", "mesure_1": "Hauteur : 20", "domaine": "Sculpture", "mesure_3": "Profondeur : 18", "localisation": "mus\u00e9e des Augustins", "date_acqui": "1921-01-01", "numero_acquisition": "1921.3", "auteur_1": "MARQUESTE, Laurent-Honor\u00e9", "designation_2": "figurine", "mode_acquisition": "Don", "mesure_2": "Largeur : 11", "datation_1": "1851-1900", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "datation_2": "1901-1925"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "28490221317694ee38968324d86ed5d13c2b92aa", "fields": {"donateur_vendeur": "MARQUESTE, Mme Vve Laurent Honr\u00e9  particulier", "designation_3": "maquette", "designation": "Saint-Sa\u00ebns", "matiere": "terre cuite", "technique": "modelage", "num_inventaire": "RA 1047 X", "mesure_1": "Hauteur : 31", "domaine": "Sculpture", "mesure_3": "Profondeur : 24", "localisation": "mus\u00e9e des Augustins", "date_acqui": "1921-01-01", "numero_acquisition": "1921.3", "auteur_1": "MARQUESTE, Laurent-Honor\u00e9", "designation_2": "statuette", "mode_acquisition": "Don", "mesure_2": "Largeur : 13.5", "inscription_type_1": "Insc. conc. la technique", "datation_1": "1851-1900", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "datation_2": "1901-1925"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
@@ -4046,7 +4181,7 @@
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "85ce58f48664f17a3a70bfcab333ab9c498dc7ee", "fields": {"auteur_1": "MARQUESTE, Laurent-Honor\u00e9", "matiere": "pl\u00e2tre", "image": {"format": "JPEG", "thumbnail": true, "height": 1200, "width": 801, "filename": "074-068.jpg", "id": "e42fd89648857566adea89059edcb8df"}, "mesure_1": "Hauteur : 191", "mesure_2": "Largeur : 170", "mesure_3": "Profondeur : 130", "inscription_transcr": "LH MARQUESTE ROMA 1875", "datation_1": "1875 : date du modelage original", "datation_2": "1887 apr\u00e8s : date approximative", "donateur_vendeur": "Etat", "designation_2": "groupe reli\u00e9", "credit_photo": "\u00a9 Photo Daniel Martin", "inscription_emplace": "S.D. AR. / la tranche du socle", "num_inventaire": "2004 1 185", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "designation": "Pers\u00e9e et Gorgone", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "inscription_type_2": "Insc. conc. le lieu", "domaine": "Sculpture", "inscription_type_1": "Signature", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "numero_acquisition": "2004.1"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "b500de67383373e207d1df2f1c4967da81abe180", "fields": {"donateur_vendeur": "Etat", "designation": "Jeune mendiant", "matiere": "bois", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "technique": "taille", "num_inventaire": "2004 1 187", "mesure_1": "Hauteur : 61", "domaine": "Sculpture", "mesure_3": "Profondeur : 36", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "numero_acquisition": "2004.1", "auteur_1": "LARROUX, Antonin", "designation_2": "buste \u00e0 mi-corps", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "mesure_2": "Largeur : 38", "datation_1": "1903", "credit_photo": "\u00a9 Photo Daniel Martin"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "570fbd81ce75f020c8df98cec6ffc50db3ef1bf0", "fields": {"inscription_transcr": "A.GUILLEMET 1905", "donateur_vendeur": "Etat", "num_inventaire": "2004 1 192", "designation": "La Falaise d'Equihen", "matiere": "toile", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "technique": "peinture \u00e0 l'huile", "inscription_type_2": "Date", "mesure_1": "Hauteur : 90", "numero_acquisition": "2004.1", "auteur_1": "GUILLEMET, Antoine", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "domaine": "Peinture", "designation_2": "tableau", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "mesure_2": "Largeur : 125", "inscription_type_1": "Signature", "datation_1": "1905", "credit_photo": "\u00a9 Photo Bernard Delorme", "inscription_emplace": "S.D. en bas \u00e0 gauche"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
-		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "a6dfc7c7fb9b45de373d0dc97b63e38341fd5401", "fields": {"inscription_transcr": "J.PIERRE LAURENS 1906", "donateur_vendeur": "Etat", "num_inventaire": "2004 1 194", "designation": "Portrait de mes parents", "matiere": "toile", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "technique": "peinture \u00e0 l'huile", "inscription_type_2": "Date", "mesure_1": "Hauteur : 167", "numero_acquisition": "2004.1", "auteur_1": "LAURENS, Jean-Pierre", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "domaine": "Peinture", "designation_2": "tableau", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "mesure_2": "Largeur : 186", "inscription_type_1": "Signature", "datation_1": "1906", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "inscription_emplace": "S.D.D."}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
+		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "a6dfc7c7fb9b45de373d0dc97b63e38341fd5401", "fields": {"inscription_transcr": "J.PIERRE LAURENS 1906", "donateur_vendeur": "Etat", "num_inventaire": "2004 1 194", "designation": "Portrait de mes parents", "matiere": "toile", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "techn  ique": "peinture \u00e0 l'huile", "inscription_type_2": "Date", "mesure_1": "Hauteur : 167", "numero_acquisition": "2004.1", "auteur_1": "LAURENS, Jean-Pierre", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "domaine": "Peinture", "designation_2": "tableau", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "mesure_2": "Largeur : 186", "inscription_type_1": "Signature", "datation_1": "1906", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "inscription_emplace": "S.D.D."}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "938a0349a17aad06ea2aace3051d3c63b123dc53", "fields": {"auteur_2": "Anonyme italien ?", "donateur_vendeur": "Etat", "designation": "Triomphe", "matiere": "toile", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "technique": "peinture \u00e0 l'huile", "num_inventaire": "2004 1 198", "mesure_1": "Hauteur : 136", "domaine": "Peinture", "auteur_1": "ROMAIN, Jules", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "numero_acquisition": "2004.1", "precision_auteur_1": "D'apr\u00e8s, ?", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "mesure_2": "Largeur : 230", "datation_1": "1501-1600 ?", "designation_2": "tableau", "credit_photo": "\u00a9 Photo Bernard Delorme"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "4fd1c20c00d3fa6136dbda20c29dd4f04131ccd9", "fields": {"auteur_1": "VERELST, Pieter", "matiere": "Bois de ch\u00eane \u00e0 fil vertical", "mesure_1": "Hauteur : 72.3", "mesure_2": "Largeur : 55", "mesure_3": "Hauteur avec cadre en cm : 90", "inscription_transcr": "P.VERELST 1648", "datation_1": "1648", "prov_geo": "Ch\u00e2teau de Salzdahlum", "donateur_vendeur": "Etat", "designation_2": "tableau", "credit_photo": "\u00a9 Photo Daniel Martin", "inscription_emplace": "S.D. en bas \u00e0 droite", "num_inventaire": "2004 1 200", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "designation": "T\u00eate de vieillard", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "inscription_type_2": "Date", "domaine": "Peinture", "inscription_type_1": "Signature", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat", "numero_acquisition": "2004.1"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "eba86a5c101b550017c5676b01086f3f3d88cf37", "fields": {"auteur_1": "Anonyme", "matiere": "marbre", "image": {"format": "JPEG", "thumbnail": true, "height": 1200, "width": 404, "filename": "065-084.jpg", "id": "43cf8446097e15bc6735f52d00e1c1c8"}, "mesure_1": "Hauteur : 164", "mesure_2": "Largeur : 41", "mesure_3": "Profondeur : 22", "numero_acquisition": "2004.1", "datation_1": "1180 entre", "datation_2": "1210 et", "donateur_vendeur": "Etat", "technique": "taille directe", "site_de_collecte": "/ Couvent des Cordeliers : \u00e9glise : Toulouse", "designation_3": "partie d'un groupe non reli\u00e9", "designation_2": "statue", "prov_geo": "Toulouse", "credit_photo": "\u00a9 Photo Daniel Martin", "num_inventaire": "2004 1 202", "localisation": "mus\u00e9e des Augustins", "date_acqui": "2004-04-02", "fonction_usage": "d\u00e9cor d'architecture", "designation": "Annonciation : La Vierge", "notes_aquisition_2": "En application de l'article 13 de la loi du 4 janvier 2002 relative aux mus\u00e9es de France, disposant que les collections appartenant \u00e0 l'Etat mises en d\u00e9p\u00f4t avant le 7 octobre 1910 dans les mus\u00e9es de France appartenant aux collectivit\u00e9s territoriales, font l'objet d'un transfert de propri\u00e9t\u00e9.", "domaine": "Sculpture", "mode_acquisition": "Transfert de propri\u00e9t\u00e9 de l'Etat"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
