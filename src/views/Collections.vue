@@ -35,30 +35,30 @@
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">{{collection._metadata.Title}}</p>
-              <p class="subtitle is-6">{{collection._metadata.Subtitle}}</p>
+              <p class="title is-4">{{getCollectionTitle(collection)}}</p>
+              <p class="subtitle is-6">{{getCollectionSubtitle(collection)}}</p>
             </div>
           </div>
 
           <div class="content">
-            <i>{{collection._metadata.Description.substring(0,114)}}...</i>
+            <i>{{getCollectionDescription(collection).substring(0,114)}}...</i>
           </div>
         </div>
       </div>
       </router-link>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
-import Artworks from '../../public/artworks-guardian.json';
+import Collections from '../../public/collections.json';
 
 export default {
   name: "Collections",
   data: function() {
-    return { 
-      collections : Artworks
+    return {
+      collections : Collections
     }
   },
   methods: {
@@ -74,6 +74,27 @@ export default {
       };
       this.collections.push(template);
       this.$router.push(target);
+    },
+    getCollectionTitle(collection) {
+      if(collection._metadata && collection._metadata.Title) {
+        return collection._metadata.Title
+      } else {
+        return "Collection..."
+      }
+    },
+    getCollectionSubtitle(collection) {
+      if(collection._metadata && collection._metadata.Subtitle) {
+        return collection._metadata.Subtitle
+      } else {
+        return ""
+      }
+    },
+    getCollectionDescription(collection) {
+      if(collection._metadata && collection._metadata.Description) {
+        return collection._metadata.Description
+      } else {
+        return ""
+      }
     }
   }
 };
