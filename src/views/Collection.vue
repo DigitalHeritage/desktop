@@ -24,40 +24,41 @@
                 class="navbar-item"
                 :class="{ 'is-active': active === 'browse' }"
                 @click="active = 'browse'"
-                ><i class="material-icons">view_module</i> Browse</a
+                ><i class="material-icons">view_module</i> {{ $t("browse") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'timeline' }"
                 @click="active = 'timeline'"
-                ><i class="material-icons">straighten</i> Timeline</a
+                ><i class="material-icons">straighten</i>
+                {{ $t("timeline") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'map' }"
                 @click="active = 'map'"
-                ><i class="material-icons">room</i> Map</a
+                ><i class="material-icons">room</i> {{ $t("map") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'edit' }"
                 @click="active = 'edit'"
-                ><i class="material-icons">create</i> Edit</a
+                ><i class="material-icons">create</i> {{ $t("edit") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'addAnItem' }"
                 @click="addAnItem"
-                ><i class="material-icons">note_add</i> Add an item</a
+                ><i class="material-icons">note_add</i> {{ $t("addItem") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'options' }"
                 @click="active = 'options'"
-                ><i class="material-icons">settings</i> Options</a
+                ><i class="material-icons">settings</i> {{ $t("options") }}</a
               >
               <a class="navbar-item" @click="preload"
-                ><i class="material-icons">run_circle</i> Preload</a
+                ><i class="material-icons">run_circle</i> {{ $t("preload") }}</a
               >
             </div>
             <div class="navbar-end"></div>
@@ -148,11 +149,11 @@
         class="button is-primary"
         @click.prevent="loadURL"
       >
-        Load from URL
+        {{ $t("loadURL") }}
       </button>
       <article style="margin-top:30px;" class="message is-gray">
         <div class="message-header">
-          Need an example ?
+          {{ $t("needExample") }}
         </div>
         <div class="message-body">
           <div class="content">
@@ -167,7 +168,7 @@
       v-if="active === 'loadFile'"
       style="padding:35px 0;"
     >
-      <label class="label">Load a file</label>
+      <label class="label">{{ $t("loadFile") }}</label>
       <div id="file-js-example" class="file has-name">
         <label class="file-label">
           <input
@@ -179,7 +180,7 @@
           <span class="file-cta">
             <i class="material-icons">attach_file</i>&nbsp;
             <span class="file-label">
-              Choose a file…
+              {{ $t("chooseFile") }}
             </span>
           </span>
           <span class="file-name">
@@ -192,7 +193,7 @@
         class="button is-primary"
         @click.prevent="loadFile"
       >
-        Load file
+        {{ $t("loadFile2") }}
       </button>
     </div>
 
@@ -204,38 +205,40 @@
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-primary" @click="downloadJson"
-            ><i class="material-icons">save</i> Download</a
+            ><i class="material-icons">save</i> {{ $t("downloadButton") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Download the collection as a single JSON file
+          {{ $t("downloadText") }}
         </div>
       </div>
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-info" @click="active = 'loadFile'"
-            ><i class="material-icons">insert_drive_file</i> Load file</a
+            ><i class="material-icons">insert_drive_file</i>
+            {{ $t("loadFile2") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Replace this collection by a JSON file
+          {{ $t("replaceText") }}
         </div>
       </div>
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-info" @click="active = 'loadURL'"
-            ><i class="material-icons">link</i> Load from URL</a
+            ><i class="material-icons">link</i> {{ $t("loadURL") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Replace this collection by an online JSON
+          {{ $t("replaceOnlineText") }}
         </div>
       </div>
       <hr />
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-danger" @click="deleteCollection"
-            ><i class="material-icons">delete</i> Delete this collection</a
+            ><i class="material-icons">delete</i>
+            {{ $t("deleteCollection") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile"></div>
@@ -289,6 +292,9 @@ import L from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 //import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
+import i18n from "@/i18n";
+
+console.log("Active locale: ", i18n.locale);
 
 function downloadTextFile(text, name) {
   const a = document.createElement("a");
@@ -489,6 +495,49 @@ export default {
 }
 
 .media-content .subtitle {
-  margin-top:4px;
+  margin-top: 4px;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "browse": "Browse",
+    "timeline": "Timeline",
+    "map": "Map",
+    "edit": "Edit",
+    "addItem": "Add an item",
+    "options": "Options",
+    "preload": "Preload",
+    "loadURL": "Load from URL",
+    "needExample": "Need an example ?",
+    "loadFile": "Load a file",
+    "chooseFile": "Choose a file…",
+    "loadFile2": "Load file",
+    "downloadButton": "Download",
+    "downloadText": "Download the collection as a single JSON file",
+    "replaceText": "Replace this collection by a JSON file",
+    "replaceOnlineText": "Replace this collection by an online JSON",
+    "deleteCollection": "Delete this collection"
+  },
+  "fr": {
+    "browse": "Parcourir",
+    "timeline": "Frise chronologique",
+    "map": "Carte",
+    "edit": "Editer",
+    "addItem": "Ajouter un objet",
+    "options": "Options",
+    "preload": "Pré-charger",
+    "loadURL": "Charger depuis une URL",
+    "needExample": "Besoin d'un exemple ?",
+    "loadFile": "Charger un fichier",
+    "chooseFile": "Choisir un fichier…",
+    "loadFile2": "Charger le fichier",
+    "downloadButton": "Télécharger",
+    "downloadText": "Télécharger la collection en un unique fichier JSON",
+    "replaceText": "Remplacer cette collection par un fichier JSON",
+    "replaceOnlineText": "Remplacer cette collection par un fichier JSON en ligne",
+    "deleteCollection": "Supprimer cette collection"
+  }
+}
+</i18n>
