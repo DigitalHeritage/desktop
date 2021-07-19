@@ -187,8 +187,6 @@
 </template>
 
 <script>
-import Collections from "../../public/collections.json";
-
 // @ is an alias to /src
 export default {
   name: "Home",
@@ -230,18 +228,18 @@ export default {
       return this.artwork.Image;
     },
     collectionName() {
-      return Collections[this.collectionId]._metadata.Title;
+      return this.$Collections[this.collectionId]._metadata.Title;
     }
   },
   methods: {
     showNext() {
-      if (this.current < Collections[this.collectionId].data.length - 1)
+      if (this.current < this.$Collections[this.collectionId].data.length - 1)
         this.current++;
-      this.artwork = Collections[this.collectionId].data[this.current];
+      this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
     showPrev() {
       if (this.current > 0) this.current--;
-      this.artwork = Collections[this.collectionId].data[this.current];
+      this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
     activateJson() {
       this.active = "json";
@@ -249,9 +247,12 @@ export default {
     },
     updateArtworkFromJson() {
       this.artwork = JSON.parse(this.json);
+      this.$Collections[this.collectionId].data[this.current] = JSON.parse(
+        this.json
+      );
     },
     deleteArtwork() {
-      Collections[this.collectionId].data.splice(this.current, 1);
+      this.$Collections[this.collectionId].data.splice(this.current, 1);
       this.$router.push("/collection/" + this.collectionId);
     },
     uploadImage(e) {
@@ -276,7 +277,7 @@ export default {
     if (this.coll !== undefined) {
       this.collectionId = parseInt(this.coll);
     }
-    this.artwork = Collections[this.collectionId].data[this.current];
+    this.artwork = this.$Collections[this.collectionId].data[this.current];
   }
 };
 </script>

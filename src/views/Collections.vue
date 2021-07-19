@@ -26,6 +26,12 @@
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i>{{ $t("add") }}</a
               >
+              <a class="navbar-item" @click="saveLocal"
+                >Enregistrer dans le navigateur</a
+              >
+              <a class="navbar-item" @click="loadLocal"
+                >Charger du navigateur</a
+              >
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -63,13 +69,11 @@
 </template>
 
 <script>
-import Collections from "../../public/collections.json";
-
 export default {
   name: "Collections",
   data: function() {
     return {
-      collections: Collections
+      collections: this.$Collections
     };
   },
   methods: {
@@ -107,6 +111,31 @@ export default {
       } else {
         return "";
       }
+    },
+    saveLocal() {
+      let iterator = 0;
+      this.collections.forEach(collection => {
+        //console.log(collection);
+        localStorage.setItem(
+          "digitalheritage-collection-" + iterator,
+          JSON.stringify(collection)
+        );
+        iterator++;
+      });
+    },
+    loadLocal() {
+      //console.log(this.$Collections);
+      this.$Collections = [];
+      for (let index = 0; index < localStorage.length; index++) {
+        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
+          console.log(localStorage.getItem(localStorage.key(index)));
+          //Now load the collections
+          this.$Collections.push(
+            JSON.parse(localStorage.getItem(localStorage.key(index)))
+          );
+        }
+      }
+      //console.log(this.$Collections);
     }
   }
 };

@@ -26,6 +26,7 @@
                 @click="active = 'browse'"
                 ><i class="material-icons">view_module</i> {{ $t("browse") }}</a
               >
+              <!-- Timeline is bugged right now
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'timeline' }"
@@ -33,6 +34,7 @@
                 ><i class="material-icons">straighten</i>
                 {{ $t("timeline") }}</a
               >
+              -->
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'map' }"
@@ -66,21 +68,36 @@
         </div>
       </nav>
     </section>
+    <!-- Search bar goes here -->
+    <div v-if="active === 'browse'">
+      <input
+        class="search-input"
+        type="text"
+        v-bind:placeholder="$t('searchHere')"
+        v-model="search"
+      />
+    </div>
     <div class="cards-container" v-if="active === 'browse'">
       <div
         class="card"
-        v-for="(artwork, index) of artworks"
+        v-for="(artwork, index) in filteredList"
         :key="`${index}`"
         :style="{ backgroundImage: 'url(' + artwork._metadata.Image + ')' }"
       >
-        <router-link :to="'/detail/' + collectionId + '/' + index">
+        <router-link
+          :to="'/detail/' + collectionId + '/' + artwork._metadata.index"
+        >
           <div class="card-content"></div>
         </router-link>
         <footer class="card-footer">
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <router-link :to="'/detail/' + collectionId + '/' + index">
+                <router-link
+                  :to="
+                    '/detail/' + collectionId + '/' + artwork._metadata.index
+                  "
+                >
                   <img
                     v-if="artwork._metadata.Image"
                     :src="artwork._metadata.Image"
@@ -91,7 +108,11 @@
             </div>
             <div class="media-content">
               <div class="media-content-inner">
-                <router-link :to="'/detail/' + collectionId + '/' + index">
+                <router-link
+                  :to="
+                    '/detail/' + collectionId + '/' + artwork._metadata.index
+                  "
+                >
                   <div v-if="artwork._metadata">
                     <p class="subtitle is-7">
                       {{ artwork._metadata.Subtitle }}
@@ -238,6 +259,7 @@
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-danger" @click="deleteCollection"
             ><i class="material-icons">delete</i>
+            <img src="" alt="" sizes="" srcset="" />
             {{ $t("deleteCollection") }}</a
           >
         </div>
@@ -285,7 +307,6 @@
 </template>
 
 <script>
-import Collections from "../../public/collections.json";
 import jsponpath from "jsonpath";
 import _ from "lodash";
 import L from "leaflet";
@@ -329,10 +350,46 @@ export default {
       zoom: 3,
       center: [47.41322, -1.219482],
       bounds: null,
-      markers: []
+      markers: [],
+      search: ""
     };
   },
-  computed: {},
+  computed: {
+    filteredList() {
+      let filteredArray = [];
+      for (let index = 0; index < this.artworks.length; index++) {
+        if (this.artworks[index]._metadata != undefined) {
+          if (this.artworks[index]._metadata.Title != undefined) {
+            if (
+              this.artworks[index]._metadata.Title.toLowerCase().includes(
+                this.search.toLowerCase()
+              )
+            ) {
+              //this.artworks[index].Author.toLowerCase().includes(this.search.toLowerCase()) ||
+              //Save the oldIndex in metadata to prevent from messing with URLs
+              let elem = this.artworks[index];
+              elem._metadata.index = index;
+              filteredArray.push(elem);
+            }
+          }
+        } else {
+          this.createMetadata(this.artworks[index]);
+          if (
+            this.artworks[index]._metadata.Title.toLowerCase().includes(
+              this.search.toLowerCase()
+            )
+          ) {
+            //this.artworks[index].Author.toLowerCase().includes(this.search.toLowerCase()) ||
+            //Save the oldIndex in metadata to prevent from messing with URLs
+            let elem = this.artworks[index];
+            elem._metadata.index = index;
+            filteredArray.push(elem);
+          }
+        }
+      }
+      return filteredArray;
+    }
+  },
   methods: {
     downloadJson() {
       let filename = this.metadata.filename
@@ -381,7 +438,7 @@ export default {
       fr.readAsText(files.item(0));
     },
     deleteCollection() {
-      Collections.splice(this.collectionId, 1);
+      this.$Collections.splice(this.collectionId, 1);
       this.$router.push("/");
     },
     addAnItem() {
@@ -393,6 +450,8 @@ export default {
         item[prop] = "";
       }
       item["Title"] = "New item";
+      item["_metadata"] = {};
+      item._metadata.Title = "";
       console.log(item);
       this.artworks.push(item);
       this.active = "browse";
@@ -425,13 +484,21 @@ export default {
         console.log(artworks[index]._metadata);
       });
       window.history.pushState("", "", "/collection/" + this.collectionId);
+    },
+    createMetadata(object) {
+      object._metadata = {};
+      object._metadata.Title = "";
     }
   },
   created() {
     this.collectionId = this.$route.params.id ? this.$route.params.id : 0;
-    this.artworks = Collections[this.collectionId].data;
-    if (Collections[this.collectionId]._metadata) {
-      this.metadata = Collections[this.collectionId]._metadata;
+    this.artworks = this.$Collections[this.collectionId].data;
+    if (this.artworks === undefined) {
+      this.artworks = [];
+    }
+    console.log(this.artworks);
+    if (this.$Collections[this.collectionId]._metadata) {
+      this.metadata = this.$Collections[this.collectionId]._metadata;
     } else {
       this.metadata = {
         Title: "Collection...",
@@ -497,6 +564,12 @@ export default {
 .media-content .subtitle {
   margin-top: 4px;
 }
+
+.search-input {
+  width: 100%;
+  border: none;
+  padding: 14px;
+}
 </style>
 
 <i18n>
@@ -518,7 +591,8 @@ export default {
     "downloadText": "Download the collection as a single JSON file",
     "replaceText": "Replace this collection by a JSON file",
     "replaceOnlineText": "Replace this collection by an online JSON",
-    "deleteCollection": "Delete this collection"
+    "deleteCollection": "Delete this collection",
+    "searchHere": "Search here ..."
   },
   "fr": {
     "browse": "Parcourir",
@@ -537,7 +611,8 @@ export default {
     "downloadText": "Télécharger la collection en un unique fichier JSON",
     "replaceText": "Remplacer cette collection par un fichier JSON",
     "replaceOnlineText": "Remplacer cette collection par un fichier JSON en ligne",
-    "deleteCollection": "Supprimer cette collection"
+    "deleteCollection": "Supprimer cette collection",
+    "searchHere": "Rechercher ici ..."
   }
 }
 </i18n>

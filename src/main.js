@@ -15,6 +15,7 @@ Icon.Default.mergeOptions({
 });
 
 Vue.config.productionTip = false;
+Vue.prototype.$Collections = Collections;
 
 new Vue({
   router,
