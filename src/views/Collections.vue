@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 export default {
   name: "Collections",
   data: function() {
@@ -124,18 +126,15 @@ export default {
       });
     },
     loadLocal() {
-      //console.log(this.$Collections);
-      this.$Collections = [];
+      Vue.prototype.$Collections = [];
       for (let index = 0; index < localStorage.length; index++) {
         if (localStorage.key(index).startsWith("digitalheritage-collection")) {
-          console.log(localStorage.getItem(localStorage.key(index)));
-          //Now load the collections
-          this.$Collections.push(
+          Vue.prototype.$Collections.push(
             JSON.parse(localStorage.getItem(localStorage.key(index)))
           );
         }
       }
-      //console.log(this.$Collections);
+      this.collections = this.$Collections;
     }
   }
 };

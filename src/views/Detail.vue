@@ -246,6 +246,7 @@ export default {
       this.json = JSON.stringify(this.artwork, null, 2);
     },
     updateArtworkFromJson() {
+      console.log(this.$Collections);
       this.artwork = JSON.parse(this.json);
       this.$Collections[this.collectionId].data[this.current] = JSON.parse(
         this.json
