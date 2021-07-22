@@ -25,7 +25,7 @@
             {{ artwork.Title }}
           </h1>
           <h2 class="subtitle">
-            {{ artwork.Author }}
+            {{ artwork.Subtitle }}
           </h2>
           <p></p>
         </div>
@@ -112,7 +112,11 @@
       >
         <template v-if="key !== 'Description'"
           ><strong>{{ key }}</strong
-          ><br /><input v-model="artwork[key]" class="input" :placeholder="key"
+          ><br /><input
+            v-model="artwork[key]"
+            class="input"
+            :placeholder="key"
+            @change="changeProperty(key)"
         /></template>
         <template v-else
           ><strong>{{ key }}</strong
@@ -216,7 +220,7 @@ export default {
       return this.artwork.Title;
     },
     subtitle() {
-      return this.artwork.Author;
+      return this.artwork.Subtitle;
     },
     record: function() {
       let result = Object.assign({}, this.artwork);
@@ -269,7 +273,13 @@ export default {
       this.artwork.Image = this.previewimage;
       this.previewimage = null;
     },
-    zoomImage() {}
+    zoomImage() {},
+    changeProperty(key) {
+      if (key === "Title" || key === "Subtitle" || key === "Image") {
+        //Change metadata according to the edited fields of an item to keep persistence
+        this.artwork._metadata[key] = this.artwork[key];
+      }
+    }
   },
   created() {
     if (this.id !== undefined) {
@@ -278,6 +288,7 @@ export default {
     if (this.coll !== undefined) {
       this.collectionId = parseInt(this.coll);
     }
+
     this.artwork = this.$Collections[this.collectionId].data[this.current];
   }
 };

@@ -88,7 +88,7 @@ export default {
           Description: "",
           filename: ""
         },
-        _data: [{}]
+        data: [{}]
       };
       this.collections.push(template);
       this.$router.push(target);
@@ -115,6 +115,7 @@ export default {
       }
     },
     saveLocal() {
+      //TODO When a collection is deleted, we have to deleted it in the local storage as well otherwise it's loaded on again
       let iterator = 0;
       this.collections.forEach(collection => {
         //console.log(collection);

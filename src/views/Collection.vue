@@ -365,7 +365,6 @@ export default {
                 this.search.toLowerCase()
               )
             ) {
-              //this.artworks[index].Author.toLowerCase().includes(this.search.toLowerCase()) ||
               //Save the oldIndex in metadata to prevent from messing with URLs
               let elem = this.artworks[index];
               elem._metadata.index = index;
@@ -379,7 +378,6 @@ export default {
               this.search.toLowerCase()
             )
           ) {
-            //this.artworks[index].Author.toLowerCase().includes(this.search.toLowerCase()) ||
             //Save the oldIndex in metadata to prevent from messing with URLs
             let elem = this.artworks[index];
             elem._metadata.index = index;
@@ -401,7 +399,7 @@ export default {
       );
     },
     loadURL() {
-      // To test, use : https://api.digitalheritage.fr/artworks-guardian.php
+      // To test, use : https://api.digitalheritage.fr/artworks-guardian.php'
 
       if (!this.URL) return;
       fetch(this.URL)
@@ -445,13 +443,18 @@ export default {
       let lastnum = this.artworks.length - 1;
       // Cloning the last item into an object
       let item = Object.assign({}, this.artworks[lastnum]);
+      console.log(item);
       // Removing the property values
       for (var prop in item) {
         item[prop] = "";
       }
       item["Title"] = "New item";
+      item["Image"] = "https://via.placeholder.com/150";
+      item["Subtitle"] = "Subtitle";
       item["_metadata"] = {};
-      item._metadata.Title = "";
+      item._metadata.Title = "New item";
+      item._metadata.Image = "https://via.placeholder.com/150";
+      item._metadata.Subtitle = "Subtitle";
       console.log(item);
       this.artworks.push(item);
       this.active = "browse";
@@ -487,7 +490,13 @@ export default {
     },
     createMetadata(object) {
       object._metadata = {};
-      object._metadata.Title = "";
+      object["Title"] = "New item";
+      object["Image"] = "https://via.placeholder.com/150";
+      object["Subtitle"] = "Subtitle";
+      object["_metadata"] = {};
+      object._metadata.Title = "New item";
+      object._metadata.Image = "https://via.placeholder.com/150";
+      object._metadata.Subtitle = "Subtitle";
     }
   },
   created() {
