@@ -24,13 +24,14 @@
                 ><i class="material-icons">library_books</i> {{ $t("browse") }}
               </router-link>
               <a class="navbar-item" @click="addNewCollection"
-                ><i class="material-icons">library_add</i>{{ $t("add") }}</a
+                ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
               <a class="navbar-item" @click="saveLocal"
-                >Enregistrer dans le navigateur</a
+                ><i class="material-icons">save</i> Enregistrer dans le
+                navigateur</a
               >
               <a class="navbar-item" @click="loadLocal"
-                >Charger du navigateur</a
+                ><i class="material-icons">update</i> Charger du navigateur</a
               >
             </div>
             <div class="navbar-end"></div>
@@ -65,6 +66,24 @@
         </router-link>
       </div>
     </div>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Charger depuis le navigateur ?</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          Voulez vous charger vos données depuis le navigateur ?
+        </section>
+        <footer class="modal-card-foot">
+          <div class="has-text-centered">
+            <button class="button is-success">Oui</button>
+            <button class="button">Non</button>
+          </div>
+        </footer>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -78,7 +97,20 @@ export default {
       collections: this.$Collections
     };
   },
+  mounted: function() {
+    if (this.$PremiereOuverture) {
+      for (let index = 0; index < localStorage.length; index++) {
+        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
+          this.openModal();
+        }
+      }
+      Vue.prototype.$PremiereOuverture = false;
+    }
+  },
   methods: {
+    openModal() {
+      console.log("open model ?");
+    },
     addNewCollection() {
       let target = "/collection/" + this.collections.length;
       let template = {
@@ -115,7 +147,12 @@ export default {
       }
     },
     saveLocal() {
-      //TODO When a collection is deleted, we have to deleted it in the local storage as well otherwise it's loaded on again
+      //delete the localStorage first to prevent deleted collections to be loaded after
+      for (let index = 0; index < localStorage.length; index++) {
+        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
+          localStorage.removeItem(localStorage.key(index));
+        }
+      }
       let iterator = 0;
       this.collections.forEach(collection => {
         //console.log(collection);

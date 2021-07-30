@@ -62,10 +62,10 @@
           <div class="navbar-item">
             <LocaleSwitcher />
             <div class="buttons">
-              <a class="button is-primary">
+              <a class="button is-primary" href="/inscription">
                 <strong>{{ $t("signup") }}</strong>
               </a>
-              <a class="button is-light">
+              <a class="button is-light" href="/connexion">
                 {{ $t("login") }}
               </a>
             </div>

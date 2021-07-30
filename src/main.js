@@ -16,6 +16,8 @@ Icon.Default.mergeOptions({
 
 Vue.config.productionTip = false;
 Vue.prototype.$Collections = Collections;
+Vue.prototype.$PremiereOuverture = true;
+Vue.prototype.$API_db_name = "gm_ideesculture_com";
 
 new Vue({
   router,

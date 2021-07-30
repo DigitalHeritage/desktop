@@ -59,6 +59,9 @@
                 @click="active = 'options'"
                 ><i class="material-icons">settings</i> {{ $t("options") }}</a
               >
+              <a class="navbar-item" @click="loadFromDB">
+                <i class="material-icons">settings</i> Charger depuis DB
+              </a>
               <a class="navbar-item" @click="preload"
                 ><i class="material-icons">run_circle</i> {{ $t("preload") }}</a
               >
@@ -314,6 +317,7 @@ import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 //import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
 import i18n from "@/i18n";
+import Vue from "vue";
 
 console.log("Active locale: ", i18n.locale);
 
@@ -389,6 +393,27 @@ export default {
     }
   },
   methods: {
+    loadFromDB() {
+      //console.log("----------BEFORE----------");
+      //console.log(Vue.prototype.$Collections[this.collectionId].data);
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open(
+        "GET",
+        "http://api.digitalheritage.fr/gm_ideesculture_com/digital-heritage-collection-0",
+        false
+      );
+      xmlHttp.send(null);
+      Vue.prototype.$Collections[this.collectionId].data = JSON.parse(
+        xmlHttp.responseText
+      );
+
+      //console.log("----------AFTER----------");
+      //console.log(Vue.prototype.$Collections[this.collectionId].data);
+
+      this.artworks = JSON.parse(xmlHttp.responseText);
+    },
+
     downloadJson() {
       let filename = this.metadata.filename
         ? this.metadata.filename

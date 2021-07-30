@@ -85,6 +85,16 @@
           <img :src="image" @click="zoom = true" class="zoomable" />
         </div>
         <div class="column">
+          <div style="float: right;">
+            <button class="button" disabled>
+              <span class="icon"><i class="material-icons">save</i></span>
+            </button>
+
+            <button class="button">
+              <label class="checkbox"> <input type="checkbox" /> publié </label>
+            </button>
+          </div>
+
           <div
             v-for="(property, key) in record"
             style="padding-bottom:6px;"
