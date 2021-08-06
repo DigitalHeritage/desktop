@@ -62,9 +62,9 @@
               <a class="navbar-item" @click="loadFromDB">
                 <i class="material-icons">settings</i> Charger depuis DB
               </a>
-              <a class="navbar-item" @click="preload"
-                ><i class="material-icons">run_circle</i> {{ $t("preload") }}</a
-              >
+              <a class="navbar-item" @click="saveInDB">
+                <i class="material-icons">settings</i> Sauvegarder en DB
+              </a>
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -394,9 +394,6 @@ export default {
   },
   methods: {
     loadFromDB() {
-      //console.log("----------BEFORE----------");
-      //console.log(Vue.prototype.$Collections[this.collectionId].data);
-
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open(
         "GET",
@@ -404,14 +401,32 @@ export default {
         false
       );
       xmlHttp.send(null);
-      Vue.prototype.$Collections[this.collectionId].data = JSON.parse(
-        xmlHttp.responseText
+
+      let ans = JSON.parse(xmlHttp.responseText);
+      let ansMetadata;
+
+      //get the metadata and removes it from the original array
+      for (let index = 0; index < ans.length; index++) {
+        if (ans[index]._key === "_metadata") {
+          ansMetadata = ans[index];
+          ans.splice(index, 1);
+          break;
+        }
+      }
+
+      Vue.prototype.$Collections[this.collectionId].data = ans;
+      Vue.prototype.$Collections[this.collectionId]._metadata = ansMetadata;
+      this.artworks = ans;
+    },
+
+    saveInDB() {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("POST", "url", false);
+      xmlHttp.setRequestHeader(
+        "Content-Type",
+        "application/json;charset=UTF-8"
       );
-
-      //console.log("----------AFTER----------");
-      //console.log(Vue.prototype.$Collections[this.collectionId].data);
-
-      this.artworks = JSON.parse(xmlHttp.responseText);
+      xmlHttp.send(JSON.stringify(this.$Collections[this.collectionId]));
     },
 
     downloadJson() {

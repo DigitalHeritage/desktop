@@ -66,20 +66,34 @@
         </router-link>
       </div>
     </div>
-    <div class="modal">
+    <div class="modal" v-bind:class="{ 'is-active': isModalActive }">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Charger depuis le navigateur ?</p>
-          <button class="delete" aria-label="close"></button>
+          <p class="modal-card-title">{{ $t("modalTitle") }}</p>
+          <button
+            class="delete"
+            aria-label="close"
+            v-on:click="isModalActive = false"
+          ></button>
         </header>
         <section class="modal-card-body">
-          Voulez vous charger vos données depuis le navigateur ?
+          {{ $t("modalSubtitle") }}
         </section>
         <footer class="modal-card-foot">
           <div class="has-text-centered">
-            <button class="button is-success">Oui</button>
-            <button class="button">Non</button>
+            <button
+              class="button is-success"
+              v-on:click="
+                loadLocal();
+                isModalActive = false;
+              "
+            >
+              {{ $t("Yes") }}
+            </button>
+            <button class="button" v-on:click="isModalActive = false">
+              {{ $t("No") }}
+            </button>
           </div>
         </footer>
       </div>
@@ -94,7 +108,8 @@ export default {
   name: "Collections",
   data: function() {
     return {
-      collections: this.$Collections
+      collections: this.$Collections,
+      isModalActive: false
     };
   },
   mounted: function() {
@@ -102,6 +117,7 @@ export default {
       for (let index = 0; index < localStorage.length; index++) {
         if (localStorage.key(index).startsWith("digitalheritage-collection")) {
           this.openModal();
+          break;
         }
       }
       Vue.prototype.$PremiereOuverture = false;
@@ -109,7 +125,7 @@ export default {
   },
   methods: {
     openModal() {
-      console.log("open model ?");
+      this.isModalActive = true;
     },
     addNewCollection() {
       let target = "/collection/" + this.collections.length;
@@ -189,12 +205,20 @@ export default {
   "en": {
     "subtitle": "A collection management app",
     "browse": "Browse collections",
-    "add": "Add a collection"
+    "add": "Add a collection",
+    "Yes": "Yes",
+    "No": "No",
+    "modalTitle": "Load from the browser ?",
+    "modalSubtitle": "Do you want to load the datas stored in your browser ?"
   },
   "fr": {
     "subtitle": "Une application de gestion de collections",
     "browse": "Parcourir les collections",
-    "add": "Ajouter une collection"
+    "add": "Ajouter une collection",
+    "Yes": "Oui",
+    "No": "Non",
+    "modalTitle": "Charger depuis le navigateur ?",
+    "modalSubtitle": "Voulez vous charger vos données depuis le navigateur ?"
   }
 }
 </i18n>

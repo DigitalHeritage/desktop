@@ -91,7 +91,9 @@
             </button>
 
             <button class="button">
-              <label class="checkbox"> <input type="checkbox" /> publié </label>
+              <label class="checkbox">
+                <input type="checkbox" /> {{ $t("published") }}
+              </label>
             </button>
           </div>
 
@@ -341,7 +343,8 @@ export default {
     "replaceImage": "Replace this image",
     "useImage": "Use this image",
     "cancel": "Cancel",
-    "chooseFile": "Choose a file…"
+    "chooseFile": "Choose a file…",
+    "published": "published"
   },
   "fr": {
     "view": "Voir",
@@ -353,7 +356,8 @@ export default {
     "replaceImage": "Remplacer l'image",
     "useImage": "Utiliser cette image",
     "cancel": "Annuler",
-    "chooseFile": "Choisir un fichier…"
+    "chooseFile": "Choisir un fichier…",
+    "published": "publié"
   }
 }
 </i18n>
