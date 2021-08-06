@@ -27,11 +27,10 @@
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
               <a class="navbar-item" @click="saveLocal"
-                ><i class="material-icons">save</i> Enregistrer dans le
-                navigateur</a
+                ><i class="material-icons">save</i> {{ $t("saveBrowser") }}</a
               >
               <a class="navbar-item" @click="loadLocal"
-                ><i class="material-icons">update</i> Charger du navigateur</a
+                ><i class="material-icons">update</i> {{ $t("loadBrowser") }}</a
               >
             </div>
             <div class="navbar-end"></div>
@@ -209,7 +208,9 @@ export default {
     "Yes": "Yes",
     "No": "No",
     "modalTitle": "Load from the browser ?",
-    "modalSubtitle": "Do you want to load the datas stored in your browser ?"
+    "modalSubtitle": "Do you want to load the datas stored in your browser ?",
+    "loadBrowser": "Load from browser",
+    "saveBrowser": "Save in browser"
   },
   "fr": {
     "subtitle": "Une application de gestion de collections",
@@ -218,7 +219,9 @@ export default {
     "Yes": "Oui",
     "No": "Non",
     "modalTitle": "Charger depuis le navigateur ?",
-    "modalSubtitle": "Voulez vous charger vos données depuis le navigateur ?"
+    "modalSubtitle": "Voulez vous charger vos données depuis le navigateur ?",
+    "loadBrowser": "Charger du navigateur",
+    "saveBrowser": "Enregistrer dans le navigateur"
   }
 }
 </i18n>

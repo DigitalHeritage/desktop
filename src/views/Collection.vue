@@ -421,11 +421,16 @@ export default {
 
     saveInDB() {
       var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("POST", "url", false);
+      xmlHttp.open(
+        "PUT",
+        "http://api.digitalheritage.fr/gm_ideesculture_com/digital-heritage-collection-0",
+        false
+      );
       xmlHttp.setRequestHeader(
         "Content-Type",
         "application/json;charset=UTF-8"
       );
+      console.log(JSON.stringify(this.$Collections[this.collectionId]));
       xmlHttp.send(JSON.stringify(this.$Collections[this.collectionId]));
     },
 
