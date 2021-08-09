@@ -48,7 +48,7 @@
 <script>
 //import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
-import Vue from "vue";
+//import Vue from "vue";
 
 // @ is an alias to /src
 export default {
@@ -62,13 +62,15 @@ export default {
   computed: {},
   methods: {
     connexion() {
-      Vue.prototype.$API_db_name = this.email;
+      this.$parent.$parent.API_db_name = this.email;
+      this.$parent.$parent.API_db_is_logged_in = true;
       console.log(this.email);
-      alert("Connecté");
+      // Redirect to home page
+      this.$router.push("/");
     }
   },
   created() {
-    this.email = Vue.prototype.$API_db_name;
+    this.email = this.$parent.$parent.API_db_name;
   }
 };
 </script>
