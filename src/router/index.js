@@ -4,6 +4,7 @@ import Collections from "../views/Collections";
 import Collection from "../views/Collection";
 import Detail from "../views/Detail";
 import Connexion from "../views/Connexion";
+import RemoteProfile from "../views/RemoteProfile";
 import Inscription from "../views/Inscription";
 
 Vue.use(VueRouter);
@@ -59,6 +60,11 @@ const routes = [
     path: "/inscription",
     name: "Inscription",
     component: Inscription
+  },
+  {
+    path: "/remote-profile",
+    name: "RemoteProfile",
+    component: RemoteProfile
   }
 ];
 
