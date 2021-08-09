@@ -416,7 +416,10 @@ export default {
         "GET",
         "http://api.digitalheritage.fr/" +
           this.$parent.$parent.API_db_name +
-          "/digital-heritage-collection-0",
+          "/" +
+          this.$parent.$parent.API_db_name +
+          "-" +
+          this.metadata.id,
         false
       );
       xmlHttp.send(null);
@@ -446,7 +449,10 @@ export default {
         "PUT",
         "http://api.digitalheritage.fr/" +
           this.$parent.$parent.API_db_name +
-          "/digital-heritage-collection-0",
+          "/" +
+          this.$parent.$parent.API_db_name +
+          "-" +
+          this.metadata.id,
         false
       );
       xmlHttp.setRequestHeader(
