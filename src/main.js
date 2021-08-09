@@ -17,13 +17,17 @@ Icon.Default.mergeOptions({
 Vue.config.productionTip = false;
 Vue.prototype.$Collections = Collections;
 Vue.prototype.$PremiereOuverture = true;
-Vue.prototype.$API_db_name = "gm_ideesculture_com";
+Vue.prototype.$API_db_is_logged_in = false;
+Vue.prototype.$API_db_name = "";
 
 new Vue({
   router,
 
   data: {
-    artworks: Collections
+    artworks: Collections,
+    PremiereOuverture: Vue.prototype.$PremiereOuverture,
+    API_db_is_logged_in: Vue.prototype.$API_db_is_logged_in,
+    API_db_name: Vue.prototype.$API_db_name
   },
 
   i18n,

@@ -62,12 +62,28 @@
           <div class="navbar-item">
             <LocaleSwitcher />
             <div class="buttons">
-              <a class="button is-primary" href="/inscription">
+              <router-link
+                class="button is-primary"
+                to="/inscription"
+                v-if="!this.$parent.API_db_is_logged_in"
+              >
                 <strong>{{ $t("signup") }}</strong>
-              </a>
-              <a class="button is-light" href="/connexion">
+              </router-link>
+              <router-link
+                class="button is-light"
+                to="/connexion"
+                v-if="!this.$parent.API_db_is_logged_in"
+              >
                 {{ $t("login") }}
-              </a>
+              </router-link>
+              <router-link
+                class="button is-dark is-primary"
+                to="/remote-profile"
+                v-if="this.$parent.API_db_is_logged_in"
+              >
+                <i class="material-icons">cloud</i><span style="width:5px" />
+                {{ this.$parent.API_db_name }}
+              </router-link>
             </div>
           </div>
         </div>
