@@ -6,7 +6,8 @@
       "Description": "What makes a great painting? Is it one that makes you wonder how on earth the artist reproduced a scene so precisely in paint? Or ones that capture emotion in a single brushstroke? Or simply something utterly beautiful? Art lovers can amble around Paris’s the Louvre, New York’s Moma, Madrid’s Prado, Florence’s Uffizi Gallery and London’s Tate Gallery – even Venice’s Sistine Chapel, looking at walls (and ceilings) full of art. But there is something altogether different about going to see one particular artwork – a masterpiece – and examining what makes it special, marvelling at the colours they used, the symbolism in the painting, the art movement their work spearheaded, and even the mystery of the sitter.",
       "filename":"artworks-guardian.json",
       "_title": "",
-      "_image": ""
+      "_image": "",
+	  "id":0
     },
     "data": [
       {
@@ -473,7 +474,8 @@
       "Description": "",
       "filename":"augustins.json",
       "_title":"fields.designation",
-      "_image":"fields.image.filename"
+      "_image":"fields.image.filename",
+	  "id":1
     },
     "data": [
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "77f60ec93dce4b8ce4202946517e783a1915559f", "fields": {"donateur_vendeur": "MARQUESTE, Mme Vve Laurent Honr\u00e9  particulier", "designation_3": "esquisse", "designation": "Femme assise", "matiere": "terre cuite", "technique": "modelage", "num_inventaire": "RA 1047 T", "mesure_1": "Hauteur : 20", "domaine": "Sculpture", "mesure_3": "Profondeur : 18", "localisation": "mus\u00e9e des Augustins", "date_acqui": "1921-01-01", "numero_acquisition": "1921.3", "auteur_1": "MARQUESTE, Laurent-Honor\u00e9", "designation_2": "figurine", "mode_acquisition": "Don", "mesure_2": "Largeur : 11", "datation_1": "1851-1900", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "datation_2": "1901-1925"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
