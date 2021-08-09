@@ -8,6 +8,7 @@
             class="input is-danger"
             type="email"
             v-bind:placeholder="$t('email')"
+            ref="email"
           />
         </div>
       </div>
@@ -56,3 +57,18 @@
   }
 }
 </i18n>
+
+<script>
+// @ is an alias to /src
+export default {
+  name: "Inscription",
+  mounted() {
+    this.focusInput();
+  },
+  methods: {
+    focusInput() {
+      this.$refs.email.focus();
+    }
+  }
+};
+</script>
