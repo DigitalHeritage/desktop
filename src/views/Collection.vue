@@ -142,7 +142,7 @@
 
     <div class="container edit" v-if="active == 'edit'" style="padding:35px 0;">
       <div
-        v-for="(property, key) in metadata"
+        v-for="(property, key) in metadataSliced"
         style="padding-bottom:6px;"
         v-bind:key="key"
         v-bind:title="property"
@@ -400,6 +400,13 @@ export default {
         }
       }
       return filteredArray;
+    },
+    metadataSliced: function() {
+      let result = Object.assign({}, this.metadata);
+      delete result.id;
+      delete result._title;
+      delete result._image;
+      return result;
     }
   },
   methods: {
