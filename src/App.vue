@@ -5,8 +5,8 @@
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <router-link class="navbar-item" to="/">
+      <div class="navbar-brand" id="brand">
+        <router-link class="navbar-item" to="/" id="brand-a">
           <img src="../public/icon.png" style="height:70%" />
         </router-link>
 
