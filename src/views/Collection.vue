@@ -479,7 +479,7 @@ export default {
       fetch(this.URL)
         .then(response => response.json())
         .then(json => {
-          console.log(json);
+          //console.log(json);
           this.artworks = json.data;
           this.metadata = json._metadata;
         });
@@ -579,7 +579,7 @@ export default {
     if (this.artworks === undefined) {
       this.artworks = [];
     }
-    console.log(this.artworks);
+    //console.log(this.artworks);
     if (this.$Collections[this.collectionId]._metadata) {
       this.metadata = this.$Collections[this.collectionId]._metadata;
     } else {
