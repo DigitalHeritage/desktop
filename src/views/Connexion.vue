@@ -9,6 +9,7 @@
             type="email"
             v-bind:placeholder="$t('email')"
             v-model="email"
+            ref="email"
           />
         </div>
       </div>
@@ -52,7 +53,7 @@ import "leaflet/dist/leaflet.css";
 
 // @ is an alias to /src
 export default {
-  name: "Collection",
+  name: "Connexion",
   components: {},
   data: function() {
     return {
@@ -60,6 +61,9 @@ export default {
     };
   },
   computed: {},
+  mounted() {
+    this.focusInput();
+  },
   methods: {
     connexion() {
       this.$parent.$parent.API_db_name = this.email;
@@ -67,6 +71,9 @@ export default {
       console.log(this.email);
       // Redirect to home page
       this.$router.push("/");
+    },
+    focusInput() {
+      this.$refs.email.focus();
     }
   },
   created() {
