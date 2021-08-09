@@ -26,12 +26,6 @@
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
-              <a class="navbar-item" @click="saveLocal"
-                ><i class="material-icons">save</i> {{ $t("saveBrowser") }}</a
-              >
-              <a class="navbar-item" @click="loadLocal"
-                ><i class="material-icons">update</i> {{ $t("loadBrowser") }}</a
-              >
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -65,38 +59,6 @@
         </router-link>
       </div>
     </div>
-    <div class="modal" v-bind:class="{ 'is-active': isModalActive }">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">{{ $t("modalTitle") }}</p>
-          <button
-            class="delete"
-            aria-label="close"
-            v-on:click="isModalActive = false"
-          ></button>
-        </header>
-        <section class="modal-card-body">
-          {{ $t("modalSubtitle") }}
-        </section>
-        <footer class="modal-card-foot">
-          <div class="has-text-centered">
-            <button
-              class="button is-success"
-              v-on:click="
-                loadLocal();
-                isModalActive = false;
-              "
-            >
-              {{ $t("Yes") }}
-            </button>
-            <button class="button" v-on:click="isModalActive = false">
-              {{ $t("No") }}
-            </button>
-          </div>
-        </footer>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -107,15 +69,14 @@ export default {
   name: "Collections",
   data: function() {
     return {
-      collections: this.$Collections,
-      isModalActive: false
+      collections: this.$Collections
     };
   },
   mounted: function() {
     if (this.$PremiereOuverture) {
       for (let index = 0; index < localStorage.length; index++) {
         if (localStorage.key(index).startsWith("digitalheritage-collection")) {
-          this.openModal();
+          this.loadLocal();
           break;
         }
       }
@@ -123,8 +84,17 @@ export default {
     }
   },
   methods: {
-    openModal() {
-      this.isModalActive = true;
+    loadLocal() {
+      console.log("loadLocal");
+      Vue.prototype.$Collections = [];
+      for (let index = localStorage.length - 1; index >= 0; index--) {
+        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
+          Vue.prototype.$Collections.push(
+            JSON.parse(localStorage.getItem(localStorage.key(index)))
+          );
+        }
+      }
+      this.collections = this.$Collections;
     },
     addNewCollection() {
       let target = "/collection/" + this.collections.length;
@@ -161,34 +131,6 @@ export default {
       } else {
         return "";
       }
-    },
-    saveLocal() {
-      //delete the localStorage first to prevent deleted collections to be loaded after
-      for (let index = 0; index < localStorage.length; index++) {
-        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
-          localStorage.removeItem(localStorage.key(index));
-        }
-      }
-      let iterator = 0;
-      this.collections.forEach(collection => {
-        //console.log(collection);
-        localStorage.setItem(
-          "digitalheritage-collection-" + iterator,
-          JSON.stringify(collection)
-        );
-        iterator++;
-      });
-    },
-    loadLocal() {
-      Vue.prototype.$Collections = [];
-      for (let index = 0; index < localStorage.length; index++) {
-        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
-          Vue.prototype.$Collections.push(
-            JSON.parse(localStorage.getItem(localStorage.key(index)))
-          );
-        }
-      }
-      this.collections = this.$Collections;
     }
   }
 };
