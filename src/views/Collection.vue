@@ -397,7 +397,9 @@ export default {
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open(
         "GET",
-        "http://api.digitalheritage.fr/gm_ideesculture_com/digital-heritage-collection-0",
+        "http://api.digitalheritage.fr/" +
+          Vue.prototype.$API_db_name +
+          "/digital-heritage-collection-0",
         false
       );
       xmlHttp.send(null);
@@ -417,13 +419,17 @@ export default {
       Vue.prototype.$Collections[this.collectionId].data = ans;
       Vue.prototype.$Collections[this.collectionId]._metadata = ansMetadata;
       this.artworks = ans;
+
+      this.metadata = ansMetadata;
     },
 
     saveInDB() {
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open(
         "PUT",
-        "http://api.digitalheritage.fr/gm_ideesculture_com/digital-heritage-collection-0",
+        "http://api.digitalheritage.fr/" +
+          Vue.prototype.$API_db_name +
+          "/digital-heritage-collection-0",
         false
       );
       xmlHttp.setRequestHeader(
