@@ -26,6 +26,10 @@
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
+              <a class="navbar-item" @click="addNewCollectionFromTemplate"
+                ><i class="material-icons">library_add</i>
+                {{ $t("Add from template") }}</a
+              >
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -69,7 +73,45 @@ export default {
   name: "Collections",
   data: function() {
     return {
-      collections: this.$Collections
+      collections: this.$Collections,
+      collectionsTemplate: [
+        {
+          name: "Cartes pokemon",
+          template: {
+            _metadata: {
+              Title: "Cartes pokemon",
+              Subtitle: "...",
+              Description: "",
+              _title: "Cartes pokemon",
+              _image: ""
+            },
+            data: [
+              {
+                _metadata: {
+                  Title: "Dracaufeu",
+                  Subtitle: "Charizard",
+                  Date: "",
+                  Geo: [],
+                  Image:
+                    "https://i.ebayimg.com/images/g/yg4AAOSw5WVblqBV/s-l1600.jpg"
+                },
+                Title: "Dracaufeu",
+                Date: "",
+                Location: "",
+                Subtitle: "Charizard",
+                Description: "",
+                Credits: "",
+                Image:
+                  "https://i.ebayimg.com/images/g/yg4AAOSw5WVblqBV/s-l1600.jpg",
+                Type: "feu",
+                Etat: "quasi neuf",
+                Serie: "1ere édition",
+                Langue: "japonais"
+              }
+            ]
+          }
+        }
+      ]
     };
   },
   mounted: function() {
@@ -109,6 +151,12 @@ export default {
         data: [{}]
       };
       this.collections.push(template);
+      this.$router.push(target);
+    },
+    addNewCollectionFromTemplate() {
+      let target = "/collection/" + this.collections.length;
+      console.log(this.collectionsTemplate[0].template);
+      this.collections.push(this.collectionsTemplate[0].template);
       this.$router.push(target);
     },
     getCollectionTitle(collection) {

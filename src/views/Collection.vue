@@ -320,8 +320,6 @@
 </template>
 
 <script>
-import jsponpath from "jsonpath";
-import _ from "lodash";
 import L from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 //import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
@@ -371,6 +369,7 @@ export default {
   computed: {
     filteredList() {
       let filteredArray = [];
+      console.log(typeof this.artworks[0]);
       for (let index = 0; index < this.artworks.length; index++) {
         if (this.artworks[index]._metadata != undefined) {
           if (this.artworks[index]._metadata.Title != undefined) {
@@ -386,6 +385,8 @@ export default {
             }
           }
         } else {
+          console.log("this.artworks[index]");
+          console.log(this.artworks[index]);
           this.createMetadata(this.artworks[index]);
           if (
             this.artworks[index]._metadata.Title.toLowerCase().includes(
@@ -522,11 +523,11 @@ export default {
       for (var prop in item) {
         item[prop] = "";
       }
-      item["Title"] = "New item";
+      item["Title"] = "New item title";
       item["Image"] = "https://via.placeholder.com/150";
       item["Subtitle"] = "Subtitle";
       item["_metadata"] = {};
-      item._metadata.Title = "New item";
+      item._metadata.Title = "New item title 2";
       item._metadata.Image = "https://via.placeholder.com/150";
       item._metadata.Subtitle = "Subtitle";
       console.log(item);
@@ -545,30 +546,13 @@ export default {
     markerClick(id) {
       this.$router.push("/detail/" + id);
     },
-    preload() {
-      let artworks = this.artworks;
-      let titlepath = this.metadata._title;
-      let imagepath = this.metadata._image;
-      _.forEach(artworks, function(el, index) {
-        artworks[index]._metadata = {
-          Title: jsponpath.query(artworks[index], "$." + titlepath).pop()
-        };
-      });
-      _.forEach(artworks, function(el, index) {
-        artworks[index]._metadata.Image =
-          "https://www.augustins.org/documents/10180/156407/" +
-          jsponpath.query(artworks[index], "$." + imagepath).pop();
-        console.log(artworks[index]._metadata);
-      });
-      window.history.pushState("", "", "/collection/" + this.collectionId);
-    },
     createMetadata(object) {
       object._metadata = {};
-      object["Title"] = "New item";
+      object["Title"] = "New item title 3";
       object["Image"] = "https://via.placeholder.com/150";
       object["Subtitle"] = "Subtitle";
       object["_metadata"] = {};
-      object._metadata.Title = "New item";
+      object._metadata.Title = "New item title 4";
       object._metadata.Image = "https://via.placeholder.com/150";
       object._metadata.Subtitle = "Subtitle";
     }
