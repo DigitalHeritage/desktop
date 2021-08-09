@@ -59,11 +59,21 @@
                 @click="active = 'options'"
                 ><i class="material-icons">settings</i> {{ $t("options") }}</a
               >
-              <a class="navbar-item" @click="loadFromDB">
-                <i class="material-icons">settings</i> Charger depuis DB
+              <a
+                class="navbar-item"
+                @click="loadFromDB"
+                v-if="this.$parent.$parent.API_db_is_logged_in"
+              >
+                <i class="material-icons">cloud_upload</i
+                ><span style="width:5px" /> Charger depuis DB
               </a>
-              <a class="navbar-item" @click="saveInDB">
-                <i class="material-icons">settings</i> Sauvegarder en DB
+              <a
+                class="navbar-item"
+                @click="saveInDB"
+                v-if="this.$parent.$parent.API_db_is_logged_in"
+              >
+                <i class="material-icons">cloud_download</i
+                ><span style="width:5px" /> Sauvegarder en DB
               </a>
             </div>
             <div class="navbar-end"></div>
