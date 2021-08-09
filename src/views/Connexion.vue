@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <article class="message is-danger" style="margin-top:24px" v-if="error">
+      <div class="message-body">
+        {{ errorMessage }}
+      </div>
+    </article>
     <div class="box">
       <div class="field">
         <label class="label">{{ $t("email") }}</label>
@@ -10,6 +15,7 @@
             v-bind:placeholder="$t('email')"
             v-model="email"
             ref="email"
+            name="email"
           />
         </div>
       </div>
@@ -20,6 +26,8 @@
             class="input"
             type="password"
             v-bind:placeholder="$t('password')"
+            v-model="password"
+            name="password"
           />
         </div>
       </div>
@@ -57,7 +65,10 @@ export default {
   components: {},
   data: function() {
     return {
-      email: ""
+      email: "",
+      password: "",
+      error: false,
+      errorMessage: ""
     };
   },
   computed: {},
@@ -66,11 +77,32 @@ export default {
   },
   methods: {
     connexion() {
-      this.$parent.$parent.API_db_name = this.email;
-      this.$parent.$parent.API_db_is_logged_in = true;
+      //this.$parent.$parent.API_db_name = this.email;
+      //this.$parent.$parent.API_db_is_logged_in = true;
       console.log(this.email);
       // Redirect to home page
-      this.$router.push("/");
+      //this.$router.push("/");
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("POST", "http://api.digitalheritage.fr/auth", false);
+      xmlHttp.setRequestHeader(
+        "Content-Type",
+        "application/json;charset=UTF-8"
+      );
+      xmlHttp.send(
+        JSON.stringify({ password: this.password, email: this.email })
+      );
+
+      let ans = JSON.parse(xmlHttp.responseText);
+      if (ans.result == "ok") {
+        this.$parent.$parent.API_db_name = this.email;
+        this.$parent.$parent.API_db_is_logged_in = true;
+        console.log(this.email);
+        // Redirect to home page
+        this.$router.push("/");
+      } else {
+        this.error = true;
+        this.errorMessage = ans.message;
+      }
     },
     focusInput() {
       this.$refs.email.focus();

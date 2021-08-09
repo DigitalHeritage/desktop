@@ -5,7 +5,6 @@
         backgroundImage: 'url(' + artwork.Image + ')',
         display: zoom ? 'block' : 'none'
       }"
-      v-focus
       @click="zoom = false"
       @keyup.esc="zoom = false"
       id="fullscreenimage"
