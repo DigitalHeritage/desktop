@@ -207,7 +207,7 @@ export default {
   name: "Home",
   props: {
     coll: {
-      type: Number,
+      type: String,
       required: false
     },
     id: {
@@ -249,11 +249,15 @@ export default {
   },
   methods: {
     showNext() {
+      console.log("saveLocal");
+      this.$parent.$parent.saveLocal();
       if (this.current < this.$Collections[this.collectionId].data.length - 1)
         this.current++;
       this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
     showPrev() {
+      console.log("saveLocal");
+      this.$parent.$parent.saveLocal();
       if (this.current > 0) this.current--;
       this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
@@ -304,6 +308,10 @@ export default {
     }
 
     this.artwork = this.$Collections[this.collectionId].data[this.current];
+  },
+  beforeDestroy() {
+    console.log("saveLocal");
+    this.$parent.$parent.saveLocal();
   }
 };
 </script>
