@@ -117,7 +117,7 @@
       style="padding:35px 0;"
     >
       <div
-        v-for="(property, key) in artwork"
+        v-for="(property, key) in record"
         style="padding-bottom:6px;"
         v-bind:key="key"
         v-bind:title="property"
@@ -238,6 +238,7 @@ export default {
       let result = Object.assign({}, this.artwork);
       delete result.Image;
       delete result._metadata;
+      delete result._key;
       return result;
     },
     image: function() {
