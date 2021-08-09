@@ -8,6 +8,7 @@
             class="input is-danger"
             type="email"
             v-bind:placeholder="$t('email')"
+            v-model="email"
           />
         </div>
       </div>
@@ -22,7 +23,7 @@
         </div>
       </div>
       <div class="has-text-centered">
-        <button type="button" class="button is-primary">
+        <button type="button" class="button is-primary" @click="connexion">
           {{ $t("login") }}
         </button>
       </div>
@@ -43,3 +44,31 @@
   }
 }
 </i18n>
+
+<script>
+//import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import "leaflet/dist/leaflet.css";
+import Vue from "vue";
+
+// @ is an alias to /src
+export default {
+  name: "Collection",
+  components: {},
+  data: function() {
+    return {
+      email: ""
+    };
+  },
+  computed: {},
+  methods: {
+    connexion() {
+      Vue.prototype.$API_db_name = this.email;
+      console.log(this.email);
+      alert("Connecté");
+    }
+  },
+  created() {
+    this.email = Vue.prototype.$API_db_name;
+  }
+};
+</script>
