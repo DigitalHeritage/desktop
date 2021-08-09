@@ -408,7 +408,7 @@ export default {
       xmlHttp.open(
         "GET",
         "http://api.digitalheritage.fr/" +
-          Vue.prototype.$API_db_name +
+          this.$parent.$parent.API_db_name +
           "/digital-heritage-collection-0",
         false
       );
@@ -438,7 +438,7 @@ export default {
       xmlHttp.open(
         "PUT",
         "http://api.digitalheritage.fr/" +
-          Vue.prototype.$API_db_name +
+          this.$parent.$parent.API_db_name +
           "/digital-heritage-collection-0",
         false
       );
