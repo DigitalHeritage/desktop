@@ -111,6 +111,12 @@ export default {
       isModalActive: false
     };
   },
+  computed: {
+    coll: function() {
+      //TODO REMOVE _id (voir le computed dans Detail.vue)
+      return this.collections;
+    }
+  },
   mounted: function() {
     if (this.$PremiereOuverture) {
       for (let index = 0; index < localStorage.length; index++) {
@@ -133,7 +139,8 @@ export default {
           Title: "My collection " + this.collections.length,
           Subtitle: "How would I call it ?",
           Description: "",
-          filename: ""
+          filename: "",
+          _id: this.collections.length
         },
         data: [{}]
       };
