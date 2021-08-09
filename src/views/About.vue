@@ -28,14 +28,7 @@
     </section>
 
     <div id="about-body">
-      <div class="container" style="padding-top:40px;">
-        <img src="../assets/lemon-hat.png" style="width:33%;" />
-        <h1 class="is-size-1 has-text-link">Brainjuicing</h1>
-        <h2 class="is-size-3 has-text-grey-dark">
-          Transforming your lemon hat to pure lemon-aid from 2012.
-        </h2>
-        <div class="has-text-black">Love from Le Mans, Gautier</div>
-      </div>
+      <div class="container" style="padding-top:40px;"></div>
     </div>
   </div>
 </template>
@@ -44,7 +37,6 @@
 #about-body {
   background-position: center 20%;
   background-size: cover;
-  background-image: url("../assets/lemontrees.jpg");
   min-height: 1500px;
 }
 </style>
