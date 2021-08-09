@@ -280,10 +280,12 @@ export default {
         this.previewimage = e.target.result;
         console.log(this.previewimage);
       };
+      this.artwork._metadata["Image"] = this.artwork["Image"];
     },
     updateImage() {
       this.artwork.Image = this.previewimage;
       this.previewimage = null;
+      this.artwork._metadata["Image"] = this.artwork["Image"];
     },
     zoomImage() {},
     changeProperty(key) {
