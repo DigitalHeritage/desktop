@@ -24,62 +24,93 @@
                 class="navbar-item"
                 :class="{ 'is-active': active === 'browse' }"
                 @click="active = 'browse'"
-                ><i class="material-icons">view_module</i> Browse</a
+                ><i class="material-icons">view_module</i> {{ $t("browse") }}</a
               >
+              <!-- Timeline is bugged right now
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'timeline' }"
                 @click="active = 'timeline'"
-                ><i class="material-icons">straighten</i> Timeline</a
+                ><i class="material-icons">straighten</i>
+                {{ $t("timeline") }}</a
               >
+              -->
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'map' }"
                 @click="active = 'map'"
-                ><i class="material-icons">room</i> Map</a
+                ><i class="material-icons">room</i> {{ $t("map") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'edit' }"
                 @click="active = 'edit'"
-                ><i class="material-icons">create</i> Edit</a
+                ><i class="material-icons">create</i> {{ $t("edit") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'addAnItem' }"
                 @click="addAnItem"
-                ><i class="material-icons">note_add</i> Add an item</a
+                ><i class="material-icons">note_add</i> {{ $t("addItem") }}</a
               >
               <a
                 class="navbar-item"
                 :class="{ 'is-active': active === 'options' }"
                 @click="active = 'options'"
-                ><i class="material-icons">settings</i> Options</a
+                ><i class="material-icons">settings</i> {{ $t("options") }}</a
               >
-              <a class="navbar-item" @click="preload"
-                ><i class="material-icons">run_circle</i> Preload</a
+              <a
+                class="navbar-item"
+                @click="loadFromDB"
+                v-if="this.$parent.$parent.API_db_is_logged_in"
               >
+                <i class="material-icons">cloud_upload</i
+                ><span style="width:5px" /> Charger depuis DB
+              </a>
+              <a
+                class="navbar-item"
+                @click="saveInDB"
+                v-if="this.$parent.$parent.API_db_is_logged_in"
+              >
+                <i class="material-icons">cloud_download</i
+                ><span style="width:5px" /> Sauvegarder en DB
+              </a>
             </div>
             <div class="navbar-end"></div>
           </div>
         </div>
       </nav>
     </section>
+    <!-- Search bar goes here -->
+    <div v-if="active === 'browse'">
+      <input
+        class="search-input"
+        type="text"
+        v-bind:placeholder="$t('searchHere')"
+        v-model="search"
+      />
+    </div>
     <div class="cards-container" v-if="active === 'browse'">
       <div
         class="card"
-        v-for="(artwork, index) of artworks"
+        v-for="(artwork, index) in filteredList"
         :key="`${index}`"
         :style="{ backgroundImage: 'url(' + artwork._metadata.Image + ')' }"
       >
-        <router-link :to="'/detail/' + collectionId + '/' + index">
+        <router-link
+          :to="'/detail/' + collectionId + '/' + artwork._metadata.index"
+        >
           <div class="card-content"></div>
         </router-link>
         <footer class="card-footer">
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <router-link :to="'/detail/' + collectionId + '/' + index">
+                <router-link
+                  :to="
+                    '/detail/' + collectionId + '/' + artwork._metadata.index
+                  "
+                >
                   <img
                     v-if="artwork._metadata.Image"
                     :src="artwork._metadata.Image"
@@ -90,7 +121,11 @@
             </div>
             <div class="media-content">
               <div class="media-content-inner">
-                <router-link :to="'/detail/' + collectionId + '/' + index">
+                <router-link
+                  :to="
+                    '/detail/' + collectionId + '/' + artwork._metadata.index
+                  "
+                >
                   <div v-if="artwork._metadata">
                     <p class="subtitle is-7">
                       {{ artwork._metadata.Subtitle }}
@@ -107,7 +142,7 @@
 
     <div class="container edit" v-if="active == 'edit'" style="padding:35px 0;">
       <div
-        v-for="(property, key) in metadata"
+        v-for="(property, key) in metadataSliced"
         style="padding-bottom:6px;"
         v-bind:key="key"
         v-bind:title="property"
@@ -148,11 +183,11 @@
         class="button is-primary"
         @click.prevent="loadURL"
       >
-        Load from URL
+        {{ $t("loadURL") }}
       </button>
       <article style="margin-top:30px;" class="message is-gray">
         <div class="message-header">
-          Need an example ?
+          {{ $t("needExample") }}
         </div>
         <div class="message-body">
           <div class="content">
@@ -167,7 +202,7 @@
       v-if="active === 'loadFile'"
       style="padding:35px 0;"
     >
-      <label class="label">Load a file</label>
+      <label class="label">{{ $t("loadFile") }}</label>
       <div id="file-js-example" class="file has-name">
         <label class="file-label">
           <input
@@ -179,7 +214,7 @@
           <span class="file-cta">
             <i class="material-icons">attach_file</i>&nbsp;
             <span class="file-label">
-              Choose a file…
+              {{ $t("chooseFile") }}
             </span>
           </span>
           <span class="file-name">
@@ -192,7 +227,7 @@
         class="button is-primary"
         @click.prevent="loadFile"
       >
-        Load file
+        {{ $t("loadFile2") }}
       </button>
     </div>
 
@@ -204,38 +239,41 @@
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-primary" @click="downloadJson"
-            ><i class="material-icons">save</i> Download</a
+            ><i class="material-icons">save</i> {{ $t("downloadButton") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Download the collection as a single JSON file
+          {{ $t("downloadText") }}
         </div>
       </div>
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-info" @click="active = 'loadFile'"
-            ><i class="material-icons">insert_drive_file</i> Load file</a
+            ><i class="material-icons">insert_drive_file</i>
+            {{ $t("loadFile2") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Replace this collection by a JSON file
+          {{ $t("replaceText") }}
         </div>
       </div>
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-info" @click="active = 'loadURL'"
-            ><i class="material-icons">link</i> Load from URL</a
+            ><i class="material-icons">link</i> {{ $t("loadURL") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile">
-          Replace this collection by an online JSON
+          {{ $t("replaceOnlineText") }}
         </div>
       </div>
       <hr />
       <div class="columns">
         <div class="column is-one-quarter-desktop is-half-mobile">
           <a class="button is-danger" @click="deleteCollection"
-            ><i class="material-icons">delete</i> Delete this collection</a
+            ><i class="material-icons">delete</i>
+            <img src="" alt="" sizes="" srcset="" />
+            {{ $t("deleteCollection") }}</a
           >
         </div>
         <div class="column is-three-quarters-desktop is-half-mobile"></div>
@@ -282,13 +320,14 @@
 </template>
 
 <script>
-import Collections from "../../public/collections.json";
-import jsponpath from "jsonpath";
-import _ from "lodash";
 import L from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 //import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
+import i18n from "@/i18n";
+import Vue from "vue";
+
+console.log("Active locale: ", i18n.locale);
 
 function downloadTextFile(text, name) {
   const a = document.createElement("a");
@@ -323,11 +362,108 @@ export default {
       zoom: 3,
       center: [47.41322, -1.219482],
       bounds: null,
-      markers: []
+      markers: [],
+      search: ""
     };
   },
-  computed: {},
+  computed: {
+    filteredList() {
+      let filteredArray = [];
+      console.log(typeof this.artworks[0]);
+      for (let index = 0; index < this.artworks.length; index++) {
+        if (this.artworks[index]._metadata != undefined) {
+          if (this.artworks[index]._metadata.Title != undefined) {
+            if (
+              this.artworks[index]._metadata.Title.toLowerCase().includes(
+                this.search.toLowerCase()
+              )
+            ) {
+              //Save the oldIndex in metadata to prevent from messing with URLs
+              let elem = this.artworks[index];
+              elem._metadata.index = index;
+              filteredArray.push(elem);
+            }
+          }
+        } else {
+          console.log("this.artworks[index]");
+          console.log(this.artworks[index]);
+          this.createMetadata(this.artworks[index]);
+          if (
+            this.artworks[index]._metadata.Title.toLowerCase().includes(
+              this.search.toLowerCase()
+            )
+          ) {
+            //Save the oldIndex in metadata to prevent from messing with URLs
+            let elem = this.artworks[index];
+            elem._metadata.index = index;
+            filteredArray.push(elem);
+          }
+        }
+      }
+      return filteredArray;
+    },
+    metadataSliced: function() {
+      let result = Object.assign({}, this.metadata);
+      delete result.id;
+      delete result._title;
+      delete result._image;
+      return result;
+    }
+  },
   methods: {
+    loadFromDB() {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open(
+        "GET",
+        "http://api.digitalheritage.fr/" +
+          this.$parent.$parent.API_db_name +
+          "/" +
+          this.$parent.$parent.API_db_name +
+          "-" +
+          this.metadata.id,
+        false
+      );
+      xmlHttp.send(null);
+
+      let ans = JSON.parse(xmlHttp.responseText);
+      let ansMetadata;
+
+      //get the metadata and removes it from the original array
+      for (let index = 0; index < ans.length; index++) {
+        if (ans[index]._key === "_metadata") {
+          ansMetadata = ans[index];
+          ans.splice(index, 1);
+          break;
+        }
+      }
+
+      Vue.prototype.$Collections[this.collectionId].data = ans;
+      Vue.prototype.$Collections[this.collectionId]._metadata = ansMetadata;
+      this.artworks = ans;
+
+      this.metadata = ansMetadata;
+    },
+
+    saveInDB() {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open(
+        "PUT",
+        "http://api.digitalheritage.fr/" +
+          this.$parent.$parent.API_db_name +
+          "/" +
+          this.$parent.$parent.API_db_name +
+          "-" +
+          this.metadata.id,
+        false
+      );
+      xmlHttp.setRequestHeader(
+        "Content-Type",
+        "application/json;charset=UTF-8"
+      );
+      console.log(JSON.stringify(this.$Collections[this.collectionId]));
+      xmlHttp.send(JSON.stringify(this.$Collections[this.collectionId]));
+    },
+
     downloadJson() {
       let filename = this.metadata.filename
         ? this.metadata.filename
@@ -338,13 +474,13 @@ export default {
       );
     },
     loadURL() {
-      // To test, use : https://api.digitalheritage.fr/artworks-guardian.php
+      // To test, use : https://api.digitalheritage.fr/artworks-guardian.php'
 
       if (!this.URL) return;
       fetch(this.URL)
         .then(response => response.json())
         .then(json => {
-          console.log(json);
+          //console.log(json);
           this.artworks = json.data;
           this.metadata = json._metadata;
         });
@@ -375,18 +511,25 @@ export default {
       fr.readAsText(files.item(0));
     },
     deleteCollection() {
-      Collections.splice(this.collectionId, 1);
+      this.$Collections.splice(this.collectionId, 1);
       this.$router.push("/");
     },
     addAnItem() {
       let lastnum = this.artworks.length - 1;
       // Cloning the last item into an object
       let item = Object.assign({}, this.artworks[lastnum]);
+      console.log(item);
       // Removing the property values
       for (var prop in item) {
         item[prop] = "";
       }
-      item["Title"] = "New item";
+      item["Title"] = "New item title";
+      item["Image"] = "https://via.placeholder.com/150";
+      item["Subtitle"] = "Subtitle";
+      item["_metadata"] = {};
+      item._metadata.Title = "New item title 2";
+      item._metadata.Image = "https://via.placeholder.com/150";
+      item._metadata.Subtitle = "Subtitle";
       console.log(item);
       this.artworks.push(item);
       this.active = "browse";
@@ -403,29 +546,26 @@ export default {
     markerClick(id) {
       this.$router.push("/detail/" + id);
     },
-    preload() {
-      let artworks = this.artworks;
-      let titlepath = this.metadata._title;
-      let imagepath = this.metadata._image;
-      _.forEach(artworks, function(el, index) {
-        artworks[index]._metadata = {
-          Title: jsponpath.query(artworks[index], "$." + titlepath).pop()
-        };
-      });
-      _.forEach(artworks, function(el, index) {
-        artworks[index]._metadata.Image =
-          "https://www.augustins.org/documents/10180/156407/" +
-          jsponpath.query(artworks[index], "$." + imagepath).pop();
-        console.log(artworks[index]._metadata);
-      });
-      window.history.pushState("", "", "/collection/" + this.collectionId);
+    createMetadata(object) {
+      object._metadata = {};
+      object["Title"] = "New item title 3";
+      object["Image"] = "https://via.placeholder.com/150";
+      object["Subtitle"] = "Subtitle";
+      object["_metadata"] = {};
+      object._metadata.Title = "New item title 4";
+      object._metadata.Image = "https://via.placeholder.com/150";
+      object._metadata.Subtitle = "Subtitle";
     }
   },
   created() {
     this.collectionId = this.$route.params.id ? this.$route.params.id : 0;
-    this.artworks = Collections[this.collectionId].data;
-    if (Collections[this.collectionId]._metadata) {
-      this.metadata = Collections[this.collectionId]._metadata;
+    this.artworks = this.$Collections[this.collectionId].data;
+    if (this.artworks === undefined) {
+      this.artworks = [];
+    }
+    //console.log(this.artworks);
+    if (this.$Collections[this.collectionId]._metadata) {
+      this.metadata = this.$Collections[this.collectionId]._metadata;
     } else {
       this.metadata = {
         Title: "Collection...",
@@ -489,6 +629,57 @@ export default {
 }
 
 .media-content .subtitle {
-  margin-top:4px;
+  margin-top: 4px;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  padding: 14px;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "browse": "Browse",
+    "timeline": "Timeline",
+    "map": "Map",
+    "edit": "Edit",
+    "addItem": "Add an item",
+    "options": "Options",
+    "preload": "Preload",
+    "loadURL": "Load from URL",
+    "needExample": "Need an example ?",
+    "loadFile": "Load a file",
+    "chooseFile": "Choose a file…",
+    "loadFile2": "Load file",
+    "downloadButton": "Download",
+    "downloadText": "Download the collection as a single JSON file",
+    "replaceText": "Replace this collection by a JSON file",
+    "replaceOnlineText": "Replace this collection by an online JSON",
+    "deleteCollection": "Delete this collection",
+    "searchHere": "Search here ..."
+  },
+  "fr": {
+    "browse": "Parcourir",
+    "timeline": "Frise chronologique",
+    "map": "Carte",
+    "edit": "Editer",
+    "addItem": "Ajouter un objet",
+    "options": "Options",
+    "preload": "Pré-charger",
+    "loadURL": "Charger depuis une URL",
+    "needExample": "Besoin d'un exemple ?",
+    "loadFile": "Charger un fichier",
+    "chooseFile": "Choisir un fichier…",
+    "loadFile2": "Charger le fichier",
+    "downloadButton": "Télécharger",
+    "downloadText": "Télécharger la collection en un unique fichier JSON",
+    "replaceText": "Remplacer cette collection par un fichier JSON",
+    "replaceOnlineText": "Remplacer cette collection par un fichier JSON en ligne",
+    "deleteCollection": "Supprimer cette collection",
+    "searchHere": "Rechercher ici ..."
+  }
+}
+</i18n>

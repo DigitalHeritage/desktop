@@ -6,7 +6,8 @@
       "Description": "What makes a great painting? Is it one that makes you wonder how on earth the artist reproduced a scene so precisely in paint? Or ones that capture emotion in a single brushstroke? Or simply something utterly beautiful? Art lovers can amble around Paris’s the Louvre, New York’s Moma, Madrid’s Prado, Florence’s Uffizi Gallery and London’s Tate Gallery – even Venice’s Sistine Chapel, looking at walls (and ceilings) full of art. But there is something altogether different about going to see one particular artwork – a masterpiece – and examining what makes it special, marvelling at the colours they used, the symbolism in the painting, the art movement their work spearheaded, and even the mystery of the sitter.",
       "filename":"artworks-guardian.json",
       "_title": "",
-      "_image": ""
+      "_image": "",
+	  "id":0
     },
     "data": [
       {
@@ -20,7 +21,7 @@
         "Title": "Mona Lisa",
         "Date": "ca 1503",
         "Location": "The Louvre, Paris",
-        "Author": "Leonardo da Vinci",
+        "Subtitle": "Leonardo da Vinci",
         "Description": "It's the mysteriously serene smile of this painting's subject – thought to be Lisa Gherardini, the wife of a Florentine fabric merchant – that has given it universal fame. The portrait's small size – it measures 77 x 53 cm – can still be a surprise to those jostling for a glimpse of it, but it is the earliest Italian portrait to focus so closely on the sitter in a half-length portrait.",
         "Credits": "RMN-Grand Palais (Louvre Museum)",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-mona-lisa.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -36,7 +37,7 @@
         "Title": "Girl with a Pearl Earring",
         "Date": "ca 1665",
         "Location": "The Mauritshuis, The Hague",
-        "Author": "Johannes Vermeer",
+        "Subtitle": "Johannes Vermeer",
         "Description": "As she looks around with her slightly parted lips, you can’t help but wonder what this painting's sitter is about to say. There is an almost photorealist quality to this painting of an anonymous girl with a pearl earring – immortalised by Scarlett Johannson in the 2003 film. Vermeer, the Dutch Golden Age painter, died impoverished – he only painted two or three paintings a year because he worked so slowly, and the world forgot about his work until it was rediscovered in the 19th century.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-Pearl-Earring.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -52,7 +53,7 @@
         "Title": "Blotter",
         "Date": "1993",
         "Location": "Walker Art Gallery, Liverpool",
-        "Author": "Leonardo da Vinci",
+        "Subtitle": "Leonardo da Vinci",
         "Description": "There is something so tranquil and magical about Doig's paintings. This purple-hued work from a family snapshot is of his brother standing on a frozen pond and looking down into the reflection. Images reflected in water are common in his work – as seen in White Canoe (1991) and Echo Lake (2000) – and function as “entrances to other worlds\".",
         "Credits": "National Museums Liverpool Collection\n",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -68,7 +69,7 @@
         "Title": "The Birth of Venus",
         "Date": "1485-1486",
         "Location": "Uffizi Gallery, Florence",
-        "Author": "Sandro Botticelli",
+        "Subtitle": "Sandro Botticelli",
         "Description": "The Renaissance painting is the highlight of the Uffizi in Florence for good reason – it's a triumphant celebration of female beauty. Venus, with her long flowing hair, has been blown by the gentle breeze onto the shore of Cyprus and balances on a giant scallop shell. A young woman, thought to be Hora of spring or one of the graces, holds out a cloak covered in flowers.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/doi-208.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -84,7 +85,7 @@
         "Title": "Sistine Chapel ceiling",
         "Date": "1508",
         "Location": "Vatican City",
-        "Author": "Michelangelo",
+        "Subtitle": "Michelangelo",
         "Description": "This breathtaking sequence of scenes from the Book of Genesis covers the ceiling of one of the chapels in the Vatican, and includes Michelangelo's best known fresco of the Creation of Adam. The Italian Renaissance painter was commissioned to paint it in 1508 by Pope Julius 11 – he even designed his own scaffold to paint up so high.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-sistine-chapel-ceiling-1512.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -99,7 +100,7 @@
         "Title": "The Kiss",
         "Date": "1907-1908",
         "Location": "the Österreichische Galerie Belvedere, Vienna",
-        "Author": "Gustav Klimt",
+        "Subtitle": "Gustav Klimt",
         "Description": "Nothing can be as irresistibly romantic as Klimt’s oil painting, which shimmers with gold leaf and depicts two lovers entwined in a loving embrace. Both wear patterned robes which reference the contemporary style of Art Nouveau and the earlier Arts and Crafts movement. It is a departure from the artist’s usual portrayal of woman as the femme fatale.",
         "Credits": "Belvedere",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Kiss-Gustav-Klimt.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -114,7 +115,7 @@
         "Title": "Impression, Sunrise",
         "Date": "1872",
         "Location": "The Musée Marmottan Monet, Paris",
-        "Author": "Claude Monet",
+        "Subtitle": "Claude Monet",
         "Description": "It is easy to get lost for hours in the calmness of Monet’s hazy scene of the port of Le Havre, with a rising red sun casting shadows onto small boats. When it was first shown in a group show in Paris in 1874, the painting that gave Impressionism its name was criticised for looking unfinished.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-impression-sunrise-monet.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -129,7 +130,7 @@
         "Title": "The Great Wave",
         "Date": "1829-1832",
         "Location": "The British Museum, London",
-        "Author": "Hokurai",
+        "Subtitle": "Hokurai",
         "Description": "There is something seductively dangerous about this enormous, claw-like wave, that is about to break and engulf three fishing boats off Kanagawa in Japan. The woodblock print is the first in the Japanese artist’s series Thirty-six Views of Mount Fuji. It is one of the most famous Japanese artworks in the world.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Great-Wave-Hokusai.png?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -144,7 +145,7 @@
         "Title": "The Starry Night",
         "Date": "1889",
         "Location": "The Museum of Modern Art, New York",
-        "Author": "Vincent van Gogh",
+        "Subtitle": "Vincent van Gogh",
         "Description": "Van Gogh painted this night sky from a view from his room at the Saint-Paul asylum in Saint-Remy, France, where he was admitted for mental illness after cutting off his own ear. With its intense swirling patterns, van Gogh manages to conjure up a whirling vista above a sleepy village, with the crescent moon, stars, Venus and orbs.",
         "Credits": "The Museum of Modern Art\n",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-the-Starry-Night-Vincent-van-Gogh.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -159,7 +160,7 @@
         "Title": "The Night Watch",
         "Date": "1642",
         "Location": "Rijksmuseum, Amsterdam",
-        "Author": "Rembrandt van Rijn",
+        "Subtitle": "Rembrandt van Rijn",
         "Description": "This militia painting threw formality out of the window with its sense of movement and action. Rembrandt even painted himself hidden in the scene, which depicts Captain Banning Cocq and 17 members of his civic militia guards – all of whom commissioned the painting. Rembrandt puts a spotlight on the main characters with his trademark use of light and shadow, including a woman carrying a chicken.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Rembrandt-The-Night-Watch.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -174,7 +175,7 @@
         "Title": "The Raft of the Medusa",
         "Date": "1818-1819",
         "Location": "The Louvre, Paris",
-        "Author": "Theodore Gericault",
+        "Subtitle": "Theodore Gericault",
         "Description": "This lifesize painting, which measures about 16 feet by 23.5 feet, almost takes you with it on its doomed journey. The then-27-year-old Gericault drew inspiration from a real tragedy of men aboard a French naval frigate in 1816. Only 10 of the 150 men who boarded the raft lived. It is regarded as an icon of Romanticism for its emotive composition and interest in the natural world.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Raft-of-the-Medusa-Gericault.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -189,7 +190,7 @@
         "Title": "I Could Feel You",
         "Date": "2014",
         "Location": "Tate Britain, London",
-        "Author": "Tracey Emin",
+        "Subtitle": "Tracey Emin",
         "Description": "The Young British Artist is better known for her installations such as My Bed (1998) but it is no surprise that her paintings also hint at being candidly autobiographical in her examination of the female body. This is one of six related works on paper, each with a sensual title (Just Waiting, Stay Up, All for You), which is painted in black gouache.",
         "Credits": "Tracey Emin",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/tracey-emin-i-could-feel-you-.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -204,7 +205,7 @@
         "Title": "Mt St Victoire",
         "Date": "ca 1895",
         "Location": "Princeton University Art Museum, New Jersey",
-        "Author": "Henry and Rose Pearlman Collection",
+        "Subtitle": "Henry and Rose Pearlman Collection",
         "Description": "Post-Impressionist painter Cezanne, with his bold, flat use of colour, painted the mountains in southern France overlooking his hometown Aix-en-Provence many times. His new ways of depicting perspective by simplifying objects to planes and geometric shapes was a big influence on the later Cubists, especially Picasso, who called him “my only master”.",
         "Credits": "Henry and Rose Pearlman Collection",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Mt-St-Victoire-Cezanne.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -219,7 +220,7 @@
         "Title": "Les Demoiselles d'Avignon",
         "Date": "1907",
         "Location": "Museum of Modern Art, New York",
-        "Author": "Pablo Picasso",
+        "Subtitle": "Pablo Picasso",
         "Description": "Picasso used geometric forms to portray the female body in this striking painting of five nude sex workers in a brothel in Barcelona. His new style kick-started Cubism, a movement that he and Georges Braque invented and which resulted in abstract and fragmented paintings.",
         "Credits": "AFP/Getty",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Les-Demoiselles-dAvignon.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -234,7 +235,7 @@
         "Title": "The Bride Stripped Bare by Her Bachelors, Even",
         "Date": "1915-1923",
         "Location": "Philadelphia Museum of Art, Philadelphia",
-        "Author": "Marcel Duchamp",
+        "Subtitle": "Marcel Duchamp",
         "Description": "Duchamp’s bizarre artwork, that he declared as “permanently unfinished”, is meant to evoke the erotic tension between the bride and the bachelors. Known as The Large Glass, as it is over nine feet, it comrpises two shattered glass panels suspended vertically, which contain a mechanical-like bride, a large shape that references the Milky Way, nine bachelors in geometric shapes and mechanical objects, all painted in oil to give it colour.",
         "Credits": "Gaby Av",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Bride-Stripped-Bare-by-Her-Bachelors.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -249,7 +250,7 @@
         "Title": "Campbell's Soup Cans",
         "Date": "1962",
         "Location": "Museum of Modern Art, New York",
-        "Author": "Andy Warhol",
+        "Subtitle": "Andy Warhol",
         "Description": "This artwork, which consisted of 32 canvases, each painted with a Campbell soup can in different flavour, helped to introduce pop art as a major art movement in the US. It led to many more works depicting Campbell Soup cans over his career – ones with torn labels or opened lids, many being produced at The Factory, where studio assistants created them for him.",
         "Credits": "Wally Gobetz",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Campbells-Soup-Cans.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -264,7 +265,7 @@
         "Title": "The Garden of Earthy Delights",
         "Date": "1503-1515",
         "Location": "Museo del Prado, Madrid",
-        "Author": "Bosch",
+        "Subtitle": "Bosch",
         "Description": "The central panel of this extraordinary triptych oil painting on oak panel shows a manic utopia of male and female nudes cavorting with wild abandon, often with animals. The left panel shows Christ blessing Eve before she is presented to Adam while the right panel illustrates Hell. It is likely this work, by the Danish artist Bosch, is a warning against lust.",
         "Credits": "Museo del Prado\n",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Garden-of-Earthy-Delights.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -279,7 +280,7 @@
         "Title": "Flag",
         "Date": "1954-1955",
         "Location": "Museum of Modern Art, New York",
-        "Author": "Jasper Johns",
+        "Subtitle": "Jasper Johns",
         "Description": "The American artist dreamt he painted a large American flag and got on with it promptly the next morning. Now it is the painting for which he is best known, painted over strips of newspaper visible beneath the see-through paint, locating the painting in the McCarthy era and at the beginning of the Cold War.",
         "Credits": "EPA",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Flag-Jasper-Johns.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -294,7 +295,7 @@
         "Title": "Anthraquinone-1-Diazonium Chloride",
         "Date": "1994",
         "Location": "Tate Liverpool",
-        "Author": "Damien Hirst",
+        "Subtitle": "Damien Hirst",
         "Description": "This famous example of a Spot Painting – rows of randomly coloured circles – was produced by Hirst’s assistants. The artist produced about 60 Spot Paintings a year from 1986 to 2011. For Hirst, who is reportedly now the UK's richest living artist, they were just “a way of pinning down the joy of colour”.",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/damien-hirst-anthraquinone-1-diazonium-chloride-1994.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -309,7 +310,7 @@
         "Title": "The Persistence of Memory",
         "Date": "1931",
         "Location": "Museum of Modern Art, New York",
-        "Author": "Salvador Dali",
+        "Subtitle": "Salvador Dali",
         "Description": "Time and space have a hallucinatory quality in this instantly recognisable surrealist painting of melting watches. The human face, visible on an abstract form, with its long eyelashes, represents Dali. This painting was fuelled by the artist's interest in the dream analysis of Sigmund Freud, and made him a star at the age of 28.",
         "Credits": "Getty",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Persistence-of-Memory.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -324,7 +325,7 @@
         "Title": "Girl with a White Dog",
         "Date": "1951",
         "Location": "Tate, London",
-        "Author": "Lucien Freud",
+        "Subtitle": "Lucien Freud",
         "Description": "Freud was known for his psychologically complex figurative portraits, and this painting of his first wife Kitty Garman, who was pregnant at the time of the sitting, is no exception. The artist manages to reveal a multitude of emotions in the composition. He painted her many times during their short marriage, which ended in divorce in 1952, due to his many infidelities.",
         "Credits": "Getty",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Girl-with-a-White-Dog.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -339,7 +340,7 @@
         "Title": "The Scream",
         "Date": "1893",
         "Location": "The National Museum, Oslo",
-        "Author": "Edvard Munch",
+        "Subtitle": "Edvard Munch",
         "Description": "This painting came about when Munch was overcome by fear and anxiety during a walk with two friends, and “the sky suddenly turned to red”. The location was in earshot of his sister’s lunatic asylum, but it is said to capture the universal anxiety of modern man. It is currently waiting to be rehoused in the new National Museum in Oslo.",
         "Credits": "Nasjonalmuseet",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Scream.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -354,7 +355,7 @@
         "Title": "The Nightmare",
         "Date": "1781",
         "Location": "Detroit Institute of Art, Michigan",
-        "Author": "John Henry Fuseli",
+        "Subtitle": "John Henry Fuseli",
         "Description": "This sexually charged painting of a woman lying across a bed, as a demonic creature crouches on her chest, has been an icon of horror, ever since it was first exhibited at the annual RA exhibition in 1782. Is she having a nightmare? Is it referencing Fuseli’s own love life? Or is it about female desire? The artwork created shock and intrigue in its day and made Fuseli famous.",
         "Credits": "Detroit Institute of Arts",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-The-Nightmare.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -369,7 +370,7 @@
         "Title": "Nataraja",
         "Date": "1993",
         "Location": "Tate Modern, London",
-        "Author": "Bridget Riley",
+        "Subtitle": "Bridget Riley",
         "Description": "When Bridget Riley first created her black and white abstract paintings in the 1960s – known as op art – the images seemed to actually move. The brightly coloured diagonal stripes in this later painting, inspired by a trip to India, also creates a sense of movement. She created it on paper in gouache, before handing it over to her studio assistants, to transfer it onto canvas.",
         "Credits": "Tate",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/bridget-riley-nataraja-1993.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -384,7 +385,7 @@
         "Title": "Autumn Rhythm (Number 30)",
         "Date": "1950",
         "Location": "Metropolitan Museum of Art, New York",
-        "Author": "Jackson Pollock",
+        "Subtitle": "Jackson Pollock",
         "Description": "Pollock had already created his first \"drip painting\" in 1947, sending shockwaves through the art world. The technique, which involved painting on a canvas laid flat on the floor and pouring, dripping, even splattering paint onto it – with a degree of control – is at its peak in Autumn Rhythm, which is evocative of nature. He died in a car crash aged 44 in 1956.",
         "Credits": "Met Museum",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/18/pollock.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -399,7 +400,7 @@
         "Title": "Le Déjeuner sur l’herbe",
         "Date": "1862",
         "Location": "Musée d’Orsay, Paris",
-        "Author": "Édouard Manet",
+        "Subtitle": "Édouard Manet",
         "Description": "This painting caused a scandal when it was first exhibited in Paris in 1863. The scene of a naked woman having a picnic with two fully clothed men is still jarring. But in Manet’s day, female nudes usually represented figures from mythology, like goddesses. This painting, which places the nude in an everyday setting, was a departure point for Modern Art as Manet refused to toe the line.",
         "Credits": "RMN (Musée d'Orsay)/Hervé Lewandowski",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Le-Dejeuner-sur-lherbe.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -414,7 +415,7 @@
         "Title": "Self-Portrait with Thorn Necklace and Hummingbird",
         "Date": "1940",
         "Location": "Harry Ransom Center, University of Texas, Austin",
-        "Author": "Frida Kahlo",
+        "Subtitle": "Frida Kahlo",
         "Description": "The Mexican surrealist artist found painting self-portraits therapeutic. This one reveals her suffering; her long lasting pain after a bus accident; her infertility; her divorce from artist Diego Rivera and the end of her affair with photographer Nikolas Muray. Bursting with symbolism from Mexican folklore, it is a jigsaw puzzle of meaning.",
         "Credits": "AFP/Getty",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/06/25/13/top-artworks-Frida-Kahlo-Self-Portrait.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -429,7 +430,7 @@
         "Title": "Las Meninas",
         "Date": "1656",
         "Location": "Museo Nacional del Prado, Madrid, Spain",
-        "Author": "Diego Velázquez",
+        "Subtitle": "Diego Velázquez",
         "Description": "The leading artist of the Spanish Golden Age captures himself working on a large canvas in this realistic portrayal of the Spanish court, where he was court painter. The young princess Infanta Margarita Theresa is surrounded by servants, while her parents King Philip 1V of Spain and Mariana of Austria, watch the scene from a doorway. It holds plenty of mystery as to the relationship between the viewer and the characters depicted. For example, does the mirror reflect the hidden picture on the easel?",
         "Credits": "",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/01/16/las-meninas-by-diego-velazquez.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -444,7 +445,7 @@
         "Title": "Conversation",
         "Date": "1908-1912",
         "Location": "State Hermitage Museum, St Petersburg",
-        "Author": "Henri Matisse",
+        "Subtitle": "Henri Matisse",
         "Description": "What are they talking about? It looks serious. Matisse’s oil painting depicts the artist and his wife Amelie in conversation against an intense sapphire blue colour. Matisse wears striped pyjamas, which were fashionable as leisurewear in 20th century France. It was painted in his country house, and there is a tension in the way his wife sits – understandable, given that he reportedly once told her that he loved painting more than her.",
         "Credits": "Gandalf's Gallery",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/02/16/top-artworks-the-Conversation.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -459,7 +460,7 @@
         "Title": "Ophelia",
         "Date": "1851-1852",
         "Location": "Tate Britain, London",
-        "Author": "Sir John Everett Millais",
+        "Subtitle": "Sir John Everett Millais",
         "Description": "A drowning Ophelia from Shakespeare’s Hamlet is slowly sinking into the stream. The Pre-Raphaelite artist recreated, with breathtaking attention to detail, the consequence of Hamlet’s murder of her father. His 19-year old model, Lizzie Siddal, nearly died of a cold from lying in a bath fully clothed for hours, long after oil lamps used to keep the bath water warm went out. The artist did not notice but ended up paying her doctor’s bills.",
         "Credits": "John Everett Millais",
         "Image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/12/21/11/death-of-ophelia.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
@@ -473,7 +474,8 @@
       "Description": "",
       "filename":"augustins.json",
       "_title":"fields.designation",
-      "_image":"fields.image.filename"
+      "_image":"fields.image.filename",
+	  "id":1
     },
     "data": [
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "77f60ec93dce4b8ce4202946517e783a1915559f", "fields": {"donateur_vendeur": "MARQUESTE, Mme Vve Laurent Honr\u00e9  particulier", "designation_3": "esquisse", "designation": "Femme assise", "matiere": "terre cuite", "technique": "modelage", "num_inventaire": "RA 1047 T", "mesure_1": "Hauteur : 20", "domaine": "Sculpture", "mesure_3": "Profondeur : 18", "localisation": "mus\u00e9e des Augustins", "date_acqui": "1921-01-01", "numero_acquisition": "1921.3", "auteur_1": "MARQUESTE, Laurent-Honor\u00e9", "designation_2": "figurine", "mode_acquisition": "Don", "mesure_2": "Largeur : 11", "datation_1": "1851-1900", "credit_photo": "\u00a9 Ville de Toulouse - mus\u00e9e des Augustins", "datation_2": "1901-1925"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
