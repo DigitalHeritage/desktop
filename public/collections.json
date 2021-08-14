@@ -4405,5 +4405,88 @@
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "cf207a0fe54698a8cb158857f32ba5e36271369d", "fields": {"auteur_1": "Anonyme", "designation": "Buste de Christ", "matiere": "pierre", "num_inventaire": "2005 0 158", "mesure_1": "Hauteur : 70", "mesure_2": "Largeur : 71", "mesure_3": "Profondeur : 28", "localisation": "mus\u00e9e des Augustins", "domaine": "Sculpture", "designation_2": "fragment", "mode_acquisition": "Mode d'acquisition inconnu", "datation_1": "1501-1600 ?", "numero_acquisition": "8", "prov_geo": "H\u00f4tel de Bernuy"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "e706dfcb28606a98f0b99835b40623c17337c4b1", "fields": {"auteur_1": "PONSIN-ANDARAHY, Charles", "notes_aquisition": "Appara\u00eet sur la liste \u00ab Oeuvres d\u2019art appartenant au Mus\u00e9e des Augustins conserv\u00e9es dans les bureaux de la ville au Capitole \u00bb sign\u00e9e J. Cavailles le 22 janvier 1945 : Cabinet de M. Pouchedon. Au milieu des ann\u00e9es 1930, dans le bureau de M. Valats, maire adjoint d\u00e9l\u00e9gu\u00e9 aux mus\u00e9es et \u00e0 l'Ecole des Beaux-Arts.", "designation": "Conteur arabe", "matiere": "bronze", "image": {"format": "JPEG", "thumbnail": true, "height": 1200, "width": 812, "filename": "070-076.jpg", "id": "5f3619fabef9fdc648862764fe762e85"}, "technique": "fonte", "num_inventaire": "2005 0 159", "mesure_1": "Hauteur : 64", "domaine": "Sculpture", "mesure_3": "Profondeur : 31", "localisation": "mus\u00e9e des Augustins", "numero_acquisition": "8", "designation_2": "r\u00e9duction", "mode_acquisition": "Mode d'acquisition inconnu", "mesure_2": "Largeur : 58,5", "datation_1": "1873 : date du mod\u00e8le original", "credit_photo": "\u00a9 Photo Bernard Delorme", "prov_geo": "Toulouse"}, "record_timestamp": "2016-12-05T13:56:20+01:00"},
 		{"datasetid": "collections-du-musee-des-augustins-ville-de-toulouse", "recordid": "e859600a0ebde89e1221543389f73e7b6641250c", "fields": {"auteur_1": "Anonyme", "designation": "chapiteau corinthien", "matiere": "pierre", "num_inventaire": "2005 0 161", "mesure_1": "Hauteur : 40", "mesure_2": "Largeur : 51", "mesure_3": "Profondeur : 31", "localisation": "mus\u00e9e des Augustins", "domaine": "Sculpture", "designation_2": "chapiteau de pilastre", "mode_acquisition": "Mode d'acquisition inconnu", "numero_acquisition": "8", "prov_geo": "?"}, "record_timestamp": "2016-12-05T13:56:20+01:00"}]
-  }
+  },
+  {
+    "_metadata": {
+      "Title":"Catalogue des collections particulières",
+      "Subtitle":"avec la complicité de Patrice Claverie",
+      "Description": "",
+      "filename":"lescollectionsfr.json",
+      "_title": "",
+      "_image": "",
+	  "id":0
+    },
+    "data": [
+		{
+			"_metadata": {
+				"Title": "Désignation",
+				"Subtitle": "John Doe",
+				"Date": "2001",
+				"Geo": [48.864824, 2.33459],
+				"Image": "https://cdn11.bigcommerce.com/s-6d1tnboxyx/images/stencil/500x659/products/2608/11302/5__57946.1607523752.jpg?c=2"
+			},
+			"Thématique": "thématique",
+			"Domaine":"",
+			"Référence": [{
+				"référence": "001",
+				"type_de_reference": "inventaire"
+			}],
+			"Désignation": [{
+				"désignation": "désignation",
+				"type_de_désignation": "type"
+			}],
+			"Description": "description",
+			"Dimensions":[{
+				"hauteur":"15cm",
+				"largeur":"15cm",
+				"profondeur":"15cm",
+				"poids":"10kg",
+				"diamètre":"",
+				"type":"avec socle"
+			}],
+			"Matériaux/techniques":[{
+				"matériaux":"bois",
+				"technique":"sculpté",
+				"matériau_technique":"bois sculpté"
+			}],
+			"Personne":[{
+				"nom": "John Doe",
+				"dates":"1925-?",
+				"biographie":"",
+				"image":"",
+				"url":""
+			}],
+			"Dates":[{
+				"date":"01/01/2001",
+				"type_de_date":"date de création"
+			}],
+			"Lieux":[{
+				"nom": "France",
+				"type_de_lieu":"lieu de création"
+			}],
+			"Géoréférence":[{
+				"nom": "France",
+				"georeference":"46.232192999999995,2.209666999999996"
+			}],
+			"Image":[],
+			"Liens externes":[
+				{	
+					"url":"https://www.google.fr",
+					"nom":"Google"
+				}
+			],
+			"Localisation": [
+				{
+					"nom":"Etagère 2, salle 3, Rez-de-chaussée",
+					"georeference":"",
+					"url":""
+				}
+			],
+			"Etat":"",
+			"Acquisition":"",
+			"Assurance":"",
+			"Bloc-notes":""
+		}
+	]
+	}
 ]
