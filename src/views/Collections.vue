@@ -30,6 +30,12 @@
                 ><i class="material-icons">library_add</i>
                 {{ $t("Add from template") }}</a
               >
+              <a
+                class="navbar-item"
+                :class="{ 'is-active': active === 'options' }"
+                @click="active = 'options'"
+                ><i class="material-icons">settings</i> {{ $t("options") }}</a
+              >
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -37,7 +43,7 @@
       </nav>
     </section>
 
-    <div class="collections-list container">
+    <div class="collections-list container" v-if="active === 'list'">
       <div v-for="(collection, key) of collections" v-bind:key="key">
         <router-link :to="{ path: '/collection/' + key }">
           <div class="card is-one-third">
@@ -63,16 +69,35 @@
         </router-link>
       </div>
     </div>
+    <div
+      class="container options"
+      v-if="active === 'options'"
+      style="padding:35px 0;"
+    >
+      <hr />
+      <div class="columns">
+        <div class="column is-one-quarter-desktop is-half-mobile">
+          <a class="button is-danger" @click="restoreDemoData"
+            ><i class="material-icons">delete</i>
+            <img src="" alt="" sizes="" srcset="" />
+            {{ $t("Restaurer les données de démonstration") }}</a
+          >
+        </div>
+        <div class="column is-three-quarters-desktop is-half-mobile"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
+//import Collections from "../../public/collections.json";
 
 export default {
   name: "Collections",
   data: function() {
     return {
+      active: "list",
       collections: this.$Collections,
       collectionsTemplate: [
         {
