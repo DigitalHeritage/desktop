@@ -96,15 +96,16 @@
             </button>
           </div>
 
+          <div class="recorddisplay" v-html="recordDisplay"></div>
           <div
             v-for="(property, key) in record"
             style="padding-bottom:6px;"
             v-bind:key="key"
             v-bind:title="property"
           >
-            <template v-if="property"
+            <!-- <template v-if="property"
               ><strong>{{ key }}</strong> {{ property }}</template
-            >
+            > -->
           </div>
         </div>
       </div>
@@ -202,6 +203,57 @@
 </template>
 
 <script>
+function recordDisplay(record, level = 0) {
+  var result = "";
+  for (const property in record) {
+    let value = record[property];
+
+    if (typeof value == "string") {
+      // Simple text value
+      if (value != "") {
+        result =
+          result +
+          "<p style='padding-left:" +
+          level * 10 +
+          "px'><strong>" +
+          property +
+          "</strong> " +
+          value +
+          "</p>";
+      }
+    }
+    if (typeof value == "object") {
+      // This is an object
+      console.log("typeof value", Array.isArray(value));
+      if (Array.isArray(value)) {
+        // This is an array of values
+        let result2 =
+          "<p style='padding-left:" +
+          level * 10 +
+          "px'><strong>" +
+          property +
+          "</strong></p>" +
+          "<ul>";
+        value.forEach(function(currentValue) {
+          result2 = result2 + "<li>" + recordDisplay(currentValue, 0) + "</li>";
+        });
+        result2 = result2 + "</ul>";
+        result = result + result2;
+      } else {
+        result =
+          result +
+          "<p style='padding-left:" +
+          level * 10 +
+          "px'><strong>" +
+          property +
+          "</strong></p>";
+        result = result + recordDisplay(value, level + 1);
+      }
+    }
+  }
+  return result;
+}
+
 // @ is an alias to /src
 export default {
   name: "Home",
@@ -245,6 +297,61 @@ export default {
     },
     collectionName() {
       return this.$Collections[this.collectionId]._metadata.Title;
+    },
+    recordDisplay() {
+      return recordDisplay(this.record);
+      //return recordDisplay(this.record);
+    },
+    recordDisplay2() {
+      let displayRows = [];
+      for (const property in this.record) {
+        //console.log(`${property}: ${object[property]}`);
+        let value = this.record[property];
+        //console.log(value);
+        if (typeof value == "string") {
+          if (value != "") {
+            displayRows.push(
+              "<p><strong>" +
+                property +
+                "</strong> " +
+                this.record[property] +
+                "</p>"
+            );
+          } else {
+            displayRows.push(
+              "<p><strong style='color:lightgray;'>" +
+                property +
+                "</strong></p>"
+            );
+          }
+        } else {
+          console.log(typeof this.record[property]);
+          for (const property2 in value) {
+            console.log("property2");
+            let value2 = value[property2];
+            if (typeof value2 == "string") {
+              if (value2 != "") {
+                displayRows.push(
+                  "<p style='padding:20px'><strong>" +
+                    property2 +
+                    "</strong> " +
+                    value2[property2] +
+                    "</p>"
+                );
+              } else {
+                displayRows.push(
+                  "<p style='padding:20px'><strong style='color:lightgray;'>" +
+                    property2 +
+                    "</strong></p>"
+                );
+              }
+              console.log(typeof this.record[property2]);
+            }
+          }
+        }
+      }
+      let result = displayRows.join("\n");
+      return result;
     }
   },
   methods: {
@@ -338,6 +445,16 @@ export default {
 }
 .edit textarea {
   height: 80px;
+}
+ul {
+  list-style-type: disc !important;
+  margin-left: 24px !important;
+}
+.recorddisplay > p {
+  padding-bottom: 6px !important;
+}
+.recorddisplay > ul {
+  padding-bottom: 6px !important;
 }
 </style>
 
