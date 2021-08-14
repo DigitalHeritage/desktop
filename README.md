@@ -1,4 +1,4 @@
-# desktop
+# DigitalHeritage app
 
 ## Project setup
 ```
