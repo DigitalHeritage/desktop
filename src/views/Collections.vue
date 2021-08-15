@@ -91,7 +91,6 @@
 
 <script>
 import Vue from "vue";
-//import Collections from "../../public/collections.json";
 
 export default {
   name: "Collections",
@@ -204,6 +203,17 @@ export default {
       } else {
         return "";
       }
+    },
+    restoreDemoData() {
+      console.log("restoreDemoData");
+      // trashing the localStorage
+      for (let index = 0; index < localStorage.length; index++) {
+        if (localStorage.key(index).startsWith("digitalheritage-collection")) {
+          localStorage.removeItem(localStorage.key(index));
+        }
+      }
+      // Fire full refresh
+      window.location.reload();
     }
   }
 };
