@@ -55,6 +55,12 @@
               >
               <a
                 class="navbar-item"
+                @click="active = 'modify2'"
+                :class="{ 'is-active': active == 'modify2' }"
+                ><i class="material-icons">create</i> {{ $t("edit2") }}</a
+              >              
+              <a
+                class="navbar-item"
                 @click="activateJson"
                 :class="{ 'is-active': active == 'json' }"
                 to="/collection"
@@ -114,6 +120,36 @@
     <div
       class="container edit"
       v-if="active == 'modify'"
+      style="padding:35px 0;"
+    >
+      <div
+        v-for="(property, key) in record"
+        style="padding-bottom:6px;"
+        v-bind:key="key"
+        v-bind:title="property"
+      >
+        <template v-if="key !== 'Description'"
+          ><strong>{{ key }}</strong
+          ><br /><input
+            v-model="artwork[key]"
+            class="input"
+            :placeholder="key"
+            @change="changeProperty(key)"
+        /></template>
+        <template v-else
+          ><strong>{{ key }}</strong
+          ><br /><textarea
+            v-model="artwork[key]"
+            class="textarea"
+            :placeholder="key"
+          ></textarea
+        ></template>
+      </div>
+    </div>
+
+    <div
+      class="container edit2"
+      v-if="active == 'modify2'"
       style="padding:35px 0;"
     >
       <div
@@ -463,6 +499,7 @@ ul {
   "en" : {
     "view": "View",
     "edit": "Edit",
+    "edit2": "Advanced editor",
     "editJSON": "Edit JSON",
     "images": "Images",
     "delete": "Delete",
@@ -476,6 +513,7 @@ ul {
   "fr": {
     "view": "Voir",
     "edit": "Editer",
+    "edit2": "Editeur avancé",
     "editJSON": "Editer le JSON",
     "images": "Images",
     "delete": "Supprimer",
