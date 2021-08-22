@@ -1,3 +1,5 @@
+// /src/main.js
+import "./jquery";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
