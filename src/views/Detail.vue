@@ -55,10 +55,10 @@
               >
               <a
                 class="navbar-item"
-                @click="active = 'modify2'"
+                @click="alpacaForm"
                 :class="{ 'is-active': active == 'modify2' }"
                 ><i class="material-icons">create</i> {{ $t("edit2") }}</a
-              >              
+              >
               <a
                 class="navbar-item"
                 @click="activateJson"
@@ -152,29 +152,7 @@
       v-if="active == 'modify2'"
       style="padding:35px 0;"
     >
-      <div
-        v-for="(property, key) in record"
-        style="padding-bottom:6px;"
-        v-bind:key="key"
-        v-bind:title="property"
-      >
-        <template v-if="key !== 'Description'"
-          ><strong>{{ key }}</strong
-          ><br /><input
-            v-model="artwork[key]"
-            class="input"
-            :placeholder="key"
-            @change="changeProperty(key)"
-        /></template>
-        <template v-else
-          ><strong>{{ key }}</strong
-          ><br /><textarea
-            v-model="artwork[key]"
-            class="textarea"
-            :placeholder="key"
-          ></textarea
-        ></template>
-      </div>
+      <div id="form-alpaca"></div>
     </div>
 
     <div
@@ -239,6 +217,11 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import jQuery from "jquery";
+import * as Alpaca from "alpaca";
+import AdvancedEditorSchema from "../../public/advanced-editor-schema.json";
+
 function recordDisplay(record, level = 0) {
   var result = "";
   for (const property in record) {
@@ -440,16 +423,22 @@ export default {
         //Change metadata according to the edited fields of an item to keep persistence
         this.artwork._metadata[key] = this.artwork[key];
       }
+    },
+    alpacaForm() {
+      this.active = "modify2";
+      setTimeout(function() {
+        window.$("#form-alpaca").alpaca(AdvancedEditorSchema);
+      }, 50);
     }
   },
   created() {
+    console.log(Alpaca);
     if (this.id !== undefined) {
       this.current = parseInt(this.id);
     }
     if (this.coll !== undefined) {
       this.collectionId = parseInt(this.coll);
     }
-
     this.artwork = this.$Collections[this.collectionId].data[this.current];
   },
   beforeDestroy() {
@@ -493,7 +482,6 @@ ul {
   padding-bottom: 6px !important;
 }
 </style>
-
 <i18n>
 {
   "en" : {
