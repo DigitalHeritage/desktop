@@ -15,8 +15,13 @@
   },
   "main": "background.js",
   "dependencies": {
+    "alpaca": "^1.5.27",
+    "bootstrap": "^5.1.0",
     "bulma": "^0.8.2",
     "core-js": "^3.6.4",
+    "glyphicons-only-bootstrap": "^1.0.1",
+    "handlebars": "^4.7.7",
+    "jquery": "^3.6.0",
     "jsonpath": "^1.0.2",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",
