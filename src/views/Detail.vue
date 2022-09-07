@@ -2,7 +2,7 @@
   <div class="home">
     <div
       :style="{
-        backgroundImage: 'url(' + artwork.Image + ')',
+        backgroundImage: 'url(' + artwork._metadata.Image + ')',
         display: zoom ? 'block' : 'none'
       }"
       @click="zoom = false"
@@ -11,7 +11,7 @@
     ></div>
     <section
       class="hero is-primary"
-      :style="{ backgroundImage: 'url(' + artwork.Image + ')' }"
+      :style="{ backgroundImage: 'url(' + artwork._metadata.Image + ')' }"
     >
       <div class="hero-body">
         <div class="container">
@@ -21,10 +21,10 @@
                 collectionName
               }}</span></router-link
             >
-            {{ artwork.Title }}
+            {{ artwork._metadata.Title }}
           </h1>
           <h2 class="subtitle">
-            {{ artwork.Subtitle }}
+            {{ artwork._metadata.Subtitle }}
           </h2>
           <p></p>
         </div>
@@ -243,7 +243,7 @@ function recordDisplay(record, level = 0) {
     }
     if (typeof value == "object") {
       // This is an object
-      console.log("typeof value", Array.isArray(value));
+      //console.log("typeof value", Array.isArray(value));
       if (Array.isArray(value)) {
         // This is an array of values
         let result2 =
@@ -312,7 +312,7 @@ export default {
       return result;
     },
     image: function() {
-      return this.artwork.Image;
+      return this.artwork._metadata.Image;
     },
     collectionName() {
       return this.$Collections[this.collectionId]._metadata.Title;
@@ -432,7 +432,7 @@ export default {
     }
   },
   created() {
-    console.log(Alpaca);
+	console.log(Alpaca);
     if (this.id !== undefined) {
       this.current = parseInt(this.id);
     }
@@ -440,6 +440,8 @@ export default {
       this.collectionId = parseInt(this.coll);
     }
     this.artwork = this.$Collections[this.collectionId].data[this.current];
+	console.log("this.artwork", this.$Collections[this.collectionId].data[this.current]);
+	
   },
   beforeDestroy() {
     console.log("saveLocal");
