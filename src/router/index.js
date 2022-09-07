@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Book from "../views/Book";
 import Collections from "../views/Collections";
 import Collection from "../views/Collection";
+import Sets from "../views/Sets";
+import SetComponent from "../views/SetComponent";
 import Detail from "../views/Detail";
 import Connexion from "../views/Connexion";
 import RemoteProfile from "../views/RemoteProfile";
@@ -35,6 +37,16 @@ const routes = [
     name: "Collection",
     component: Collection
   },
+  {
+    path: "/sets",
+    name: "Sets",
+    component: Sets
+  },
+  {
+    path: "/set/:id",
+    name: "SetId",
+    component: SetComponent
+  },  
   {
     path: "/collection/:id",
     name: "CollectionId",

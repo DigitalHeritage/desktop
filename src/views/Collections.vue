@@ -30,6 +30,9 @@
               <router-link class="navbar-item" to="/book"
                 ><i class="material-icons">import_contacts</i> {{ $t("manage_book") }}
               </router-link>			  
+			  <router-link class="navbar-item" to="/sets"
+                ><i class="material-icons">shopping_basket</i> {{ $t("sets") }}
+              </router-link>			  
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
@@ -266,7 +269,8 @@ export default {
     "modalTitle": "Load from the browser ?",
     "modalSubtitle": "Do you want to load the datas stored in your browser ?",
     "loadBrowser": "Load from browser",
-    "saveBrowser": "Save in browser"
+    "saveBrowser": "Save in browser",
+	"sets": "Sets"
   },
   "fr": {
     "subtitle": "Une application de gestion de collections",
@@ -278,7 +282,8 @@ export default {
     "modalTitle": "Charger depuis le navigateur ?",
     "modalSubtitle": "Voulez vous charger vos données depuis le navigateur ?",
     "loadBrowser": "Charger du navigateur",
-    "saveBrowser": "Enregistrer dans le navigateur"
+    "saveBrowser": "Enregistrer dans le navigateur",
+	"sets": "Ensembles"
   }
 }
 </i18n>
