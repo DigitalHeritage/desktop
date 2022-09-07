@@ -31,7 +31,7 @@
       </div>
       <nav
         class="navbar"
-        style="background-color:rgba(11, 8, 117, 0.74);"
+        style="background-color: rgba(11, 8, 117, 0.74)"
         role="navigation"
         aria-label="main navigation"
       >
@@ -84,13 +84,13 @@
       </nav>
     </section>
 
-    <div class="container" v-if="active == 'detail'" style="padding:35px 0;">
+    <div class="container" v-if="active == 'detail'" style="padding: 35px 0">
       <div class="columns is-desktop">
         <div class="column is-one-third">
           <img :src="image" @click="zoom = true" class="zoomable" />
         </div>
         <div class="column">
-          <div style="float: right;">
+          <div style="float: right">
             <button class="button" disabled>
               <span class="icon"><i class="material-icons">save</i></span>
             </button>
@@ -105,7 +105,7 @@
           <div class="recorddisplay" v-html="recordDisplay"></div>
           <div
             v-for="(property, key) in record"
-            style="padding-bottom:6px;"
+            style="padding-bottom: 6px"
             v-bind:key="key"
             v-bind:title="property"
           >
@@ -120,11 +120,11 @@
     <div
       class="container edit"
       v-if="active == 'modify'"
-      style="padding:35px 0;"
+      style="padding: 35px 0"
     >
       <div
         v-for="(property, key) in record"
-        style="padding-bottom:6px;"
+        style="padding-bottom: 6px"
         v-bind:key="key"
         v-bind:title="property"
       >
@@ -142,15 +142,15 @@
             v-model="artwork[key]"
             class="textarea"
             :placeholder="key"
-          ></textarea
-        ></template>
+          ></textarea>
+        </template>
       </div>
     </div>
 
     <div
       class="container edit2"
       v-if="active == 'modify2'"
-      style="padding:35px 0;"
+      style="padding: 35px 0"
     >
       <div id="form-alpaca"></div>
     </div>
@@ -158,7 +158,7 @@
     <div
       class="container json-edit"
       v-if="active == 'json'"
-      style="padding:35px 0;"
+      style="padding: 35px 0"
     >
       <textarea
         v-model="json"
@@ -169,7 +169,7 @@
       </button>
     </div>
 
-    <div class="container" v-if="active == 'images'" style="padding:35px 0;">
+    <div class="container" v-if="active == 'images'" style="padding: 35px 0">
       <div class="columns is-desktop">
         <div class="column is-one-third">
           <img :src="image" @click="zoom = true" class="zoomable" />
@@ -201,9 +201,7 @@
                 @change="uploadImage"
               />
               <span class="file-cta">
-                <span class="material-icons">
-                  add_a_photo
-                </span>
+                <span class="material-icons"> add_a_photo </span>
                 <span class="file-label">
                   {{ $t("chooseFile") }}
                 </span>
@@ -222,29 +220,38 @@ import jQuery from "jquery";
 import * as Alpaca from "alpaca";
 import AdvancedEditorSchema from "../../public/advanced-editor-schema.json";
 
-function recordDisplay(record, level = 0) {
+function recordDisplay(record, label, level = 0) {
   var result = "";
   for (const property in record) {
     let value = record[property];
+    console.log(typeof value, value);
 
     if (typeof value == "string") {
       // Simple text value
-      if ((value != "") && (property != "locale")) {
+      if (value != "" && property != "locale") {
         result =
           result +
           "<p style='padding-left:" +
           level * 10 +
           "px'><strong>" +
-          property + 
+          label[property] +
           "</strong> " +
           value +
           "</p>";
       }
     }
-    if (typeof value == "object") {
+    if (value == null) {
+      continue;
+    }
+    /*if (typeof value == "object") {
       // This is an object
-      //console.log("typeof value", Array.isArray(value));
       if (Array.isArray(value)) {
+        console.log("property :",property);
+    console.log("value :",value);
+    console.log("value[0] : ", value[0]);
+        console.log("value[0] type: ",typeof value[0]);
+
+    console.log("--------------");
         // This is an array of values
         let result2 =
           "<p style='padding-left:" +
@@ -254,7 +261,7 @@ function recordDisplay(record, level = 0) {
           "</strong></p>" +
           "<ul>";
         value.forEach(function(currentValue) {
-          result2 = result2 + "<li>" + recordDisplay(currentValue, 0) + "</li>";
+          result2 = result2 + recordDisplay(currentValue, 0);
         });
         result2 = result2 + "</ul>";
         result = result + result2;
@@ -267,6 +274,31 @@ function recordDisplay(record, level = 0) {
           property +
           "</strong></p>";
         result = result + recordDisplay(value, level + 1);
+      }
+    }*/
+    if (typeof value[0] == "object") {
+      if (Object.keys(value[0]).length == 2) {
+        if (value[0][property]) {
+          result =
+            result +
+            "<p style='padding-left:" +
+            level * 10 +
+            "px'><strong>" +
+            label[property] +
+            "</strong> " +
+            value[0][property] +
+            "</p>";
+        }
+      } else {
+        console.log(value[0]);
+        result =
+          result +
+          "<p style='padding-left:" +
+          level * 10 +
+          "px'><strong>" +
+          label[property] +
+          "</strong></p>";
+        result = result + recordDisplay(value[0], label, level + 1);
       }
     }
   }
@@ -307,12 +339,18 @@ export default {
     record: function() {
       let result = Object.assign({}, this.artwork);
       delete result.Image;
-	  // Remove from display some fields 
-	  console.log("_origine", this.$Collections[this.collectionId]._metadata._origine);
-	  if(this.$Collections[this.collectionId]._metadata._origine == "CollectiveAccess") {
-		delete result.representations;
-		delete result.intrinsic_fields;
-	  }
+      // Remove from display some fields
+      console.log(
+        "_origine",
+        this.$Collections[this.collectionId]._metadata._origine
+      );
+      if (
+        this.$Collections[this.collectionId]._metadata._origine ==
+        "CollectiveAccess"
+      ) {
+        delete result.representations;
+        delete result.intrinsic_fields;
+      }
       delete result._metadata;
       delete result._key;
       return result;
@@ -324,7 +362,10 @@ export default {
       return this.$Collections[this.collectionId]._metadata.Title;
     },
     recordDisplay() {
-      return recordDisplay(this.record);
+      return recordDisplay(
+        this.record.attributes,
+        this.$Collections[this.collectionId]._metadata.model.labels
+      );
       //return recordDisplay(this.record);
     },
     recordDisplay2() {
@@ -360,7 +401,8 @@ export default {
                   "<p style='padding:20px'><strong>" +
                     property2 +
                     "</strong> " +
-                    value2[property2] + value2[property2] +
+                    value2[property2] +
+                    value2[property2] +
                     "</p>"
                 );
               } else {
@@ -438,7 +480,7 @@ export default {
     }
   },
   created() {
-	console.log(Alpaca);
+    console.log(Alpaca);
     if (this.id !== undefined) {
       this.current = parseInt(this.id);
     }
@@ -446,8 +488,10 @@ export default {
       this.collectionId = parseInt(this.coll);
     }
     this.artwork = this.$Collections[this.collectionId].data[this.current];
-	console.log("this.artwork", this.$Collections[this.collectionId].data[this.current]);
-	
+    console.log(
+      "this.artwork",
+      this.$Collections[this.collectionId].data[this.current]
+    );
   },
   beforeDestroy() {
     console.log("saveLocal");
