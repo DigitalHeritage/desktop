@@ -575,6 +575,8 @@ export default {
     }
 
     for (let i = 0; i < this.artworks.length; i++) {
+		console.log("geo0", "ici");
+		console.log("_metadata", this.artworks[i]._metadata);
       // Geo is inside _metada.Geo
       // TODO : group by same Geo, for Paris Louvre
       if (
@@ -582,6 +584,7 @@ export default {
         this.artworks[i]._metadata.Geo &&
         this.artworks[i]._metadata.Geo[0]
       ) {
+		console.log("geo0", this.artworks[i]._metadata.Geo[0]);
         this.markers.push({
           geo: L.latLng(
             this.artworks[i]._metadata.Geo[0],

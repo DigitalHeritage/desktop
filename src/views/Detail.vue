@@ -229,13 +229,13 @@ function recordDisplay(record, level = 0) {
 
     if (typeof value == "string") {
       // Simple text value
-      if (value != "") {
+      if ((value != "") && (property != "locale")) {
         result =
           result +
           "<p style='padding-left:" +
           level * 10 +
           "px'><strong>" +
-          property +
+          property + 
           "</strong> " +
           value +
           "</p>";
@@ -307,6 +307,12 @@ export default {
     record: function() {
       let result = Object.assign({}, this.artwork);
       delete result.Image;
+	  // Remove from display some fields 
+	  console.log("_origine", this.$Collections[this.collectionId]._metadata._origine);
+	  if(this.$Collections[this.collectionId]._metadata._origine == "CollectiveAccess") {
+		delete result.representations;
+		delete result.intrinsic_fields;
+	  }
       delete result._metadata;
       delete result._key;
       return result;
@@ -354,7 +360,7 @@ export default {
                   "<p style='padding:20px'><strong>" +
                     property2 +
                     "</strong> " +
-                    value2[property2] +
+                    value2[property2] + value2[property2] +
                     "</p>"
                 );
               } else {
