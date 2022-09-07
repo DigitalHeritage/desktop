@@ -592,7 +592,7 @@ export default {
           ),
           name: this.artworks[i]._metadata.Title,
           id: i,
-          image: this.artworks[i].Image
+          image: this.artworks[i]._metadata.Image
         });
       }
     }
