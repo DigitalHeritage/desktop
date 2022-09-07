@@ -47,7 +47,7 @@
                 :class="{ 'is-active': active == 'detail' }"
                 ><i class="material-icons">desktop_mac</i> {{ $t("view") }}</a
               >
-              <a
+              <!-- <a
                 class="navbar-item"
                 @click="active = 'modify'"
                 :class="{ 'is-active': active == 'modify' }"
@@ -59,6 +59,7 @@
                 :class="{ 'is-active': active == 'modify2' }"
                 ><i class="material-icons">create</i> {{ $t("edit2") }}</a
               >
+			  -->
               <a
                 class="navbar-item"
                 @click="activateJson"
@@ -224,7 +225,7 @@ function recordDisplay(record, label, level = 0) {
   var result = "";
   for (const property in record) {
     let value = record[property];
-    console.log(typeof value, value);
+    //console.log(typeof value, value);
 
     if (typeof value == "string") {
       // Simple text value
