@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+	<div id="loading" style="position: absolute;top:0;left:0;right:0;bottom:0;background-color: rgba(0,0,0,0.4);color:white;font-size:60px;z-index:100;line-height: 100vh;text-align: center;display:none;">
+		<i class="material-icons rotate" style="font-size:70px;">hourglass_empty</i>
+	</div>
+
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
@@ -23,6 +27,9 @@
               <router-link class="navbar-item is-active" to="/collection"
                 ><i class="material-icons">library_books</i> {{ $t("browse") }}
               </router-link>
+              <router-link class="navbar-item" to="/book"
+                ><i class="material-icons">import_contacts</i> {{ $t("manage_book") }}
+              </router-link>			  
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
@@ -45,7 +52,7 @@
 
     <div class="collections-list container" v-if="active === 'list'">
       <div v-for="(collection, key) of collections" v-bind:key="key">
-        <router-link :to="{ path: '/collection/' + key }">
+        <div @click="redirect('/collection/' + key);">
           <div class="card is-one-third">
             <div class="card-content">
               <div class="media">
@@ -66,7 +73,7 @@
               </div>
             </div>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
     <div
@@ -150,6 +157,16 @@ export default {
     }
   },
   methods: {
+	redirect(target) {
+		document.getElementById("loading").style.display = 'block'; 
+		//console.log(target);
+		var self = this;
+		var timeouttarget = target;
+		setTimeout(function () { 
+			self.$router.push(timeouttarget);
+		} , 50);
+		
+	},
     loadLocal() {
       console.log("loadLocal");
       Vue.prototype.$Collections = [];
@@ -223,6 +240,18 @@ export default {
 .collections-list {
   padding: 40px 0;
 }
+.rotate {
+  animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 </style>
 
 <i18n>
@@ -230,6 +259,7 @@ export default {
   "en": {
     "subtitle": "A collection management app",
     "browse": "Browse collections",
+	"manage_book": "Printed catalogue",
     "add": "Add a collection",
     "Yes": "Yes",
     "No": "No",
@@ -241,6 +271,7 @@ export default {
   "fr": {
     "subtitle": "Une application de gestion de collections",
     "browse": "Parcourir les collections",
+	"manage_book": "Catalogue papier",
     "add": "Ajouter une collection",
     "Yes": "Oui",
     "No": "Non",
