@@ -312,6 +312,7 @@ export default {
 	  if(this.$Collections[this.collectionId]._metadata._origine == "CollectiveAccess") {
 		delete result.representations;
 		delete result.intrinsic_fields;
+		delete result.related.ca_object_representations;
 	  }
       delete result._metadata;
       delete result._key;
