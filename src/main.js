@@ -19,7 +19,7 @@ Icon.Default.mergeOptions({
 });
 
 console.log("collections", Collections);
-let url_collection = "https://demo7.ideesculture.fr/gestion/dh_service.php?"+Date.now();
+let url_collection = "https://floutier.lescollections.fr/gestion/dh_service.php?"+Date.now();
 axios.get(url_collection)
 .then(response => {
 	// JSON responses are automatically parsed.
