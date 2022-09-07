@@ -3,9 +3,11 @@ import "./jquery";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import axios from 'axios';
+
 require("./assets/digitalheritage.scss");
 require("../node_modules/material-design-icons/iconfont/material-icons.css");
-import Collections from "../public/collections.json";
+import Collections from "../public/collections_vide.json";
 import { Icon } from "leaflet";
 import i18n from "./i18n";
 
@@ -15,6 +17,18 @@ Icon.Default.mergeOptions({
   iconUrl: require("leaflet/dist/images/marker-icon.png"),
   shadowUrl: require("leaflet/dist/images/marker-shadow.png")
 });
+
+console.log("collections", Collections);
+let url_collection = "https://demo7.ideesculture.fr/gestion/dh_service.php?"+Date.now();
+axios.get(url_collection)
+.then(response => {
+	// JSON responses are automatically parsed.
+	let new_collection = response.data;
+	Collections.push(new_collection);
+})
+.catch(e => {
+	this.errors.push(e)
+})
 
 Vue.config.productionTip = false;
 Vue.prototype.$Collections = Collections;
