@@ -425,14 +425,14 @@ export default {
   methods: {
     showNext() {
       console.log("saveLocal");
-      this.$parent.$parent.saveLocal();
+      //this.$parent.$parent.saveLocal();
       if (this.current < this.$Collections[this.collectionId].data.length - 1)
         this.current++;
       this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
     showPrev() {
       console.log("saveLocal");
-      this.$parent.$parent.saveLocal();
+      //this.$parent.$parent.saveLocal();
       if (this.current > 0) this.current--;
       this.artwork = this.$Collections[this.collectionId].data[this.current];
     },
