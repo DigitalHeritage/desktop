@@ -28,7 +28,7 @@
 
     <div id="about-body">
       <div class="container" style="padding-top:40px;">
-			
+			<iframe style="height:600px; border:1px solid darkblue;width:100%;" src="https://floutier.lescollections.fr/gestion/book"></iframe>
 	  </div>
     </div>
   </div>
