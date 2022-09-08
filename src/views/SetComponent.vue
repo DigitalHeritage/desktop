@@ -97,22 +97,17 @@
         :key="`${index}`"
         :style="{ backgroundImage: 'url(' + set._metadata.Image + ')' }"
       >
-        <router-link :to="'/detail/' + setId + '/' + set._metadata.index">
+        
           <div class="card-content"></div>
-        </router-link>
         <footer class="card-footer">
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <router-link
-                  :to="'/detail/' + setId + '/' + set._metadata.index"
-                >
                   <img
                     v-if="set._metadata.Image"
                     :src="set._metadata.Image"
                     :alt="set.Title"
                   />
-                </router-link>
               </figure>
             </div>
             <div class="media-content">
