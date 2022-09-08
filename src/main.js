@@ -65,8 +65,8 @@ axios
   .catch(e => {
     this.errors.push(e);
   });
-console.log("collections", Collections);
-console.log("sets", Sets);
+//console.log("collections", Collections);
+//console.log("sets", Sets);
 Vue.config.productionTip = false;
 Vue.prototype.$Collections = Collections;
 Vue.prototype.$Sets = Sets;
