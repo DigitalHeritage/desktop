@@ -32,7 +32,7 @@
         :key="`${index}`"
       >
         <router-link
-          :to="'/booksection/' + book_id + '/' + booksection_id"
+          :to="'/booksection/' + section.book_id + '/' + section.booksection_id"
         >
           <div class="card-content"></div>
         </router-link>
@@ -62,7 +62,7 @@
 
 <script>
 	export default {
-	  name: "Sets",
+	  name: "Book",
 	  data: function() {
 		return {
 		  active: "browse",
@@ -75,6 +75,7 @@
 		this.current = this.$route.params.id ? this.$route.params.id : 0;
 		this.catalogue = this.$CatalogueSections[this.current];
 		this.sections = this.catalogue.data;
+		//console.log(this.$CatalogueSections[this.$route.params.id]);
 	  },
   	  methods: {
 	  }
