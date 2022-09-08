@@ -13,10 +13,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Book
+            Catalogue raisonné
           </h1>
           <h2 class="subtitle">
-            Edit your printed catalogue
+            Préparer un catalogue raisonné papier
           </h2>
         </div>
       </div>
@@ -63,7 +63,6 @@
 	  name: "Books",
 	  data: function() {
 	    return {
-      	  current: 0,
 		  catalogues: this.$CatalogueSections
 		}
 	  },

@@ -4,10 +4,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            BookSections
+            Catalogue raisonné
           </h1>
           <h2 class="subtitle">
-            Edit your printed catalogue
+            Catalogue raisonné
           </h2>
         </div>
       </div>
@@ -25,27 +25,38 @@
         </div>
       </nav>
     </section>
-
-	<div class="sets-list container" v-if="active === 'list'">
-      <div v-for="(catalogue, key) of catalogues" v-bind:key="key">
-        <div @click="redirect('/book/' + key)">
-          <div class="card is-one-third">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4">{{ getTitle(catalogue) }}</p>
-                </div>
-              </div>
-
-              <div class="content">
-                <i>{{ getDescription(catalogue).substring(0, 114) }}</i>
+    <div class="cards-container sections-container" v-if="active === 'browse'">
+      <div
+        class="card section"
+        v-for="(section, index) in sections"
+        :key="`${index}`"
+      >
+        <router-link
+          :to="'/booksection/' + book_id + '/' + booksection_id"
+        >
+          <div class="card-content"></div>
+        </router-link>
+        <footer class="card-footer">
+          <div class="media">
+            <div class="media-content">
+              <div class="media-content-inner">
+                <router-link
+                  :to="
+                    '/booksection/' + section.book_id + '/' + section.booksection_id
+                  "
+                >
+					<p class="title is-6">
+						{{ section.title }}
+					</p>
+					<p class="subtitle is-7">{{ section.style }}</p>
+                </router-link>
               </div>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
-	
+
   </div>
 </template>
 
@@ -54,27 +65,18 @@
 	  name: "Sets",
 	  data: function() {
 		return {
-		  active: "list",
+		  active: "browse",
+      	  current: 0,
 		  catalogues: this.$CatalogueSections
 		}
 	  },
   	  mounted: function() {},
+	  created: function() {
+		this.current = this.$route.params.id ? this.$route.params.id : 0;
+		this.catalogue = this.$CatalogueSections[this.current];
+		this.sections = this.catalogue.data;
+	  },
   	  methods: {
-		getTitle(catalogue) {
-			console.log("catalogue", catalogue);
-			if (catalogue._metadata && catalogue._metadata.title) {
-				return catalogue._metadata.title;
-			} else {
-				return catalogue._metadata.idno;
-			}
-		},
-		getDescription(catalogue) {
-			if (catalogue._metadata && catalogue._metadata.description) {
-				return catalogue._metadata.description;
-			} else {
-				return "";
-			}
-		}
 	  }
 	}
 </script>
@@ -84,5 +86,13 @@
   background-position: center 20%;
   background-size: cover;
   min-height: 1500px;
+}
+.sections-container {
+}
+.card.section {
+	width:20%;
+}
+.card.section .card-content {
+	height:20px;
 }
 </style>
