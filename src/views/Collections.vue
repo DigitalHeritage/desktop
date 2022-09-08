@@ -31,7 +31,7 @@
                 ><i class="material-icons">import_contacts</i> {{ $t("manage_book") }}
               </router-link>			  
 			  <router-link class="navbar-item" to="/sets"
-                ><i class="material-icons">shopping_basketnpm</i> {{ $t("sets") }}
+                ><i class="material-icons">shopping_basket</i> {{ $t("sets") }}
               </router-link>			  
               <a class="navbar-item" @click="addNewCollection"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
