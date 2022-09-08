@@ -35,7 +35,7 @@
       </nav>
     </section>
 
-	<div class="sets-list container" v-if="active === 'list'">
+	<div class="sets-list container">
       <div v-for="(catalogue, key) of catalogues" v-bind:key="key">
         <div @click="redirect('/book/' + key)">
           <div class="card is-one-third">
@@ -62,8 +62,8 @@
 	export default {
 	  name: "Books",
 	  data: function() {
-		return {
-		  active: "list",
+	    return {
+      	  current: 0,
 		  catalogues: this.$CatalogueSections
 		}
 	  },
