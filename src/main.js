@@ -9,6 +9,7 @@ require("./assets/digitalheritage.scss");
 require("../node_modules/material-design-icons/iconfont/material-icons.css");
 import Collections from "../public/collections_vide.json";
 import Sets from "../public/sets_vide.json";
+var CatalogueSections = [];
 
 import { Icon } from "leaflet";
 import i18n from "./i18n";
@@ -48,11 +49,28 @@ axios
   .catch(e => {
     this.errors.push(e);
   });
+
+let url_cataloguesections =
+  "https://floutier.lescollections.fr/gestion/dh_service_catalogueraisonne.php?" +
+  Date.now();
+axios
+  .get(url_cataloguesections)
+  .then(response => {
+    // JSON responses are automatically parsed.
+
+    Object.keys(response.data).forEach(key => {
+      CatalogueSections.push(response.data[key]);
+    });
+  })
+  .catch(e => {
+    this.errors.push(e);
+  });
 console.log("collections", Collections);
 console.log("sets", Sets);
 Vue.config.productionTip = false;
 Vue.prototype.$Collections = Collections;
 Vue.prototype.$Sets = Sets;
+Vue.prototype.$CatalogueSections = CatalogueSections;
 Vue.prototype.$PremiereOuverture = true;
 Vue.prototype.$API_db_is_logged_in = false;
 Vue.prototype.$API_db_name = "";
@@ -89,11 +107,19 @@ new Vue({
         );
         iterator++;
       });
-      this.$Sets.forEach(sets => {
+      this.$Sets.forEach(set => {
         //console.log(collection);
         localStorage.setItem(
           "digitalheritage-sets-" + iterator,
-          JSON.stringify(sets)
+          JSON.stringify(set)
+        );
+        iterator++;
+      });
+	  this.$CatalogueSections.forEach(cataloguesection => {
+        //console.log(collection);
+        localStorage.setItem(
+          "digitalheritage-cataloguesections-" + iterator,
+          JSON.stringify(cataloguesection)
         );
         iterator++;
       });
