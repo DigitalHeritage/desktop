@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Books from "../views/Books";
 import Book from "../views/Book";
 import Collections from "../views/Collections";
 import Collection from "../views/Collection";
@@ -28,10 +29,15 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/book",
-    name: "Book",
-    component: Book
+    path: "/books",
+    name: "Books",
+    component: Books
   },
+  {
+    path: "/book/:id",
+    name: "BookId",
+    component: Book
+  }, 
   {
     path: "/collection",
     name: "Collection",

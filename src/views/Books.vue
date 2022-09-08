@@ -1,10 +1,19 @@
 <template>
   <div>
+	<div
+      id="loading"
+      style="position: absolute;top:0;left:0;right:0;bottom:0;background-color: rgba(0,0,0,0.4);color:white;font-size:60px;z-index:100;line-height: 100vh;text-align: center;display:none;"
+    >
+      <i class="material-icons rotate" style="font-size:70px;"
+        >hourglass_empty</i
+      >
+    </div>
+	
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            BookSections
+            Book
           </h1>
           <h2 class="subtitle">
             Edit your printed catalogue
@@ -51,7 +60,7 @@
 
 <script>
 	export default {
-	  name: "Sets",
+	  name: "Books",
 	  data: function() {
 		return {
 		  active: "list",
@@ -60,6 +69,15 @@
 	  },
   	  mounted: function() {},
   	  methods: {
+		redirect(target) {
+			document.getElementById("loading").style.display = "block";
+			//console.log(target);
+			var self = this;
+			var timeouttarget = target;
+			setTimeout(function() {
+				self.$router.push(timeouttarget);
+			}, 50);
+		},
 		getTitle(catalogue) {
 			console.log("catalogue", catalogue);
 			if (catalogue._metadata && catalogue._metadata.title) {
