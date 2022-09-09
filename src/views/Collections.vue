@@ -33,15 +33,15 @@
 			  <router-link class="navbar-item" to="/sets"
                 ><i class="material-icons">shopping_basket</i> {{ $t("sets") }}
               </router-link>			  
-              <a class="navbar-item" @click="addNewCollection"
+              <a class="navbar-item" @click="addNewCollection" style="display:none;"
                 ><i class="material-icons">library_add</i> {{ $t("add") }}</a
               >
-              <a class="navbar-item" @click="addNewCollectionFromTemplate"
+              <a class="navbar-item" @click="addNewCollectionFromTemplate"  style="display:none;"
                 ><i class="material-icons">library_add</i>
                 {{ $t("Add from template") }}</a
               >
               <a
-                class="navbar-item"
+                class="navbar-item" style="display:none;"
                 :class="{ 'is-active': active === 'options' }"
                 @click="active = 'options'"
                 ><i class="material-icons">settings</i> {{ $t("options") }}</a

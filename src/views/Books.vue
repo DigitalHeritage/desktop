@@ -66,7 +66,9 @@
 		  catalogues: this.$CatalogueSections
 		}
 	  },
-  	  mounted: function() {},
+  	  mounted: function() {
+
+	  },
   	  methods: {
 		redirect(target) {
 			document.getElementById("loading").style.display = "block";

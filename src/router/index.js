@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Books from "../views/Books";
 import Book from "../views/Book";
+import BookGenerate from "../views/BookGenerate";
+import BookSection from "../views/BookSection";
 import Collections from "../views/Collections";
 import Collection from "../views/Collection";
 import Sets from "../views/Sets";
@@ -38,6 +40,16 @@ const routes = [
     name: "BookId",
     component: Book
   }, 
+  {
+    path: "/book-generate/:id",
+    name: "BookGenerate",
+    component: BookGenerate
+  },   
+  {
+    path: "/booksection/:book_index/:section_index",
+    name: "BookSection",
+    component: BookSection
+  },
   {
     path: "/collection",
     name: "Collection",

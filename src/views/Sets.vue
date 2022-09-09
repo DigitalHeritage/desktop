@@ -39,19 +39,6 @@
               <router-link class="navbar-item is-active" to="/sets"
                 ><i class="material-icons">shopping_basket</i> {{ $t("sets") }}
               </router-link>
-              <a class="navbar-item" @click="addNewCollection"
-                ><i class="material-icons">library_add</i> {{ $t("add") }}</a
-              >
-              <a class="navbar-item" @click="addNewCollectionFromTemplate"
-                ><i class="material-icons">library_add</i>
-                {{ $t("Add from template") }}</a
-              >
-              <a
-                class="navbar-item"
-                :class="{ 'is-active': active === 'options' }"
-                @click="active = 'options'"
-                ><i class="material-icons">settings</i> {{ $t("options") }}</a
-              >
             </div>
             <div class="navbar-end"></div>
           </div>
@@ -182,27 +169,6 @@ export default {
         }
       }
       this.sets = this.$Sets;
-    },
-    addNewCollection() {
-      let target = "/collection/" + this.collections.length;
-      let template = {
-        _metadata: {
-          Title: "My collection " + this.collections.length,
-          Subtitle: "How would I call it ?",
-          Description: "",
-          filename: "",
-          id: this.collections.length
-        },
-        data: [{}]
-      };
-      this.collections.push(template);
-      this.$router.push(target);
-    },
-    addNewCollectionFromTemplate() {
-      let target = "/collection/" + this.collections.length;
-      console.log(this.collectionsTemplate[0].template);
-      this.collections.push(this.collectionsTemplate[0].template);
-      this.$router.push(target);
     },
     getSetTitle(set) {
       console.log("set", set);

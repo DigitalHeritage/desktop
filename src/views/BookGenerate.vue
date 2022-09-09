@@ -7,7 +7,7 @@
             Catalogue raisonné
           </h1>
           <h2 class="subtitle">
-            Catalogue raisonné
+            Génération du PDF
           </h2>
         </div>
       </div>
@@ -20,8 +20,10 @@
         <div class="container">
           <div id="navbarSecondary" class="navbar-menu navbar-secondary">
             <div class="navbar-start">
-				<a class="navbar-item is-active"><i class="material-icons">desktop_mac</i> Parcourir</a>
-				<router-link class="navbar-item" :to="'/book-generate/' + current">
+				<router-link class="navbar-item" :to="'/book/' + current">
+					<i class="material-icons">desktop_mac</i> Parcourir
+				</router-link>
+				<router-link class="navbar-item is-active" :to="'/book-generate/' + current">
 					<i class="material-icons">desktop_mac</i> Générer
 				</router-link>
 				<a class="navbar-item" href="https://floutier.lescollections.fr/gestion/app/plugins/bookCreator/tmp/book_1_with_cover.pdf" target="_blank"><i class="material-icons">desktop_mac</i> Afficher la dernière version générée</a>
@@ -34,44 +36,18 @@
       </nav>
 
     </section>
-    <div class="cards-container sections-container" v-if="active === 'browse'">
-      <div
-        class="card section"
-        v-for="(section, index) in sections"
-        :key="`${index}`"
-      >
-        <router-link
-          :to="'/booksection/' + current + '/' + index"
-        >
-          <div class="card-content"></div>
-        </router-link>
-        <footer class="card-footer">
-          <div class="media">
-            <div class="media-content">
-              <div class="media-content-inner">
-                <router-link
-                  :to="
-                    '/booksection/' + current + '/' + index
-                  "
-                >
-					<p class="title is-6">
-						{{ section.title }}
-					</p>
-					<p class="subtitle is-7">{{ section.style }}</p>
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </div>
+    <div class="container" style="padding:20px 0;">
+		<iframe src="https://floutier.lescollections.fr/gestion/index.php/bookCreator/Editor/renderSectionsPDF/book/1"
+		style="height:600px;width:100%;"></iframe>
+	</div>
+
 
   </div>
 </template>
 
 <script>
 	export default {
-	  name: "Book",
+	  name: "BookGenerate",
 	  data: function() {
 		return {
 		  active: "browse",
