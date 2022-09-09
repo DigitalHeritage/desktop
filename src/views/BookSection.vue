@@ -22,8 +22,9 @@
             <div class="navbar-start">
 				<a class="navbar-item" @click="showPrev"><i class="material-icons">keyboard_arrow_left</i></a>
 				<a class="navbar-item" @click="showBrowse" :class="{ 'is-active': active === 'browse' }"><i class="material-icons">desktop_mac</i> Voir</a>
-				<a class="navbar-item" @click="showHTML" :class="{ 'is-active': active === 'html' }"><i class="material-icons">desktop_mac</i> Aperçu HTML</a>
-				<a class="navbar-item" @click="showPDF" :class="{ 'is-active': active === 'pdf' }"><i class="material-icons">desktop_mac</i> PDF</a>
+				<a class="navbar-item" @click="showEdit" :class="{ 'is-active': active === 'edit' }"><i class="material-icons">edit</i> Editer</a>
+				<a class="navbar-item" @click="showHTML" :class="{ 'is-active': active === 'html' }"><i class="material-icons">code</i> Aperçu HTML</a>
+				<a class="navbar-item" @click="showPDF" :class="{ 'is-active': active === 'pdf' }"><i class="material-icons">picture_as_pdf</i> PDF</a>
 			</div>
             <div class="navbar-end">
 				<a class="navbar-item" @click="showNext"><i class="material-icons">keyboard_arrow_right</i></a>
@@ -61,6 +62,85 @@
 		</p>		
     </div>
 
+	<div class="content container" style="padding:10px 0;" v-if="active === 'edit'">
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Titre</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<input v-model="section.title" class="input" type="email" placeholder="Recipient email">
+				</p>
+				</div>
+			</div>
+		</div>
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Introduction/résumé</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<input v-model="section.intro" class="input" type="email" placeholder="Recipient email">
+				</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Style</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<input v-model="section.style" class="input" type="email" placeholder="Recipient email">
+				</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Contenu</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<textarea style="height:500px" v-model="section.content" class="input" type="email" placeholder="Recipient email"></textarea>
+				</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Représentation</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<input v-model="section.representation_id" class="input" type="email" placeholder="Recipient email">
+				</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="field is-horizontal">
+			<div class="field-label is-normal">
+				<label class="label">Ensemble</label>
+			</div>
+			<div class="field-body">
+				<div class="field">
+				<p class="control">
+					<input v-model="section.set_id" class="input" type="email" placeholder="Recipient email">
+				</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 	<div v-if="active === 'html'">
 		<iframe :src="'https://floutier.lescollections.fr/gestion/dh_service_catalogueraisonne.php?action=renderSectionHTML&book='+ section.book_id +'&section='+section.booksection_id " style="width:100%; height:calc(100vh - 269px);"></iframe>
 	</div>
@@ -116,6 +196,9 @@
 		},
 		showHTML() {
 			this.active = "html";
+		},
+		showEdit() {
+			this.active = "edit";
 		},
 		showPDF() {
 			this.active = "pdf";
