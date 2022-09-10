@@ -4,6 +4,14 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
+				<div class="is-pulled-right" v-if="modified">
+					<span class="tag is-primary">
+						Modifié
+					</span>&nbsp;
+					<span class="tag is-warning">
+						<i class="material-icons">backup</i>
+					</span>
+				</div>
             <span v-html="section.title"></span>
           </h1>
           <h2 class="subtitle">
@@ -139,7 +147,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 	<div v-if="active === 'html'">
 		<iframe :src="'https://floutier.lescollections.fr/gestion/dh_service_catalogueraisonne.php?action=renderSectionHTML&book='+ section.book_id +'&section='+section.booksection_id " style="width:100%; height:calc(100vh - 269px);"></iframe>
@@ -165,7 +173,8 @@
 		  section_index: 0,
 		  catalogues: this.$CatalogueSections,
 		  section: {},
-		  content: "# text"
+		  content: "# text",
+		  modified: false
 		}
 	  },
   	  mounted: function() {},
@@ -190,7 +199,7 @@
 		showPrev() {
 			console.log("saveLocal");
 			//this.$parent.$parent.saveLocal();
-			if (this.section_index > 0) this.current--;
+			if (this.section_index > 0) this.section_index--;
 			this.section = this.catalogue.data[this.section_index];
 			this.content = this.section.content;
 		},
@@ -211,6 +220,16 @@
 		compiledMarkdown() {
 			return marked.parse(this.content);
 	  	}
+	  },
+	  watch: {
+		section: {
+			deep: true,
+			handler(val) {
+				console.log(val);
+				console.log("modified");
+				this.modified = true;
+			}
+		}
 	  }
 	}
 </script>
