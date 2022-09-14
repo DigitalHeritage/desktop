@@ -8,8 +8,9 @@
 					<span class="tag is-primary">
 						Modifié
 					</span>&nbsp;
-					<span class="tag is-warning">
+					<span class="tag is-warning" @click="pushModification">
 						<i class="material-icons">backup</i>
+						&nbsp;enregistrer
 					</span>
 				</div>
             <span v-html="section.title"></span>
@@ -78,7 +79,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<input v-model="section.title" class="input" type="email" placeholder="Recipient email">
+					<input v-model="section.title" class="input" type="text" placeholder="Title" @input="checkIfModified">
 				</p>
 				</div>
 			</div>
@@ -90,7 +91,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<input v-model="section.intro" class="input" type="email" placeholder="Recipient email">
+					<input v-model="section.intro" class="input" type="text" placeholder="Introduction" @input="checkIfModified">
 				</p>
 				</div>
 			</div>
@@ -103,7 +104,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<input v-model="section.style" class="input" type="email" placeholder="Recipient email">
+					<input v-model="section.style" class="input" type="text" placeholder="Style" @input="checkIfModified">
 				</p>
 				</div>
 			</div>
@@ -116,7 +117,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<textarea style="height:500px" v-model="section.content" class="input" type="email" placeholder="Recipient email"></textarea>
+					<textarea style="height:500px" v-model="section.content" class="input" placeholder="Contenu" @input="checkIfModified"></textarea>
 				</p>
 				</div>
 			</div>
@@ -129,7 +130,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<input v-model="section.representation_id" class="input" type="email" placeholder="Recipient email">
+					<input v-model="section.representation_id" class="input" type="text" placeholder="Représentation" @input="checkIfModified">
 				</p>
 				</div>
 			</div>
@@ -142,7 +143,7 @@
 			<div class="field-body">
 				<div class="field">
 				<p class="control">
-					<input v-model="section.set_id" class="input" type="email" placeholder="Recipient email">
+					<input v-model="section.set_id" class="input" type="text" placeholder="Ensemble" @input="checkIfModified">
 				</p>
 				</div>
 			</div>
@@ -162,6 +163,7 @@
 
 <script>
 	import { marked } from 'marked';
+	import { isEqual, cloneDeep } from "lodash";
 
 	export default {
 	  name: "BookSection",
@@ -185,23 +187,39 @@
 		this.book_title = this.catalogue._metadata.title;
 		this.section = this.catalogue.data[this.section_index];
 		this.content = this.section.content;
+		this.sectionBak = cloneDeep(this.section);
 		//console.log(this.$CatalogueSections[this.$route.params.id]);
+		
 	  },
   	  methods: {
+		checkIfModified() {
+			if(!isEqual(this.sectionBak, this.section)) {
+				this.modified = true;
+				this.catalogue.data[this.section_index]._modified = true;
+			}
+		},	
 		showNext() {
+			this.modified = false;
 			console.log("saveLocal");
 			//this.$parent.$parent.saveLocal();
 			if (this.section_index < this.$CatalogueSections[this.book_index].data.length - 1)
 				this.section_index++;
 			this.section = this.catalogue.data[this.section_index];
+			this.sectionBak = cloneDeep(this.section);
 			this.content = this.section.content;
+			console.log(this.section);
+			this.modified = this.content._modified;
 		},
 		showPrev() {
+			this.modified = false;
 			console.log("saveLocal");
 			//this.$parent.$parent.saveLocal();
 			if (this.section_index > 0) this.section_index--;
 			this.section = this.catalogue.data[this.section_index];
+			this.sectionBak = cloneDeep(this.section);
 			this.content = this.section.content;
+			console.log(this.section);
+			this.modified = this.content._modified;
 		},
 		showHTML() {
 			this.active = "html";
@@ -220,16 +238,6 @@
 		compiledMarkdown() {
 			return marked.parse(this.content);
 	  	}
-	  },
-	  watch: {
-		section: {
-			deep: true,
-			handler(val) {
-				console.log(val);
-				console.log("modified");
-				this.modified = true;
-			}
-		}
 	  }
 	}
 </script>

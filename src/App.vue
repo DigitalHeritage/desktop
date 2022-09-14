@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+	<progress class="progress is-success" value="60" max="100">60%</progress>
     <nav
       class="navbar is-primary"
       role="navigation"
@@ -130,10 +131,16 @@
     }
   }
 }
+
+.progress {
+	margin-bottom: 0 !important;
+	border-radius: 0 !important;
+}
 </style>
 
 <script>
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+//import BookProgressbarSave from "./components/BookProgressbarSave";
 export default {
   components: { LocaleSwitcher }
 };
