@@ -1,45 +1,45 @@
 {
 	"type": "object",
 	"properties": {
-		"Thématique": {
-			"title": "Thématique",
+		"Thematique": {
+			"title": "Thematique",
 			"type": "string",
-			"enum": [ "Nature", "Architecture", "Mobilier", "Art", "Antiques", "Image & Son", "Collections", "Manuscrits & imprimés", "Tribal & ethnologie", "Joaillerie et orfèvrerie", "Sciences et techniques", "Autres"]				
+			"enum": [ "Nature", "Architecture", "Mobilier", "Art", "Antiques", "Image & Son", "Collections", "Manuscrits & imprim\u00e9s", "Tribal & ethnologie", "Joaillerie et orfèvrerie", "Sciences et techniques", "Autres"]				
 		},
 		"Domaine": {
 			"title": "Domaine",
-			"enum": ["Géologie / Minéraux","Botanique / Flore","Zoologie / Faune","Paléontologie","Parc &jardin","Édifice","Édicule","Site","Élément d’architecture","Objet d’Art","Meuble","Arts décoratifs","Dessin","Peinture","Sculpture","Céramique","Verrerie","Ivoirerie","Objets archéologiques","Disque","Film","Instrument de musique","Objet sonore","Photographie","Cartes postales","Numismatique / Monnaies","Phaléristique / Médailles","Philatélie / Timbres","Vinophilie / Vin","Ludophilie / jeux, jouets","Militaria","Transport","Livres","BD","Revues","Archives","Autographes","Ethnologie africaine","Ethnologie océanienne","Ethnologie américaine","Ethnologie asiatique","Ethnologie européenne & régionale","Bijoux","Parures","Montres","Stylos","Objets scientifiques (médecine, astronomie, physique…)","Objets techniques (agriculture, métiers…)"]
+			"enum": ["G\u00e9ologie / Min\u00e9raux","Botanique / Flore","Zoologie / Faune","Pal\u00e9ontologie","Parc &jardin","\u00e9difice","\u00e9dicule","Site","\u00e9l\u00e9ment d’architecture","Objet d’Art","Meuble","Arts d\u00e9coratifs","Dessin","Peinture","Sculpture","C\u00e9ramique","Verrerie","Ivoirerie","Objets arch\u00e9ologiques","Disque","Film","Instrument de musique","Objet sonore","Photographie","Cartes postales","Numismatique / Monnaies","Phal\u00e9ristique / M\u00e9dailles","Philat\u00e9lie / Timbres","Vinophilie / Vin","Ludophilie / jeux, jouets","Militaria","Transport","Livres","BD","Revues","Archives","Autographes","Ethnologie africaine","Ethnologie oc\u00e9anienne","Ethnologie am\u00e9ricaine","Ethnologie asiatique","Ethnologie europ\u00e9enne & r\u00e9gionale","Bijoux","Parures","Montres","Stylos","Objets scientifiques (m\u00e9decine, astronomie, physique…)","Objets techniques (agriculture, m\u00e9tiers…)"]
 		},
-		"Référence": {
-			"title": "Référence",
+		"Reference": {
+			"title": "Reference",
 			"type": "array",
 			"items": {
 				"type": "object",
 				"properties": {
-					"référence": {
-						"title": "Référence",
+					"reference": {
+						"title": "Reference",
 						"type": "string"
 					},
 					"type_de_reference": {
-						"title": "Type de référence",
-						"enum": ["-", "N° d’inventaire","N° de dépôt","N° de prêt","Ancien N°","Autre N°","N° de repérage","Cote","ISBN","ISSN","N° d’édition","Référence","N° de renvoi","Identifiant","Référence (déjà mis)","N° provisoire","N° de bien"]
+						"title": "Type de reference",
+						"enum": ["-", "Num\u00e9ros d'inventaire","N° de d\u00e9pôt","N° de prêt","Ancien N°","Autre N°","N° de rep\u00e9rage","Cote","ISBN","ISSN","N° d’\u00e9dition","R\u00e9f\u00e9rence","N° de renvoi","Identifiant","R\u00e9f\u00e9rence (d\u00e9jà mis)","N° provisoire","N° de bien"]
 					}
 				}
 			}
 		},
-		"Désignation": {
-			"title": "Désignation",
+		"Designation": {
+			"title": "Designation",
 			"type": "array",
 			"items": {
 				"type": "object",
 				"properties": {
-					"désignation": {
-						"title": "Désignation",
+					"designation": {
+						"title": "Designation",
 						"type": "string"
 					},
-					"type_de_désignation": {
-						"title": "Type de désignation",
-						"enum": ["Dénomination","Appellation","Nom vernaculaire","Titre","Titre en langue originale","Complément de titre","Dénomination (déjà saisi)","Spécimen","Intitulé","Nom","Autre nom","Objet"]
+					"type_de_designation": {
+						"title": "Type de designation",
+						"enum": ["D\u00e9nomination","Appellation","Nom vernaculaire","Titre","Titre en langue originale","Compl\u00e9ment de titre","D\u00e9nomination (d\u00e9jà saisi)","Sp\u00e9cimen","Intitul\u00e9","Nom","Autre nom","Objet"]
 					}
 				}
 			}
@@ -77,26 +77,31 @@
 				}
 			}
 		},
-		"Matériaux/techniques": {
-			"title": "Matériaux/techniques",
+		"Inscriptions": {
+			"title": "Inscriptions et Marques",
 			"type": "array",
 			"items": {
 				"type": "object",
 				"properties": {
-					"matériaux": {
-						"title": "matériau",
+					"Type de linscription": {
+						"title": "Type de l'inscription",
 						"type": "string"
 					},
-					"technique": {
-						"title": "technique",
+					"Emplacement de linscription": {
+						"title": "Emplacement de l'inscription",
 						"type": "string"
 					},
-					"matériau_technique": {
-						"title": "matériau technique",
+					"Transcription de linscription": {
+						"title": "Transcription de l'inscription",
 						"type": "string"
 					}
 				}
 			}
+		},
+		"Materiaux et techniques": {
+			"title": "Matériaux et techniques",
+			"type": "string"
+			
 		},
 		"Personne": {
 			"title": "Personne",
@@ -110,7 +115,7 @@
 					},
 					"type": {
 						"title":"type",
-						"enum": ["Auteur","Artiste","Exécutant","Inventeur","Collecteur","Découvreur","Utilisateur","Editeur","Concepteur","Architecte","Récolteur","Déterminateur","Photographe"]
+						"enum": ["Auteur","Artiste","Ex\u00e9cutant","Inventeur","Collecteur","D\u00e9couvreur","Utilisateur","Editeur","Concepteur","Architecte","R\u00e9colteur","D\u00e9terminateur","Photographe"]
 					}
 				}
 			}
@@ -127,7 +132,7 @@
 					},
 					"type_de_date": {
 						"title": "Type de date",
-						"enum": ["Date de création","Daté d’exécution","Date de découverte","Date de collecte","Date d’utilisation","Date d’édition","Date de publication","Date d’impression","Date de réalisation","Date de construction","Date de récolte","Date de détermination","Date de prise de vue","Date de frappe"]
+						"enum": ["Dates de cr\u00e9ation","Dat\u00e9 d’ex\u00e9cution","Date de d\u00e9couverte","Date de collecte","Date d’utilisation","Date d’\u00e9dition","Date de publication","Date d’impression","Date de r\u00e9alisation","Date de construction","Date de r\u00e9colte","Date de d\u00e9termination","Date de prise de vue","Date de frappe"]
 					}
 				}
 			}
@@ -144,30 +149,17 @@
 					},
 					"type_de_lieu": {
 						"title": "Type de lieu",
-						"enum": ["Lieu de création","Lieu d’exécution","Lieu de découverte","Lieu de collecte","Lieu d’utilisation","Lieu d’édition","Lieu de publication","Lieu d’impression","Lieu de réalisation","Lieu de construction","Lieu de récolte","Lieu de détermination","Lieu de prise de vue","Lieu de frappe"]
+						"enum": ["Lieux de cr\u00e9ation","Lieux d'ex\u00e9cution","Lieux de d\u00e9couverte","Lieu de collecte","Lieu d’utilisation","Lieu d’\u00e9dition","Lieu de publication","Lieu d’impression","Lieu de r\u00e9alisation","Lieu de construction","Lieu de r\u00e9colte","Lieu de d\u00e9termination","Lieu de prise de vue","Lieu de frappe"]
 					}
 				}
 			}
 		},
-		"Géoréférence": {
-			"title": "Géoréférence",
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"nom": {
-						"title": "Libellé",
-						"type": "string"
-					},
-					"georeference": {
-						"title": "Géoréférence",
-						"type": "string"
-					}
-				}
-			}
+		"Georeference": {
+			"title": "Georeference",
+			"type": "string"
 		},
-		"Références bibliographiques": {
-			"title": "Réf. bibliographiques",
+		"References bibliographiques": {
+			"title": "Ref. bibliographiques",
 			"type":"string"
 		},
 		"Liens externes": {
@@ -180,8 +172,8 @@
 						"title": "URL",
 						"type": "string"
 					},
-					"libellé": {
-						"title": "Libellé",
+					"libelle": {
+						"title": "Libelle",
 						"type": "string"
 					}
 				}
