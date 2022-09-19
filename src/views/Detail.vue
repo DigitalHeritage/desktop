@@ -222,21 +222,21 @@ import AdvancedEditorSchema from "../../public/advanced-editor-schemas.json";
 import AdvancedEditorOptions from "../../public/advanced-editor-options.json";
 import AdvancedEditorView from "../../public/advanced-editor-view.json";
 
-function recordDisplay(record, label, level = 0) {
+function recordDisplay(record, level = 0) {
   var result = "";
+  console.log("record", record);
   for (const property in record) {
     let value = record[property];
-    //console.log(typeof value, value);
 
     if (typeof value == "string") {
       // Simple text value
-      if (value != "" && property != "locale") {
+      if (value.trim() != "" && property != "locale") {
         result =
           result +
           "<p style='padding-left:" +
           level * 10 +
           "px'><strong>" +
-          label[property] +
+          property +
           "</strong> " +
           value +
           "</p>";
@@ -245,15 +245,9 @@ function recordDisplay(record, label, level = 0) {
     if (value == null) {
       continue;
     }
-    /*if (typeof value == "object") {
+    if (typeof value == "object") {
       // This is an object
       if (Array.isArray(value)) {
-        console.log("property :",property);
-    console.log("value :",value);
-    console.log("value[0] : ", value[0]);
-        console.log("value[0] type: ",typeof value[0]);
-
-    console.log("--------------");
         // This is an array of values
         let result2 =
           "<p style='padding-left:" +
@@ -266,7 +260,9 @@ function recordDisplay(record, label, level = 0) {
           result2 = result2 + recordDisplay(currentValue, 0);
         });
         result2 = result2 + "</ul>";
-        result = result + result2;
+        if (result2.includes("<ul></ul>") == false) {
+          result = result + result2;
+        }
       } else {
         result =
           result +
@@ -276,31 +272,6 @@ function recordDisplay(record, label, level = 0) {
           property +
           "</strong></p>";
         result = result + recordDisplay(value, level + 1);
-      }
-    }*/
-    if (typeof value[0] == "object") {
-      if (Object.keys(value[0]).length == 2) {
-        if (value[0][property]) {
-          result =
-            result +
-            "<p style='padding-left:" +
-            level * 10 +
-            "px'><strong>" +
-            label[property] +
-            "</strong> " +
-            value[0][property] +
-            "</p>";
-        }
-      } else {
-        console.log(value[0]);
-        result =
-          result +
-          "<p style='padding-left:" +
-          level * 10 +
-          "px'><strong>" +
-          label[property] +
-          "</strong></p>";
-        result = result + recordDisplay(value[0], label, level + 1);
       }
     }
   }
@@ -364,9 +335,7 @@ export default {
       return this.$Collections[this.collectionId]._metadata.Title;
     },
     recordDisplay() {
-      return recordDisplay(
-        this.record.attributes, this.record._metadata
-      );
+      return recordDisplay(this.record["data"]);
       //return recordDisplay(this.record);
     },
     recordDisplay2() {
@@ -475,12 +444,14 @@ export default {
     },
     alpacaForm() {
       this.active = "modify2";
-	  let that= this;
+      let that = this;
       setTimeout(function() {
-		console.log("that.artwork",that.artwork);
-		console.log("AdvancedEditorSchema",AdvancedEditorSchema);
-		console.log("AdvancedEditorOptions",AdvancedEditorOptions);
-        window.$("#form-alpaca").alpaca({"data":that.artwork, "schema":AdvancedEditorSchema, "options":AdvancedEditorOptions, "view":AdvancedEditorView});
+        window.$("#form-alpaca").alpaca({
+          data: that.artwork["data"],
+          schema: AdvancedEditorSchema,
+          options: AdvancedEditorOptions,
+          view: AdvancedEditorView
+        });
       }, 50);
     }
   },
