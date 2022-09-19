@@ -52,14 +52,13 @@
                 @click="active = 'modify'"
                 :class="{ 'is-active': active == 'modify' }"
                 ><i class="material-icons">create</i> {{ $t("edit") }}</a
-              >
+              >-->
               <a
                 class="navbar-item"
                 @click="alpacaForm"
                 :class="{ 'is-active': active == 'modify2' }"
                 ><i class="material-icons">create</i> {{ $t("edit2") }}</a
               >
-			  -->
               <a
                 class="navbar-item"
                 @click="activateJson"
@@ -219,7 +218,9 @@
 // eslint-disable-next-line
 import jQuery from "jquery";
 import * as Alpaca from "alpaca";
-import AdvancedEditorSchema from "../../public/advanced-editor-schema.json";
+import AdvancedEditorSchema from "../../public/advanced-editor-schemas.json";
+import AdvancedEditorOptions from "../../public/advanced-editor-options.json";
+import AdvancedEditorView from "../../public/advanced-editor-view.json";
 
 function recordDisplay(record, label, level = 0) {
   var result = "";
@@ -364,8 +365,7 @@ export default {
     },
     recordDisplay() {
       return recordDisplay(
-        this.record.attributes,
-        this.$Collections[this.collectionId]._metadata.model.labels
+        this.record.attributes, this.record._metadata
       );
       //return recordDisplay(this.record);
     },
@@ -475,8 +475,12 @@ export default {
     },
     alpacaForm() {
       this.active = "modify2";
+	  let that= this;
       setTimeout(function() {
-        window.$("#form-alpaca").alpaca(AdvancedEditorSchema);
+		console.log("that.artwork",that.artwork);
+		console.log("AdvancedEditorSchema",AdvancedEditorSchema);
+		console.log("AdvancedEditorOptions",AdvancedEditorOptions);
+        window.$("#form-alpaca").alpaca({"data":that.artwork, "schema":AdvancedEditorSchema, "options":AdvancedEditorOptions, "view":AdvancedEditorView});
       }, 50);
     }
   },

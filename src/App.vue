@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-	<progress class="progress is-success" value="60" max="100">60%</progress>
+	<progress class="progress is-success" value="60" max="100" style="display:none;">60%</progress>
     <nav
       class="navbar is-primary"
       role="navigation"

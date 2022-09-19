@@ -28,6 +28,7 @@ axios
   .then(response => {
     // JSON responses are automatically parsed.
     let new_collection = response.data;
+	console.log("axios.get get(url_collection", response);
     Collections.push(new_collection);
   })
   .catch(e => {

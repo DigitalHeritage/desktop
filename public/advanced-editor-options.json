@@ -1,0 +1,23 @@
+{
+	"toolbarSticky": true,
+	"fields": {
+		"Thématique": {
+			"helper": "Choisir la thématique de l'objet"
+		},
+		"Référence": {
+			"toolbarSticky": true
+		},
+		"Désignation": {
+			"toolbarSticky": true
+		},
+		"Dimensions": {
+			"toolbarSticky": true
+		},
+		"Matériaux/techniques": {
+			"toolbarSticky": true
+		},
+		"Description": {
+			"type": "textarea"
+		}
+	}
+}

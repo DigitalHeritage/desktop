@@ -1,0 +1,224 @@
+{
+	"type": "object",
+	"properties": {
+		"Thématique": {
+			"title": "Thématique",
+			"type": "string",
+			"enum": [ "Nature", "Architecture", "Mobilier", "Art", "Antiques", "Image & Son", "Collections", "Manuscrits & imprimés", "Tribal & ethnologie", "Joaillerie et orfèvrerie", "Sciences et techniques", "Autres"]				
+		},
+		"Domaine": {
+			"title": "Domaine",
+			"enum": ["Géologie / Minéraux","Botanique / Flore","Zoologie / Faune","Paléontologie","Parc &jardin","Édifice","Édicule","Site","Élément d’architecture","Objet d’Art","Meuble","Arts décoratifs","Dessin","Peinture","Sculpture","Céramique","Verrerie","Ivoirerie","Objets archéologiques","Disque","Film","Instrument de musique","Objet sonore","Photographie","Cartes postales","Numismatique / Monnaies","Phaléristique / Médailles","Philatélie / Timbres","Vinophilie / Vin","Ludophilie / jeux, jouets","Militaria","Transport","Livres","BD","Revues","Archives","Autographes","Ethnologie africaine","Ethnologie océanienne","Ethnologie américaine","Ethnologie asiatique","Ethnologie européenne & régionale","Bijoux","Parures","Montres","Stylos","Objets scientifiques (médecine, astronomie, physique…)","Objets techniques (agriculture, métiers…)"]
+		},
+		"Référence": {
+			"title": "Référence",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"référence": {
+						"title": "Référence",
+						"type": "string"
+					},
+					"type_de_reference": {
+						"title": "Type de référence",
+						"enum": ["-", "N° d’inventaire","N° de dépôt","N° de prêt","Ancien N°","Autre N°","N° de repérage","Cote","ISBN","ISSN","N° d’édition","Référence","N° de renvoi","Identifiant","Référence (déjà mis)","N° provisoire","N° de bien"]
+					}
+				}
+			}
+		},
+		"Désignation": {
+			"title": "Désignation",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"désignation": {
+						"title": "Désignation",
+						"type": "string"
+					},
+					"type_de_désignation": {
+						"title": "Type de désignation",
+						"enum": ["Dénomination","Appellation","Nom vernaculaire","Titre","Titre en langue originale","Complément de titre","Dénomination (déjà saisi)","Spécimen","Intitulé","Nom","Autre nom","Objet"]
+					}
+				}
+			}
+		},
+		"Description": {
+			"type": "string",
+			"title": "Description"
+		},
+		"Dimensions": {
+			"title": "Dimensions",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"hauteur": {
+						"title": "hauteur",
+						"type": "string"
+					},
+					"largeur": {
+						"title": "largeur",
+						"type": "string"
+					},
+					"profondeur": {
+						"title": "profondeur",
+						"type": "string"
+					},
+					"poids": {
+						"title": "poids",
+						"type": "string"
+					},
+					"type": {
+						"title": "type",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Matériaux/techniques": {
+			"title": "Matériaux/techniques",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"matériaux": {
+						"title": "matériau",
+						"type": "string"
+					},
+					"technique": {
+						"title": "technique",
+						"type": "string"
+					},
+					"matériau_technique": {
+						"title": "matériau technique",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Personne": {
+			"title": "Personne",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"nom": {
+						"title": "nom",
+						"type": "string"
+					},
+					"type": {
+						"title":"type",
+						"enum": ["Auteur","Artiste","Exécutant","Inventeur","Collecteur","Découvreur","Utilisateur","Editeur","Concepteur","Architecte","Récolteur","Déterminateur","Photographe"]
+					}
+				}
+			}
+		},
+		"Dates": {
+			"title": "Dates",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"date": {
+						"title": "Date",
+						"type": "string"
+					},
+					"type_de_date": {
+						"title": "Type de date",
+						"enum": ["Date de création","Daté d’exécution","Date de découverte","Date de collecte","Date d’utilisation","Date d’édition","Date de publication","Date d’impression","Date de réalisation","Date de construction","Date de récolte","Date de détermination","Date de prise de vue","Date de frappe"]
+					}
+				}
+			}
+		},
+		"Lieux": {
+			"title": "Lieux",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"nom": {
+						"title": "Nom",
+						"type": "string"
+					},
+					"type_de_lieu": {
+						"title": "Type de lieu",
+						"enum": ["Lieu de création","Lieu d’exécution","Lieu de découverte","Lieu de collecte","Lieu d’utilisation","Lieu d’édition","Lieu de publication","Lieu d’impression","Lieu de réalisation","Lieu de construction","Lieu de récolte","Lieu de détermination","Lieu de prise de vue","Lieu de frappe"]
+					}
+				}
+			}
+		},
+		"Géoréférence": {
+			"title": "Géoréférence",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"nom": {
+						"title": "Libellé",
+						"type": "string"
+					},
+					"georeference": {
+						"title": "Géoréférence",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Références bibliographiques": {
+			"title": "Réf. bibliographiques",
+			"type":"string"
+		},
+		"Liens externes": {
+			"title": "Liens externes",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"url": {
+						"title": "URL",
+						"type": "string"
+					},
+					"libellé": {
+						"title": "Libellé",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Localisation": {
+			"title": "Localisation",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"nom": {
+						"title": "nom",
+						"type": "string"
+					},
+					"url": {
+						"title": "url",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Etat": {
+			"type": "string",
+			"title": "Etat"
+		},
+		"Acquisition": {
+			"type": "string",
+			"title": "Acquisition"
+		},
+		"Assurance": {
+			"type": "string",
+			"title": "Assurance"
+		},
+		"Bloc-notes": {
+			"type": "string",
+			"title": "Bloc-note"
+		}
+	}
+}
