@@ -18,6 +18,9 @@
 		},
 		"Description": {
 			"type": "textarea"
+		},
+		"object_id": {
+			"type": "hidden"
 		}
 	}
 }

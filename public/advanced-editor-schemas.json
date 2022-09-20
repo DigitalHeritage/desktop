@@ -22,7 +22,7 @@
 					},
 					"type_de_reference": {
 						"title": "Type de reference",
-						"enum": ["-", "Num\u00e9ros d'inventaire","N° de d\u00e9pôt","N° de prêt","Ancien N°","Autre N°","N° de rep\u00e9rage","Cote","ISBN","ISSN","N° d’\u00e9dition","R\u00e9f\u00e9rence","N° de renvoi","Identifiant","R\u00e9f\u00e9rence (d\u00e9jà mis)","N° provisoire","N° de bien"]
+						"enum": ["-", "Num\u00e9ro d'inventaire","Num\u00e9ro de d\u00e9pôt","Num\u00e9ro de prêt","Ancien Num\u00e9ro","Autre Num\u00e9ro","Num\u00e9ro de rep\u00e9rage","Cote","ISBN","ISSN","Num\u00e9ro d’\u00e9dition","R\u00e9f\u00e9rence","Num\u00e9ro de renvoi","Identifiant","R\u00e9f\u00e9rence (d\u00e9jà mis)","Num\u00e9ro provisoire","Num\u00e9ro de bien"]
 					}
 				}
 			}
@@ -43,6 +43,9 @@
 					}
 				}
 			}
+		},
+		"object_id": {
+			"type": "string"
 		},
 		"Description": {
 			"type": "string",
@@ -132,7 +135,7 @@
 					},
 					"type_de_date": {
 						"title": "Type de date",
-						"enum": ["Dates de cr\u00e9ation","Dat\u00e9 d’ex\u00e9cution","Date de d\u00e9couverte","Date de collecte","Date d’utilisation","Date d’\u00e9dition","Date de publication","Date d’impression","Date de r\u00e9alisation","Date de construction","Date de r\u00e9colte","Date de d\u00e9termination","Date de prise de vue","Date de frappe"]
+						"enum": ["Date de cr\u00e9ation","Date d’ex\u00e9cution","Date de d\u00e9couverte","Date de collecte","Date d’utilisation","Date d’\u00e9dition","Date de publication","Date d’impression","Date de r\u00e9alisation","Date de construction","Date de r\u00e9colte","Date de d\u00e9termination","Date de prise de vue","Date de frappe"]
 					}
 				}
 			}

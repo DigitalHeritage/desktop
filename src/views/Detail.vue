@@ -220,7 +220,7 @@ import jQuery from "jquery";
 import * as Alpaca from "alpaca";
 import AdvancedEditorSchema from "../../public/advanced-editor-schemas.json";
 import AdvancedEditorOptions from "../../public/advanced-editor-options.json";
-import AdvancedEditorView from "../../public/advanced-editor-view.json";
+//import AdvancedEditorView from "../../public/advanced-editor-view.json";
 
 function recordDisplay(record, level = 0) {
   var result = "";
@@ -450,7 +450,92 @@ export default {
           data: that.artwork["data"],
           schema: AdvancedEditorSchema,
           options: AdvancedEditorOptions,
-          view: AdvancedEditorView
+          view: {
+            parent: "bootstrap-edit-horizontal",
+            wizard: {
+              title: "Welcome to the Wizard",
+              description: "Please fill things in as you wish",
+              bindings: {
+                Thematique: 1,
+                Domaine: 2,
+                Reference: 2,
+                Designation: 2,
+                Description: 3,
+                Dimensions: 3,
+                "Materiaux et techniques": 3,
+                Inscriptions: 3,
+                Personne: 4,
+                Dates: 4,
+                Lieux: 4,
+                Georeference: 4,
+                "References bibliographiques": 5,
+                "Liens externes": 5,
+                Localisation: 5,
+                Etat: 5,
+                Acquisition: 5,
+                Assurance: 5,
+                "Bloc-notes": 5
+              },
+              steps: [
+                {
+                  title: "Thématique",
+                  description: "Type d'objet"
+                },
+                {
+                  title: "Identification",
+                  description: "Domaine, numéro, désignation"
+                },
+                {
+                  title: "Description",
+                  description: "Description détaillée"
+                },
+                {
+                  title: "Etude",
+                  description: "Personnes, dates et lieux liés"
+                },
+                {
+                  title: "Divers",
+                  description: "Etat, liens et notes"
+                }
+              ],
+              buttons: {
+                previous: {
+                  title: "Précédent"
+                },
+                next: {
+                  title: "Suivant"
+                },
+                submit: {
+                  title: "Valider",
+                  validate: function(callback) {
+                    callback(true);
+                  },
+                  click: function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open(
+                      "POST",
+                      "https://floutier.lescollections.fr/gestion/dh_service_edit.php",
+                      true
+                    );
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    console.log("DATA SEND :", JSON.stringify(this.getValue()));
+                    xhr.send(JSON.stringify(this.getValue()));
+                    xhr.onreadystatechange = function() {
+                      if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log("xhr.readyState=", xhr.readyState);
+                        console.log("xhr.status=", xhr.status);
+                        console.log("response=", xhr.responseText);
+                      }
+                    };
+                  },
+                  id: "mySubmit",
+                  attributes: {
+                    "data-test": "123"
+                  }
+                }
+              }
+            }
+          }
         });
       }, 50);
     }
