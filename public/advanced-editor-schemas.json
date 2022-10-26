@@ -118,7 +118,7 @@
 					},
 					"type": {
 						"title":"type",
-						"enum": ["Auteur","Artiste","Ex\u00e9cutant","Inventeur","Collecteur","D\u00e9couvreur","Utilisateur","Editeur","Concepteur","Architecte","R\u00e9colteur","D\u00e9terminateur","Photographe"]
+						"enum": ["", "Auteur","Artiste","Ex\u00e9cutant","Inventeur","Collecteur","D\u00e9couvreur","Utilisateur","Editeur","Concepteur","Architecte","R\u00e9colteur","D\u00e9terminateur","Photographe"]
 					}
 				}
 			}
@@ -135,7 +135,7 @@
 					},
 					"type_de_date": {
 						"title": "Type de date",
-						"enum": ["Date de cr\u00e9ation","Date d’ex\u00e9cution","Date de d\u00e9couverte","Date de collecte","Date d’utilisation","Date d’\u00e9dition","Date de publication","Date d’impression","Date de r\u00e9alisation","Date de construction","Date de r\u00e9colte","Date de d\u00e9termination","Date de prise de vue","Date de frappe"]
+						"enum": ["", "Date de cr\u00e9ation","Date d’ex\u00e9cution","Date de d\u00e9couverte","Date de collecte","Date d’utilisation","Date d’\u00e9dition","Date de publication","Date d’impression","Date de r\u00e9alisation","Date de construction","Date de r\u00e9colte","Date de d\u00e9termination","Date de prise de vue","Date de frappe"]
 					}
 				}
 			}
@@ -152,7 +152,7 @@
 					},
 					"type_de_lieu": {
 						"title": "Type de lieu",
-						"enum": ["Lieux de cr\u00e9ation","Lieux d'ex\u00e9cution","Lieux de d\u00e9couverte","Lieu de collecte","Lieu d’utilisation","Lieu d’\u00e9dition","Lieu de publication","Lieu d’impression","Lieu de r\u00e9alisation","Lieu de construction","Lieu de r\u00e9colte","Lieu de d\u00e9termination","Lieu de prise de vue","Lieu de frappe"]
+						"enum": ["", "Lieux de cr\u00e9ation","Lieux d'ex\u00e9cution","Lieux de d\u00e9couverte","Lieu de collecte","Lieu d’utilisation","Lieu d’\u00e9dition","Lieu de publication","Lieu d’impression","Lieu de r\u00e9alisation","Lieu de construction","Lieu de r\u00e9colte","Lieu de d\u00e9termination","Lieu de prise de vue","Lieu de frappe"]
 					}
 				}
 			}

@@ -43,7 +43,7 @@
               >
               <a
                 class="navbar-item"
-                @click="active = 'detail'"
+                @click="detail"
                 :class="{ 'is-active': active == 'detail' }"
                 ><i class="material-icons">desktop_mac</i> {{ $t("view") }}</a
               >
@@ -309,6 +309,7 @@ export default {
     subtitle() {
       return this.artwork.Subtitle;
     },
+
     record: function() {
       let result = Object.assign({}, this.artwork);
       delete result.Image;
@@ -392,6 +393,12 @@ export default {
     }
   },
   methods: {
+    detail() {
+      this.active = "detail";
+      if (window.$(".alpaca-field").css("display") == "block") {
+        window.$(".alpaca-field").css("display", "none");
+      }
+    },
     showNext() {
       console.log("saveLocal");
       //this.$parent.$parent.saveLocal();
@@ -445,6 +452,10 @@ export default {
     alpacaForm() {
       this.active = "modify2";
       let that = this;
+      if (window.$(".alpaca-field").css("display") == "none") {
+        window.$(".alpaca-field").css("display", "block");
+      }
+
       setTimeout(function() {
         window.$("#form-alpaca").alpaca({
           data: that.artwork["data"],
@@ -522,9 +533,7 @@ export default {
                     xhr.send(JSON.stringify(this.getValue()));
                     xhr.onreadystatechange = function() {
                       if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log("xhr.readyState=", xhr.readyState);
-                        console.log("xhr.status=", xhr.status);
-                        console.log("response=", xhr.responseText);
+                        this.active = "detail";
                       }
                     };
                   },
