@@ -220,6 +220,8 @@ import jQuery from "jquery";
 import * as Alpaca from "alpaca";
 import AdvancedEditorSchema from "../../public/advanced-editor-schemas.json";
 import AdvancedEditorOptions from "../../public/advanced-editor-options.json";
+import axios from "axios";
+
 //import AdvancedEditorView from "../../public/advanced-editor-view.json";
 
 function recordDisplay(record, level = 0) {
@@ -533,7 +535,7 @@ export default {
                     xhr.send(JSON.stringify(this.getValue()));
                     xhr.onreadystatechange = function() {
                       if (xhr.readyState == 4 && xhr.status == 200) {
-                        this.active = "detail";
+                        that.updateData();
                       }
                     };
                   },
@@ -547,8 +549,29 @@ export default {
           }
         });
       }, 50);
+    },
+    updateData() {
+      var artwork_id = this.record["data"]["object_id"];
+      let url_collection =
+        "https://floutier.lescollections.fr/gestion/dh_update_json.php?object_id=" +
+        artwork_id;
+      axios
+        .get(url_collection)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          let new_collection = response.data;
+          this.$Collections[this.collectionId] = new_collection;
+          this.artwork = this.$Collections[this.collectionId].data[
+            this.current
+          ];
+          this.detail();
+        })
+        .catch(e => {
+          this.errors.push(e);
+        });
     }
   },
+
   created() {
     console.log(Alpaca);
     if (this.id !== undefined) {
