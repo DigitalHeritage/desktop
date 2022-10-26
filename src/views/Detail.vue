@@ -1,6 +1,14 @@
 <template>
   <div class="home">
     <div
+      id="loading"
+      style="position: absolute;top:0;left:0;right:0;bottom:0;background-color: rgba(0,0,0,0.4);color:white;font-size:60px;z-index:100;line-height: 100vh;text-align: center;display:none;"
+    >
+      <i class="material-icons rotate" style="font-size:70px;"
+        >hourglass_empty</i
+      >
+    </div>
+    <div
       :style="{
         backgroundImage: 'url(' + artwork._metadata.Image + ')',
         display: zoom ? 'block' : 'none'
@@ -524,6 +532,13 @@ export default {
                     callback(true);
                   },
                   click: function() {
+                    document.getElementById("loading").style.display = "block";
+                    window
+                      .$("#loading")
+                      .height(
+                        window.$(".home").height() +
+                          window.$(".navbar").height()
+                      );
                     var xhr = new XMLHttpRequest();
                     xhr.open(
                       "POST",
@@ -564,6 +579,7 @@ export default {
           this.artwork = this.$Collections[this.collectionId].data[
             this.current
           ];
+          document.getElementById("loading").style.display = "none";
           this.detail();
         })
         .catch(e => {
